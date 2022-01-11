@@ -1,52 +1,248 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
-    {% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% endblock %}
 
-    {% block extra_meta %}
-    {% endblock %}
+<head>
+  {% block meta %}
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% endblock %}
 
-    {% block coreCSS %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    {% endblock %}
+  {% block extra_meta %}
+  {% endblock %}
 
-    {% block extra_CSS %}
-    {% endblock %}
-
-    {% block corejs %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    {% endblock %}
-
-    {% block extra_js %}
-    {% endblock %}
-
-    <title>Temple Bar School of English {% block extra_title %}{% endblock %}</title>
-  </head>
-  <body>
+  {% block coreCSS %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700&family=Raleway:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
-    <header class="container-fluid fixed-top"></header>
+    
+    <link href="{% static 'css/vivify.min.css' %}" rel="stylesheet" type="text/css"/>
+     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+     
    
+  {% endblock %}
 
-    {% if messages %}
-        <div class="message-container"></div>
-    {% endif %}
+  {% block extra_CSS %}
+  {% endblock %}
 
-    {% block page_header %}
+  {% block corejs %}
+  
+  
+  {% endblock %}
+
+  {% block extra_js %}
+  {% endblock %}
+
+  <title>Temple Bar School of English {% block extra_title %} {% endblock %}</title>
+</head>
+
+<body>
+
+  
+
+
+  {% if messages %}
+  <div class="message-container"></div>
+  {% endif %}
+
+  {% block header %}
+  <div class="container-fluid d-block">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand d-md-none" href="#">
+            <i class="d-inline-block  fas fa-chalkboard green">TBSE</i> 
+          </a>
+          <a class="navbar-brand d-none d-md-block" href="#">
+            <i class="d-inline-block fas fa-chalkboard green"></i> Temple Bar School of English
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item mx-lg-2">
+                <a class="nav-link active " aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item mx-lg-2 dropdown">
+                <a class="nav-link dropdown-toggle" id="Dropdown" href="course.html" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">Courses</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown">
+                  <li><a class="dropdown-item" href="#">General English</a></li>
+                  <li><a class="dropdown-item" href="#">Academic English</a></li>
+                  <li><a class="dropdown-item" href="#">Business English</a></li>
+                  <li><a class="dropdown-item" href="#">Under 16s</a></li>
+                </ul>
+              </li>
+              <li class="nav-item mx-lg-2">
+                <a class="nav-link" href="#">Level Test</a>
+              </li>
+              <li class="nav-item mx-lg-2">
+                <a class="nav-link" href="#">
+                  Blog
+                </a>
+              </li>
+            </ul>
+              <ul class= 'd-flex navbar-nav ms-lg-auto'>
+              <li class="nav-item ">
+                <a class="nav-link" href="#">Login</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="#">
+                  Register
+                </a>
+              </li>
+            </ul>
+
+
+
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  {% endblock %}
+    
+      
+
+      
+      {% block content%}
+
+      {% endblock %}
+   
+    
+
+    
+
+    {% block footer %}
+    <!-- Footer -->
+    <div class="container-fluid d-block">
+      <div class="row">
+        <footer class="text-center text-lg-start bg-light text-muted">
+      <!-- Section: Social media -->
+      <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <!-- Left -->
+
+        <!-- Right -->
+        <div>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <!-- Right -->
+      </section>
+    
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container-fluid text-center text-md-start mt-5">
+       
+          <div class="row mt-3">
+            
+            <div class="col-md-5  mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-chalkboard me-3"></i>Temple Bar School of English
+              </h6>
+              <p>
+                Over 30 years of experience teaching English in the heart of Dublin.
+              </p>
+              <p>
+                <a href="#!" class="text-reset me-3">Blog</a>
+                <a href="#!" class="text-reset m3-3">Level Test</a>
+              </p>
+              <p>
+                
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Courses
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">General English</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Academic English</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Business English</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Under 16s Courses</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+           
+
+            <!-- Grid column -->
+            <div class="col-md-5 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Contact
+              </h6>
+              <p><i class="fas fa-home me-3"></i>13 Temple Bar Street, Dublin, D1</p>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                info@templebarenglish.com
+              </p>
+              <p><i class="fas fa-phone me-3"></i> + 353 234 567 88</p>
+              
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2022 Copyright:
+        <a class="text-reset fw-bold" href="#">James Kelly</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+      </div>
+    </div>
     {% endblock %}
-
-    {% block content %}
-    {% endblock %}
+    
+  
 
     {% block postloadjs %}
     {% endblock %}
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    
-   
-  </body>
+
+</body>
+
 </html>
