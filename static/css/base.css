@@ -1,0 +1,145 @@
+:root {
+  --main-white: #ecf4ef;
+  --main-green: #5EC27D;
+  --secondary-green:#305e3f;
+  --button-background:#D47F2B;
+  --secondary-button-background:#a85f16;
+ 
+}
+
+html{
+    height:100%
+}
+
+body{
+  height:100%;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+}
+
+
+/* Homepage Large Screens */
+.banner{
+ height: 60vh;
+ background-image: url(/media/templebar.jpg);
+ background-position: center;
+ background-size: cover;
+}
+
+.why-study-banner{
+
+  background-color:var(--main-green);
+  color:var(--main-white);
+}
+
+.text-black{
+  color: black;
+}
+.green{
+  color: var(--main-green);
+}
+.lg-icons{
+  color:var(--main-green);
+  font-size:5rem;
+}
+.lg-icons:hover{
+  color:var(--secondary-green);
+}
+
+.lg-icons:active{
+  color:var(--secondary-green);
+}
+.btn{
+  background-color:#D47F2B;
+  border-color:#D47F2B;
+}
+
+.btn:hover{
+  background-color: var(--secondary-button-background);
+  border-color:var(--secondary-button-background);
+}
+
+.btn:active{
+  background-color: var(--secondary-button-background);
+  border-color:var(--secondary-button-background);
+}
+
+.btn:focus{
+    background-color:var(--secondary-button-background);
+    border-color: var(--secondary-button-background);
+    box-shadow: 0 0 0 0.25rem rgba(231, 87, 4, 0.733);
+}
+
+
+
+
+
+.hero-text{
+    animation-name: fadeInLeft;
+    animation-duration: 2s;
+    }
+.hero-text-divider{
+  width:50vw;
+  margin:auto;
+  animation-name: fadeInLeft;
+  animation-duration: 2s;
+}
+
+.hero-text-2{
+  animation-name: fadeInBottom;
+  animation-duration: 2s;}
+
+.hero-text-3{
+  animation-name: fadeInBottom;
+  animation-duration: 2.5s;
+}
+
+.hero-text-4{
+  animation-name: fadeInBottom;
+  animation-duration: 2.75s;
+}
+
+.hero-btn{
+  animation-name: fadeInBottom;
+  animation-duration:3s;
+}
+
+/* Small Screens */
+
+@media screen and (max-width:720px){
+  .banner{
+  height: 40vh;
+  background-image: url(/media/templebar.jpg);
+  background-position: center;
+  background-size: cover;
+ }
+
+ .banner-text{
+   
+   font-size:1rem;
+ }
+}
+
+
+@media screen and (min-width:720px){
+  .hero-text-2{
+    font-size: 2rem;
+  }
+  .hero-text-3{
+    font-size: 2rem;
+  }
+  .hero-text-4{
+    font-size: 2rem;
+  }
+  .hero-btn{
+    font-size: 1.5rem;
+  }
+}
+
+
+@media screen and (min-width:1200px){
+  .lg-green{
+    color:#5EC27D;
+    font-size:7rem;
+  }
+}
