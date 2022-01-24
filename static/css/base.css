@@ -17,10 +17,13 @@ body{
   font-family: 'Raleway', sans-serif;
 }
 
+.hidden{
+  display:none;
+}
 
 /* Homepage Large Screens */
 .banner{
- height: 60vh;
+ height: 50vh;
  background-image: url(/media/templebar.jpg);
  background-position: center;
  background-size: cover;
@@ -123,13 +126,13 @@ body{
 
 @media screen and (min-width:720px){
   .hero-text-2{
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .hero-text-3{
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .hero-text-4{
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .hero-btn{
     font-size: 1.5rem;
@@ -143,3 +146,78 @@ body{
     font-size:7rem;
   }
 }
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: var(--button-background);
+}
+
+.nav-link{
+  color:black;
+}
+
+.course-card-header{
+  background-color: var(--button-background);
+  color:var(--main-white);
+}
+
+.course-banner-img{
+  background-image: url(/media/templebar.jpg);
+  height:50vh;
+  background-position: center;
+  background-size: cover;
+
+  
+}
+.heading-bg{
+  background-color: rgba(94, 194, 125, 0.9);
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  width:20vw;
+  /* clip-path: polygon(11% 0, 100% 0%, 88% 100%, 0% 100%); */
+  animation-name: fadeInLeft;
+  animation-duration:2s;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--button-background);
+  color: var(--main-white);
+}
+
+.accordion-button:not(.collapsed)::after {
+  
+color:var(--main-white)
+}
+
+
+
+/* .wrapper {
+  background: rgb(255,255,255);
+background: linear-gradient(121deg, rgba(255,255,255,1) 25%, rgba(94,194,125,1) 25%);
+} */
+
+
+
+/* .circle {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  font-size: 16px;
+  color: var(--main-white);
+  text-align: center;
+  background:var(--button-background);
+} */
+
+.course-details-footer{
+  font-size: 0.5rem;
+}
+
+.bg-green{
+  background: var(--main-green);
+  color: white;
+  border: 3px solid #f1f1f1;
+}
+

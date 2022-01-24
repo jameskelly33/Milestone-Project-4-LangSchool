@@ -11,7 +11,9 @@
     <div class="container-fluid my-3 text-center ">
       <div class="row ">
         <div class="col">
-          <h1 class='heading-bg mx-auto vivify'>Courses</h1>
+          {% for category in categories %} 
+          <h1 class='heading-bg mx-auto vivify'>{{category.friendly_name}}</h1>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -21,7 +23,7 @@
 <div class="container my-3">
   <div class="row">
     <div class="col mx-auto">
-      <form class="d-flex justify-content-center" method="GET" action="{% url 'courses'%}">
+      <form class="d-flex justify-content-center  " method="GET" action="{% url 'courses'%}">
         <input  class="form-control" type="search" name='q'
           placeholder="Search all courses" aria-label="Search" >
         <button class="btn btn-primary form-btn ms-2" type="submit">Search</button>
@@ -30,100 +32,22 @@
   </div>
 </div> 
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1 class='text-center'>What type of course are you looking for?</h1>
-    </div>
-  </div>
+ 
+<div class='text-center'>
+ <a href="{% url 'courses'%}" class='btn btn-primary my-2'> Show Course Categories</a>
 </div>
-<!-- Vertical Tabs for medium screen sizes and above -->
-<div class="container	d-none d-sm-block my-5" id='category_tabs'>
-  <div class="row">
-    <div class="col course-category-tabs col-lg-8 mx-lg-auto ">
-    
-      <div class="d-flex align-items-start">
-        <div class="nav flex-column nav-pills mt-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          {% for category in categories %}
-          <button {% if forloop.counter == 1 %} class="nav-link pills-tabs active" aria-selected="true" {% else %}
-            class="nav-link pills-tabs" aria-selected="false" {% endif %} id="v-pills-{{category.name}}-tab"
-            data-bs-toggle="pill" data-bs-target="#v-pills-{{category.name}}" type="button" role="tab"
-            aria-controls="v-pills-{{category.name}}">{{category.friendly_name}}</button>
-          {% endfor %}
-        </div>
-
-        <div class="tab-content ms-3 mt-3" id="v-pills-tabContent">
-          {% for category in categories %}
-
-          <div {% if forloop.counter == 1 %} class="tab-pane fade show active" {% else %} class="tab-pane fade show"
-            {% endif %} id="v-pills-{{category.name}}" role="tabpanel" aria-labelledby="v-pills-{{category.name}}-tab">
-            <div class="card">
-              <div class="card-header course-card-header">
-                Course Type
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">{{category.friendly_name}}</h5>
-                <p class="card-text text-start">{{category.category_description}}</p>
-                <a href="{% url 'course_library' %}?category={{category.name}}" class="btn btn-primary" id="{{category.name}}_btn">Find Courses</a>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-</div>
-
-
-
-<!-- Accordion for small screens only-->
-<div class="container d-xs-block d-sm-none">
-  <div class="row">
-    <div class="col">
-      <div class="accordion" id="course_category_accordion">
-        {% for category in categories %}
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="{{category.name}}_heading">
-            <button class="accordion-button {% if forloop.counter > 1 %} collapsed {% endif %}" type="button"
-              data-bs-toggle="collapse" data-bs-target="#collapse-{{category.name}}"
-              aria-controls="collapse{{category.name}}">
-              {{category.friendly_name}}
-            </button>
-          </h2>
-          <div id="collapse-{{category.name}}" class="accordion-collapse collapse {% if forloop.counter == 1 %} show
-          {% endif %}" aria-labelledby="{{category.name}}_heading" data-bs-parent="#course_category_accordion">
-            <div class="accordion-body">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">{{category.friendly_name}}</h5>
-                  <p class="card-text">{{category.category_description}}</p>
-                  <a href= "{% url 'course_library' %}?category={{category.name}}" class="btn btn-primary">Find Courses</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-      </div>
-    </div>
-  </div>
-</div>
+ 
 
 
 <!-- Course Library for med and above screens -->
-<div class="container-fluid d-none d-sm-block">
+<div class="container d-none d-sm-block mt-3">
   <div class="row g-0">
-    <div class="col-md-6 mx-auto">
+    <div class="col">
       {% for course in course_list %}
       <div class="card shadow mx-auto my-3 course-card">
-        <div class="row g-0">
-          <div class="card-header course-card-header">{{course.friendly_name}}
+        <div class="row g-0"><div class="card-header course-card-header">{{course.friendly_name}}
         </div>
-          <div class="col">
+          <div class="col-md-8">
             <div class="card-body mb-3 ">
                 <p class="card-text">{{course.course_description}}</p>
             </div>
@@ -152,10 +76,10 @@
 
         </div>
       </div>
-      {% endfor %}
+
 
     </div>
-    
+    {% endfor %}
   </div>
 
 </div>
