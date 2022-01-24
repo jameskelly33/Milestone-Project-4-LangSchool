@@ -5,9 +5,11 @@
 
 
 {% block content %}
-<div class="container-fluid d-block my-3 ">
+
+<div class="container-fluid d-block mb-3 ">
   <div class="row ">
     <div class="col banner">
+    
     </div>
   </div>
 
@@ -19,7 +21,7 @@
       <p class='hero-text-3 vivify my-3'>Fun and engaging teachers.</p>
       <p class='hero-text-4 vivify my-3'>Reach your English goals.</p>
       <div class="d-flex justify-content-center my-2 vivfiy hero-btn">
-        <button class="btn btn-primary">Find Courses</button>
+        <a href="{% url 'courses' %}" class="btn btn-primary">Find Courses</a>
       </div>
     </div>
   </div>
@@ -82,7 +84,7 @@
           <p class="card-text">Our most popular choice. Suitable for all levels from beginner to advanced.</p>
          </div>
           <div class="card-footer border-0 bg-transparent mb-2">
-              <a href="#" class="btn btn-primary">Search for Courses</a>
+              <a href="{% url 'courses' %}?category=general" class="btn btn-primary">Search for Courses</a>
           </div>  
        
       </div>
@@ -97,7 +99,7 @@
             content.</p>
         </div>
         <div class="card-footer border-0 bg-transparent mb-2">
-          <a href="#" class="btn btn-primary">Search for Courses</a>
+          <a href="{% url 'courses' %}?category=academic" class="btn btn-primary">Search for Courses</a>
       </div>
       </div>
     </div>
@@ -110,7 +112,7 @@
          
         </div>
         <div class="card-footer border-0 bg-transparent mb-2">
-          <a href="#" class="btn btn-primary">Search for Courses</a>
+          <a href="{% url 'courses' %}?category=business" class="btn btn-primary">Search for Courses</a>
       </div>
       </div>
     </div>
@@ -123,7 +125,7 @@
          
         </div>
         <div class="card-footer border-0 bg-transparent mb-2">
-          <a href="#" class="btn btn-primary">Search for Courses</a>
+          <a href="{% url 'courses' %}?category=under_16s" class="btn btn-primary">Search for Courses</a>
       </div>
       </div>
     </div>
