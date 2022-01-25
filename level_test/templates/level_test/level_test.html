@@ -2,5 +2,53 @@
 {% load static %}
 
 {% block content%}
-<h1>helloe</h1>
+
+
+<div class="container"> 
+
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h1 class= 'text-center my-5 bg-green px-2 mx-auto test-heading'>Level Test</h1>
+            <p class= 'text-center'>Choose the answer that best fits the gap</p>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div class="container question-container my-5">
+    <div class="card">
+        <div class="card-header">
+            <h3 class= 'border rounded-circle question-number text-center'>1</h3>
+            <p class='ms-3'>I don't understand ____ you help me?</p>
+        </div>
+        <div class="card-block ">
+            <div class="row  g-0 text-center">
+                <div class="col-md-6 border py-3">
+                    <button class= 'btn btn-primary w-50 h-75 my-3'>do</button>
+                </div>
+                <div class=" col-md-6 py-3 border ">
+                    <button class= 'btn btn-primary w-50 h-75 my-3'>can</button>
+                </div>
+                <div class=" col-md-6 py-3 border ">
+                    <button class= 'btn btn-primary w-50 h-75 my-3'>have</button>
+                </div>
+                <div class=" col-md-6 py-3 border ">
+                    <button class= 'btn btn-primary w-50 h-75 my-3'>don't</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 {% endblock %}
