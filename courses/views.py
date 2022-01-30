@@ -37,6 +37,7 @@ def courses(request):
         'search_term': query,
         'course_list': course_list,
         'current_category': categories,
+        
     }
     
 
