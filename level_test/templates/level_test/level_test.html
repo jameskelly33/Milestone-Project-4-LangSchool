@@ -4,6 +4,19 @@
 {% block content%}
 
 
+<!-- <div class="container"> 
+
+    <div class="row">
+        <div class="col-md-8 my-5 mx-auto text-center">
+            <h1>Test your English level to see which course is best for you</h1>
+            <a href = '#' class = 'btn btn-primary my-5'> Start Quiz</a>
+        </div>
+
+    </div>
+</div> -->
+
+
+
 <div class="container"> 
 
     <div class="row">
@@ -17,34 +30,43 @@
 </div>
 
 
-
+<form method ="GET" action="{% url 'check_answer' question_counter total %}">
 
 <div class="container question-container my-5">
-    <div class="card">
-        <div class="card-header">
-            <h3 class= 'border rounded-circle question-number text-center'>1</h3>
-            <p class='ms-3'>I don't understand ____ you help me?</p>
-        </div>
-        <div class="card-block ">
-            <div class="row  g-0 text-center">
-                <div class="col-md-6 border py-3">
-                    <button class= 'btn btn-primary w-50 h-75 my-3'>do</button>
-                </div>
-                <div class=" col-md-6 py-3 border ">
-                    <button class= 'btn btn-primary w-50 h-75 my-3'>can</button>
-                </div>
-                <div class=" col-md-6 py-3 border ">
-                    <button class= 'btn btn-primary w-50 h-75 my-3'>have</button>
-                </div>
-                <div class=" col-md-6 py-3 border ">
-                    <button class= 'btn btn-primary w-50 h-75 my-3'>don't</button>
+        <div class="card mb-5t">
+            <div class="card-header">
+                <h3 class='border rounded-circle question-number text-center'>{{question.question_number}}</h3>
+                <p class='ms-3'>{{question.question_text}}</p>
+            </div>
+            <div class="card-block ">
+                <div class="row  g-0 text-center">
+                    <div class="col-md-6 border py-3">
+                        <button  name='answer' value='{{question.option1}}'
+                            class='btn btn-primary w-50 h-75 my-3'>{{question.option1}}</button>
+                    </div>
+                    <div class=" col-md-6 py-3 border ">
+                        <button   name='answer' class='btn btn-primary w-50 h-75 my-3' 
+                            value='{{question.option2}}'>{{question.option2}}</button>
+                    </div>
+                    <div class=" col-md-6 py-3 border ">
+                        <button   name='answer' class='btn btn-primary w-50 h-75 my-3' 
+                            value='{{question.option3}}'>{{question.option3}}</button>
+                    </div>
+                    <div class=" col-md-6 py-3 border ">
+                        <button   name='answer' class='btn btn-primary w-50 h-75 my-3'
+                            value='{{question.option4}}'>{{question.option4}}</button>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
+
+   
+    
 </div>
 
 
+</form>
 
 
 
@@ -52,3 +74,10 @@
 
 
 {% endblock %}
+
+
+
+
+
+
+
