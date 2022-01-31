@@ -2,6 +2,33 @@
 {% load static %}
 
 {% block content %}
-<h1>hello world</h1>
+<!-- Banner Image and animated heading -->
+<div class="container-fluid">
+    <div class="row course-banner-img">
+      <div class="container-fluid my-3 text-center ">
+        <div class="row ">
+          <div class="col">
+            <h1 class='heading-bg mx-auto p-3 my-5 vivify'>Blog</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7 my-5 blog-post-description text-center ">
+            <a class ="text-decoration-none blog-preview green" href="{% url 'blog_post' %}">
+              <h2 class='blog-heading'>Blog Article One</h2>
+              <p class='blog-sub-heading ' >Learn Phrasal Verbs</p>    
+            </a>
+              
+              <p class='text-muted'>Posted by Temple Bar on January 28th, 2021 </p>
+             <hr class='my-4'>
+
+          </div>
+      </div>
+  </div>
 
 {% endblock %}

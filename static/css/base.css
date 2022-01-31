@@ -192,26 +192,6 @@ body{
 color:var(--main-white)
 }
 
-
-
-/* .wrapper {
-  background: rgb(255,255,255);
-background: linear-gradient(121deg, rgba(255,255,255,1) 25%, rgba(94,194,125,1) 25%);
-} */
-
-
-
-/* .circle {
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 50%;
-  font-size: 16px;
-  color: var(--main-white);
-  text-align: center;
-  background:var(--button-background);
-} */
-
 .course-details-footer{
   font-size: 0.5rem;
 }
@@ -232,4 +212,18 @@ background: linear-gradient(121deg, rgba(255,255,255,1) 25%, rgba(94,194,125,1) 
 .test-heading{
   width: fit-content;
 
+}
+
+.blog-heading{
+  
+  letter-spacing:0.2rem;
+  font-weight:;
+}
+
+.blog-sub-heading{
+  font-size: 1.5rem;
+}
+
+.blog_preview{
+  color: #305e3f;
 }
