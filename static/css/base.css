@@ -227,3 +227,8 @@ color:var(--main-white)
 .blog_preview{
   color: #305e3f;
 }
+
+.post-content{
+  line-height: 2;
+  font-size: 1.25rem;
+}
