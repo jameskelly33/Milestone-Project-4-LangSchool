@@ -18,7 +18,7 @@ class Category(models.Model):
         return self.friendly_name
 
 class Course(models.Model):
-
+    
     class Meta:
         verbose_name_plural = 'Courses'
     
@@ -30,6 +30,9 @@ class Course(models.Model):
     course_hours = models.DecimalField(max_digits=3, decimal_places=0)
     maximum_class_size = models.DecimalField(max_digits=2, decimal_places=0)
     minumum_age = models.DecimalField(max_digits=2, decimal_places=0)
+    maximum_age = models.DecimalField(max_digits =2, decimal_places=0, blank=True, null =True)
+    cost_per_week = models.DecimalField(max_digits = 10, decimal_places = 2, default=0)
+    course_levels = models.CharField(max_length=50, null=False, blank=True)
     course_timetable = models.CharField(max_length = 30)
     
 
