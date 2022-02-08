@@ -19,6 +19,9 @@ def booking_form(request, course):
         'booking_form': booking_form,
         
         'course':course,
+        'stripe_public_key':'pk_test_51KQqgYCD6IZd0u5V3Xy6Hqc52BlEqShF0iCfY5uPzQzYhcE0JySNIKqK1MFxytupOL4t4mvrkMiaILDsE9J6uIJO00MLHHnhA5',
+        'client_secret':'test_client_secret'
+
         
     }
 
