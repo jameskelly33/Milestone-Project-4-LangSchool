@@ -63,14 +63,14 @@
             <div class="card shadow my-3 mx-3">
               <ul class="list-group ">
                 <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span> {{course.course_timetable}} </li>
-                <li class="list-group-item "><span class='me-1'><i class="fas fa-calendar"></i></span>Course Length - 4
+                <li class="list-group-item "><span class='me-1'><i class="fas fa-calendar"></i></span>Course Length - 
                   weeks</li>
-                <li class="list-group-item"> <span class='me-1'><i class="fas fa-euro"></i></span> Cost - €275 per week
+                <li class="list-group-item"> <span class='me-1'><i class="fas fa-euro"></i></span> Cost - {{course.cost_per_week}} per week
                 </li>
               </ul>
             </div>
-            <div class="d-flex justify-content-center">
-              <button class="btn btn-primary">Book Course</button>
+            <div class="d-flex justify-content-center my-3">
+             <a class="btn btn-primary" href ='{% url "booking_form" course.course_id %}'>Book Course</a>
             </div>
           </div>
 
@@ -123,7 +123,7 @@
           </div>
 
           <div class="d-flex justify-content-center my-3">
-            <button class="btn btn-primary">Book Course</button>
+            <a class="btn btn-primary" href ='#'>Book Course></a>
           </div>
       </div>
       
@@ -132,6 +132,9 @@
   </div>
 </div>
 </div>
+
+
+
 
 
 

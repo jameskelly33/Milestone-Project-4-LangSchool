@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+<div class="container mt-5">
+    <form action="{% url 'checkout' course.course_id %}" method="POST" id="payment-form">
+    {% csrf_token %}
+        <div class="row">
+            <div class="col my-5">
+                <h1 class='text-center'>Booking Form</h1>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <h5 class=card-header>Chosen Course</h5>
+                    <div class="card-body">
+                        <h5 class = 'card-title'>{{course.friendly_name}}</h5>
+                        <fieldset>
+                            <legend class="fieldset-label small">How many weeks would you like to study for?</legend>
+                                {{booking_form.course_length | as_crispy_field}}
+                        
+                        
+                            <legend class="fieldset-label small">What is your current level of English?</legend>
+                            {{booking_form.course_level | as_crispy_field}}
+                        
+                        
+                            <legend class="fieldset-label small">When would you like to start your course?</legend>
+                            {{booking_form.course_start_date | as_crispy_field}}
+                        
+                        
+                            <legend class="fieldset-label small ">Number of Students to do the course </legend>
+                            {{booking_form.quantity| as_crispy_field}}
+                        
+                      
+                            <legend class="fieldset-label small">Course Cost Per Week</legend>
+                            {{course.cost_per_week}}
+                      </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+</div>
+
+
+<div class="container student-details-form">
+  
+
+
+        <fieldset class="px-3 my-5">
+            <legend class="fieldset-label small ">Student Details</legend>
+            {{ booking_form.full_name | as_crispy_field }}
+            {{ booking_form.email | as_crispy_field }}
+            {{ booking_form.phone_number | as_crispy_field }}
+            {{ booking_form.country | as_crispy_field }}
+            {{ booking_form.nationality | as_crispy_field }}
+            {{ booking_form.first_language | as_crispy_field }}
+            {{ booking_form.age | as_crispy_field }}
+        </fieldset>  
+
+        <fieldset class="px-3">
+            <legend class="fieldset-label small">Payment</legend>
+            <!-- A Stripe card element will go here -->
+            <div class="mb-3" id="card-element"></div>
+
+            <!-- Used to display form errors -->
+            <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+        </fieldset>
+
+        <div class="submit-button text-right mt-5 mb-2">
+            <a href="{% url 'courses' %}" class="btn btn-outline-black rounded-0">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="font-weight-bold">Back to Courses</span>
+            </a>
+            <button id="submit-button" type ='submit' class="btn btn-black rounded-0">
+                <span class="font-weight-bold">Complete Order</span>
+                <span class="icon">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </button>
+            <p class="small text-danger my-0">
+                <span class="icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                </span>
+                <span>Your card will be charged <strong></strong></span>
+            </p>
+        </div>
+    </form>
+
+
+</div>
+
+<p>{{form_data}}</p>
+
+
+
+{% endblock %}
