@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     path('<course>', views.booking_form, name='booking_form'),
-    path('checkout/<course>', views.checkout, name='checkout'),
+    path('checkout/<booking>', views.checkout, name='checkout'),
+    path('checkout_success/<booking>', views.checkout_success, name='checkout_success')
 
 ]
