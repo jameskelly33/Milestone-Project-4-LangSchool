@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/booking_form.css' %} ">
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container my-5" id="details-summary">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card shadow">
+                <h3 class='card-header booking-card-header'>Course Details</h3>
+                <div class="card-body">
+                    <h3 class = 'card-title'>{{booking.full_name}}</h3>
+                       Congratualations you are
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block postloadjs %}
+   
+    <script src="{% static 'js/stripe_elements.js' %}"></script>
+    
+{% endblock %}
