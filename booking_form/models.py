@@ -47,7 +47,6 @@ class Booking(models.Model):
     course_length = models.DecimalField(max_digits=2, decimal_places=0, blank=False, default=1, validators = [MinValueValidator(1,message = "Minimum Course Length is 1 week")])
     course_start_date = models.DateField(blank=False, null=True, validators =[no_past_dates])
     course_level = models.CharField(max_length=15,choices = level_choices, )
-    quantity = models.IntegerField(null=False, blank=False, default=1, validators = [MinValueValidator(1,message = "You must book for at least one student.")])
     course_cost_per_week = models.DecimalField(max_digits=6, decimal_places=2, null=False, default =0)
     total_course_cost = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     course = models.CharField(max_length=8,null=True)
