@@ -26,7 +26,6 @@ class BookingAdmin(admin.ModelAdmin):
         'course_length',
         'course_start_date',
         'course_level',
-        'quantity',
         'course_cost_per_week',
         'total_course_cost',
         'course'
