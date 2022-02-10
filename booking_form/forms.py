@@ -19,7 +19,7 @@ class BookingForm(forms.ModelForm):
                   'country', 'nationality',
                   'first_language', 'age',
                   'course_length', 
-                   'course_start_date','course_level','quantity',
+                   'course_start_date','course_level',
                   'course_level','course','course_cost_per_week','total_course_cost'
                   )
 
@@ -40,7 +40,6 @@ class BookingForm(forms.ModelForm):
             'course_length':"Course Length",
             'course_start_date':'Course Start Date',
             'course_level': 'Course Level',
-            'quantity':'Quantity',
             'course_level': 'Course Level',
             'course':'Course',
             'course_cost_per_week':'Course Cost Per Week',
@@ -51,7 +50,7 @@ class BookingForm(forms.ModelForm):
         self.fields['course_length'].widget.attrs['autofocus'] = True
         
         self.fields['course_length'].widget.attrs['min'] = 1
-        self.fields['quantity'].widget.attrs['min'] = 1
+        
         self.fields['age'].widget.attrs['min']=5
          
         
