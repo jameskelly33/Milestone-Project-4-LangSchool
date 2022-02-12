@@ -19,14 +19,14 @@
                     <!-- Maybe add function to calculate end date???? -->
                     <!-- Imporve Style -->
                     <p>Course Start Date - <span class="fs-5">{{booking.course_start_date}}</span> </p>
-                    <p>Course Length - <span class="fs-5">{{booking.course_length }} {% if booking.course_length == 1 %} week {% else %} weeks {% endif %}</span> </p>
+                    <p>Course Length - <span id ='course-length'class="fs-5">{{booking.course_length }} {% if booking.course_length == 1 %} week {% else %} weeks {% endif %}</span> </p>
                     <p>Course Timetable - <span class="fs-5">{{course.course_timetable}}</span> </p>
                     <p>Course Total Hours - <span class="fs-5">{{course.course_hours}} hours per week</span> </p>
                     <p>Course Level - <span class="fs-5">{{booking.course_level}}</span></p>
                     <h5>Student Details</h5>
-                    <p>Student Name - <span class="fs-5">{{booking.full_name}}</span></p>
-                    <p>Student Email -<span class="fs-5">{{booking.email}}</span></p>
-                    <p>Student Phone Number - <span class="fs-5">{{booking.phone_number}}</span></p>
+                    <p>Student Name - <span id='full-name'class="fs-5">{{booking.full_name}}</span></p>
+                    <p>Student Email -<span id ='email'class="fs-5">{{booking.email}}</span></p>
+                    <p>Student Phone Number - <span id = 'phone-number' class="fs-5">{{booking.phone_number}}</span></p>
                     <p>Student Nationality / First Language - <span class="fs-5">{{booking.nationality}} / {{booking.first_language}} </span> </p>
 
                 </div>
@@ -34,16 +34,35 @@
         </div>
     </div>
 </div>
-<h1>Payment Details</h1>
+<h1 class='ms-4'>Payment Details</h1>
 <form id='payment-form' method="POST" action="{% url 'checkout' booking %}">
    {% csrf_token %}
 
- <fieldset class="px-3"> 
-                    <legend class="fieldset-label small"> Card Details</legend> 
-                    <div class="mb-3 p-2" id="card-element"></div> 
-                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div> 
+ <fieldset class="px-3 ms-4"> 
                     
+                    <legend class="fieldset-label "> Billing Address Details</legend> 
+                        <div class="mb-3">
+                            <label for="inputAddress" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="inputAddress" >
+                        </div>
+                         <div class="mb-3">
+                             <label for="inputAddress2" class="form-label">Address 2</label>
+                            <input type="text" class="form-control" id="inputAddress2" >
+                         </div>
+                         <div class="mb-3">
+                            <label for="inputCity" class="form-label">City</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>    
+                          <div class="mb-3">
+                            <label for="inputCountry" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="inputCountry">
+                          </div>
+                        <legend class="fieldset-label "> Card Details</legend> 
+                        <div class="mb-3 p-2" id="card-element"></div> 
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>  
+                         
                 </fieldset> 
+                
                 <div class="submit-button text-right mt-5 mb-5">
                     <a href="{% url 'courses' %}" class="btn btn-outline-black rounded-0">
                         <span class="icon">
