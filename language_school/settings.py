@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'booking_form',
     'crispy_forms',
     "crispy_bootstrap5",
+    'django_countries',
+    
 ]
 
 MIDDLEWARE = [
