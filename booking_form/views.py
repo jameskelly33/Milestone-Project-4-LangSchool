@@ -36,26 +36,31 @@ def booking_form(request, course):
                 'first_language': request.POST['first_language'],
                 'course':course.course_id
         }
-
-        
-        booking_form = BookingForm(form_data)
-        if booking_form.is_valid():
-            booking = booking_form.save()
+        # Age Verification
+        if int(form_data.get('age')) < course.minimum_age:
+            messages.error(request, f'Sorry, the minimum age for this course is {course.minimum_age}.Please find another course')
+            return redirect(reverse('courses'))
+        elif int(form_data.get('age')) > course.maximum_age:
+            messages.error(request, f'Sorry, the maximum age for this course is {course.maximum_age}.Please find another course')
+            return redirect(reverse('courses'))
         else:
-            print(booking_form.errors)
-            messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
+            booking_form = BookingForm(form_data)
+            if booking_form.is_valid():
+                booking = booking_form.save()
+            else:
+                messages.error(request, 'There was an error with your form. \
+                    Please double check your information.')
 
-        
-        context = {
-            'booking':booking,
-            'booking_form': booking_form,
-            'course':course,
-            'form_data':form_data,
-            'stripe_public_key':stripe_public_key,
-        }
+            
+            context = {
+                'booking':booking,
+                'booking_form': booking_form,
+                'course':course,
+                'form_data':form_data,
+                'stripe_public_key':stripe_public_key,
+            }
 
-        return redirect(reverse('checkout', args=[booking]))
+            return redirect(reverse('checkout', args=[booking]))
 
     else:
         
