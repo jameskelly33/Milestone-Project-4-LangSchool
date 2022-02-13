@@ -57,7 +57,7 @@ stripe.confirmCardPayment(clientSecret, {
     payment_method: {
         card: card,
         billing_details:{
-            name:bookingName.innerText,
+            name:form.inputName.value,
             email:bookingEmail.innerText,
             phone:bookingPhoneNumber.innertext,
             address:{
