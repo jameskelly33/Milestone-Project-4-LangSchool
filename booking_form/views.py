@@ -6,6 +6,7 @@ from .forms import BookingForm
 from .models import Booking
 from django.conf import settings
 import stripe 
+import datetime
 
 
 def booking_form(request, course):
@@ -70,7 +71,10 @@ def checkout(request, booking):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     
     booking = Booking.objects.get(booking_number = booking)
-    
+    course = Course.objects.get(course_id = booking.course)
+    course_start_date = booking.course_start_date
+    end_date = course_start_date + datetime.timedelta(weeks=int(booking.course_length))
+
     if request.method == 'POST':
         
        
@@ -80,9 +84,7 @@ def checkout(request, booking):
         context={
             'booking':booking,
             'stripe_public_key':stripe_public_key,
-            
-            
-             
+            'course':course,
         }
         
         return redirect(reverse('checkout_success', args=[booking]))
@@ -103,6 +105,8 @@ def checkout(request, booking):
         'stripe_public_key':stripe_public_key,
         'total':total,   
         'client_secret':intent.client_secret,         
+        'course':course,
+        'end_date':end_date
     }        
     return render(request, 'booking_form/checkout.html',context )
 
