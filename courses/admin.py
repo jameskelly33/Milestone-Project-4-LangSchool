@@ -17,7 +17,7 @@ class CourseAdmin(admin.ModelAdmin):
         'course_category',
         'course_hours',
         'maximum_class_size',
-        'minumum_age',
+        'minimum_age',
         'course_timetable',
     )
 
