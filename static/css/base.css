@@ -57,9 +57,29 @@ body{
   border-color:#D47F2B;
 }
 
-.btn:hover{
+.alternate_btn{
+  background-color:var(--main-green);
+  border-color:var(--main-green);
+}
+.alternate_btn:hover{
   background-color: var(--secondary-button-background);
   border-color:var(--secondary-button-background);
+}
+
+.alternate_btn:active{
+  background-color: var(--secondary-green);
+  border-color:var(--secondary-green);
+}
+
+.alternate_btn:focus{
+    background-color:var(--secondary-green);
+    border-color: var(--secondary-green);
+    box-shadow: 0 0 0 0.25rem rgba(15, 75, 38, 0.733);
+}
+
+.alternate_btn:hover{
+  background-color: var(--secondary-green);
+  border-color:var(--secondary-green);
 }
 
 .btn:active{

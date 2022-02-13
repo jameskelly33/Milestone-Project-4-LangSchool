@@ -40,9 +40,10 @@ def booking_form(request, course):
         if int(form_data.get('age')) < course.minimum_age:
             messages.error(request, f'Sorry, the minimum age for this course is {course.minimum_age}.Please find another course')
             return redirect(reverse('courses'))
-        elif int(form_data.get('age')) > course.maximum_age:
-            messages.error(request, f'Sorry, the maximum age for this course is {course.maximum_age}.Please find another course')
-            return redirect(reverse('courses'))
+        elif course.maximum_age:
+            if int(form_data.get('age')) > course.maximum_age:
+                messages.error(request, f'Sorry, the maximum age for this course is {course.maximum_age}.Please find another course')
+                return redirect(reverse('courses'))
         else:
             booking_form = BookingForm(form_data)
             if booking_form.is_valid():
@@ -83,9 +84,7 @@ def checkout(request, booking):
     if request.method == 'POST':
         
        
-        if not stripe_public_key:
-            messages.warning(request, 'Stripe public key is missing. \
-                Did you forget to set it in your environment?')
+        
         context={
             'booking':booking,
             'stripe_public_key':stripe_public_key,
@@ -119,17 +118,17 @@ def checkout_success(request, booking):
     
 
     booking = Booking.objects.get(booking_number = booking)
+    course = Course.objects.get(course_id = booking.course)
 
     
-    messages.success(request, f'Order successfully processed! \
-        Your order number is {booking.booking_number}. A confirmation \
-        email will be sent to {booking.email} .')
+    messages.success(request, 'Booking successfully processed!' )
 
     
 
     template = 'booking_form/checkout_success.html'
     context = {
         'booking': booking,
+        'course':course
     }
 
     return render(request, template, context)
