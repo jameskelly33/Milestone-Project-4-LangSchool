@@ -7,6 +7,8 @@ from django.db import models
 from django.conf import settings
 from django.core.validators import MinValueValidator, ValidationError
 import datetime
+from django_countries.fields import CountryField
+
 
 from courses.models import Course
 
@@ -39,7 +41,7 @@ class Booking(models.Model):
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = models.CharField(max_length=40, null=False, blank=False)
+    country = CountryField(blank_label='Country *', null=False, blank=False)
     nationality = models.CharField(max_length=40, null=False, blank=False)
     first_language = models.CharField(max_length=40, null=False, blank=False)
     age = models.DecimalField(max_digits=3, decimal_places=0, null=False, blank=False)
@@ -50,6 +52,7 @@ class Booking(models.Model):
     course_cost_per_week = models.DecimalField(max_digits=6, decimal_places=2, null=False, default =0)
     total_course_cost = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     course = models.CharField(max_length=8,null=True)
+    
 
 
     def _generate_booking_number(self):
