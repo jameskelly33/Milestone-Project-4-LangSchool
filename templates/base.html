@@ -93,7 +93,7 @@
               <ul class= 'd-flex navbar-nav ms-lg-auto'>
                 {% if request.user.is_authenticated %}
               <li class="nav-item">
-                <a href="#" class= 'nav-link'>My Profile</a></li>
+                <a href="{% url 'profiles' %}" class= 'nav-link'>My Profile</a></li>
                 <li>
                   <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                 </li>
