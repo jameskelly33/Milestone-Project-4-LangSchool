@@ -79,6 +79,7 @@
                   <li><a class="dropdown-item" href="{% url 'courses' %}">All Courses</a></li>
                 </ul>
               </li>
+              
               <li class="nav-item mx-lg-2">
                 <a class="nav-link" href="{% url 'level_test' %}">Level Test</a>
               </li>
@@ -88,15 +89,24 @@
                 </a>
               </li>
             </ul>
+              
               <ul class= 'd-flex navbar-nav ms-lg-auto'>
-              <li class="nav-item ">
-                <a class="nav-link" href="#">Login</a>
+                {% if request.user.is_authenticated %}
+              <li class="nav-item">
+                <a href="#" class= 'nav-link'>My Profile</a></li>
+                <li>
+                  <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                </li>
+              {% else %} 
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+              </li>  
+              <li>
+                <a href="{% url 'account_login' %}" class="nav-link">Login</a>
               </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="#">
-                  Register
-                </a>
-              </li>
+                
+              {% endif %}
+              
             </ul>
 
 
