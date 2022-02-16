@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
 from booking_form.models import Booking
+from courses.models import Course
+import datetime
 
 # Create your views here.
 def profiles(request):
@@ -19,12 +21,14 @@ def profiles(request):
     form = UserProfileForm(instance=profile)
     
     bookings = profile.bookings.all()
-
+    
+    courses= Course.objects.all()
+    
     context ={
         'form':form,
         'bookings':bookings,
         'profile':profile,
-        
+        'courses':courses,
     }
 
     return render(request, 'profiles/profiles.html', context)

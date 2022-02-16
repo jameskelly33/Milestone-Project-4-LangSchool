@@ -12,17 +12,42 @@
     <div class="row">
         <div class="col-12 col-md-6 mb-5">
             <h2 class="my-4">Personal Details </h2>
+            <hr class="my-3">
             <form action="{% url 'profiles' %}"  id ='profile_update_form' method = "POST">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <button class="btn btn-primary my-3">Update Information</button>
             </form>
         </div>  
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 mb-5">
             <h2 class="my-4">Bookings</h2>
+            <hr>
             {% for booking in bookings %}
-            <p>Booking Number - {{booking.booking_number}}</p>
-            {% endfor %}
+         
+                <p>
+              <p>Booking Number - {{booking}}</p>
+              <p> Booked on - {{booking.date_booked}}</p> 
+             
+                <a class= 'btn btn-primary' data-bs-toggle="collapse" href="#collapseDetails{{forloop.counter}}" role="button" aria-expanded="false" aria-controls="collapseDetails{{forloop.counter}}">Show details</a>
+            </p>
+            
+            
+            
+            <div class ="collapse" id="collapseDetails{{forloop.counter}}">
+                <div class="card shadow">
+                    <h3 class='card-header course-card-header'>{{booking.course}}</h3>
+                        <div class="card-body">
+                            <h4>Course Start Date</h4>
+                            <p>{{booking.course_start_date}}</p>
+                            <h4>Course Length</h4>
+                            <p>{{booking.course_length}} {% if booking.course_length == 1 %} week {% else %} weeks {% endif %}</p>
+                            <h4>Course Level</h4>
+                            <p>{{booking.course_level}}</p>
+                        </div>
+                </div>
+                
+            </div>
+             {% endfor %}   
         </div>  
     </div>
 </div>
