@@ -92,6 +92,11 @@
               
               <ul class= 'd-flex navbar-nav ms-lg-auto'>
                 {% if request.user.is_authenticated %}
+                  {% if request.user.is_superuser %}
+                  <li class="nav-item">
+                    <a href="{% url 'add_course' %}" class= 'nav-link'>Course Management</a></li>
+                    <li>
+                  {% endif %}    
               <li class="nav-item">
                 <a href="{% url 'profiles' %}" class= 'nav-link'>My Profile</a></li>
                 <li>
