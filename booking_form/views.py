@@ -4,6 +4,7 @@ from courses.models import Course
 from django.core.validators import MinValueValidator, ValidationError
 from .forms import BookingForm
 from .models import Booking
+from profiles.models import UserProfile
 from django.conf import settings
 import stripe 
 import datetime
@@ -119,6 +120,10 @@ def checkout_success(request, booking):
 
     booking = Booking.objects.get(booking_number = booking)
     course = Course.objects.get(course_id = booking.course)
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user = request.user)
+        booking.user_profile = profile
+        booking.save()
 
     
     messages.success(request, 'Booking successfully processed!' )
