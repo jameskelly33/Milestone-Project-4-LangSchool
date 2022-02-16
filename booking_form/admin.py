@@ -9,12 +9,12 @@ from courses.models import Course
 class BookingAdmin(admin.ModelAdmin):
 
     readonly_fields =(
-        'booking_number', 'date_booked',"total_course_cost"
+        'booking_number', 'date_booked',"total_course_cost",'user_profile'
     )
 
     fields =(
         'booking_number',
-       
+        'user_profile',
         'full_name',
         'email',
         'phone_number',
@@ -29,6 +29,7 @@ class BookingAdmin(admin.ModelAdmin):
         'course_cost_per_week',
         'total_course_cost',
         'course'
+        
     )
 
     list_display=(
