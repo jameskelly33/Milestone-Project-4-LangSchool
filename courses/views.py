@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Category, Course
+from .forms import CourseForm
 
 
 def courses(request):
@@ -73,3 +74,55 @@ def course_library(request):
     
 
     return render(request, 'courses/course_library.html', context)
+
+def add_course(request):
+
+    """ Add a course to the course library """
+    if request.method == 'POST':
+        form = CourseForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added new course!')
+            return redirect(reverse('add_course'))
+        else:
+            messages.error(request, 'Failed to add course. Please ensure the form is valid.')    
+    else:    
+        form = CourseForm()
+    
+    template = 'courses/add_course.html'
+    
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+def edit_course(request, course_id):
+    """ Edit course in course library """
+    course = get_object_or_404(Course, course_id=course_id)
+    if request.method == 'POST':
+        form = CourseForm(request.POST, instance=course)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated course.')
+            return redirect(reverse('courses'))
+        else:
+            messages.error(request, 'Failed to update course. Please ensure the form is valid.')
+    else:
+        form = CourseForm(instance=course)
+        messages.info(request, f'You are editing {course.friendly_name}')
+
+    template = 'courses/edit_course.html'
+    context = {
+        'form': form,
+        'course': course,
+    }
+
+    return render(request, template, context)    
+
+def delete_course(request, course_id):
+    """ Delete a course from the course library """
+    course = get_object_or_404(Course, course_id = course_id)
+    course.delete()
+    messages.success(request, 'Course deleted.')
+    return redirect(reverse('courses'))
