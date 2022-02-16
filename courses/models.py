@@ -24,10 +24,10 @@ class Course(models.Model):
     
     
     course_id = models.CharField(max_length = 8)
+    course_category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length = 254)
     friendly_name = models.CharField(max_length = 254, null = True, blank= True)
-    course_description = models.CharField(max_length = 500)
-    course_category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    course_description = models.TextField(max_length = 500)
     course_hours = models.DecimalField(max_digits=3, decimal_places=0)
     maximum_class_size = models.DecimalField(max_digits=2, decimal_places=0)
     minimum_age = models.DecimalField(max_digits=2, decimal_places=0)
@@ -47,4 +47,19 @@ class Course(models.Model):
     def get_friendly_name(self):
         return self.friendly_name        
 
+    # Generate Category specific id
+    def _generate_course_id(self):
+        course_number = Course.objects.filter(course_category = self.course_category).count()
+        course_abbreviation = str(self.course_category)[0:2]
+        
+        return f'{course_abbreviation}_{str(course_number + 1)}'
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to ensure there is
+        a booking number
+        """
+        if not self.course_id:
+            self.course_id = self._generate_course_id()
+        super().save(*args, **kwargs)    
 
