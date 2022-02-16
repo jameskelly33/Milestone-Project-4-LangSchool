@@ -35,7 +35,9 @@ def booking_form(request, course):
                 'country': request.POST['country'],
                 'nationality': request.POST['nationality'],
                 'first_language': request.POST['first_language'],
-                'course':course.course_id
+                'course':course.course_id,
+                'course_friendly_name':course.friendly_name,
+                'course_timetable':course.course_timetable,
         }
         # Age Verification
         if int(form_data.get('age')) < course.minimum_age:

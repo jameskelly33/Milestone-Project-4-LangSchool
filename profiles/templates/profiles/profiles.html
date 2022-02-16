@@ -22,38 +22,41 @@
         <div class="col-12 col-md-6 mb-5">
             <h2 class="my-4">Bookings</h2>
             <hr>
+            {% if bookings %}
             {% for booking in bookings %}
-         
-                <p>
-              <p>Booking Number - {{booking}}</p>
-              <p> Booked on - {{booking.date_booked}}</p> 
+                <div class="p-2 border">
+                <p>Booking Number - {{booking}}</p>
+                <p> Booked on - {{booking.date_booked}}</p> 
              
                 <a class= 'btn btn-primary' data-bs-toggle="collapse" href="#collapseDetails{{forloop.counter}}" role="button" aria-expanded="false" aria-controls="collapseDetails{{forloop.counter}}">Show details</a>
-            </p>
-            
-            
-            
+                </div>
             <div class ="collapse" id="collapseDetails{{forloop.counter}}">
                 <div class="card shadow">
-                    <h3 class='card-header course-card-header'>{{booking.course}}</h3>
+                    <h3 class='card-header course-card-header'>{{booking.course_friendly_name}}</h3>
                         <div class="card-body">
                             <h4>Course Start Date</h4>
                             <p>{{booking.course_start_date}}</p>
                             <h4>Course Length</h4>
                             <p>{{booking.course_length}} {% if booking.course_length == 1 %} week {% else %} weeks {% endif %}</p>
+                            <h4>Course Timetable</h4>
+                            <p>{{booking.course_timetable}}</p>
                             <h4>Course Level</h4>
                             <p>{{booking.course_level}}</p>
                         </div>
                 </div>
-                
             </div>
              {% endfor %}   
+             {% else %}
+             <p>You do not currently have any bookings.</p>
+             <p>Why not browse our courses to find one?</p>  
+             <a class="btn btn-primary" href="{% url 'courses' %}">Browse Courses</a>
+             {% endif %}
         </div>  
     </div>
 </div>
 
 
-
+{{courses}}
 
 
 

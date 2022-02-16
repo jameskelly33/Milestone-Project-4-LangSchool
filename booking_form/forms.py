@@ -20,7 +20,7 @@ class BookingForm(forms.ModelForm):
                   'first_language', 'age',
                   'course_length', 
                    'course_start_date','course_level',
-                  'course_level','course','course_cost_per_week','total_course_cost', 
+                  'course_level','course','course_friendly_name','course_timetable','course_cost_per_week','total_course_cost', 
                   )
 
     def __init__(self, *args, **kwargs):
@@ -40,8 +40,9 @@ class BookingForm(forms.ModelForm):
             'course_length':"Course Length",
             'course_start_date':'Course Start Date',
             'course_level': 'Course Level',
-            'course_level': 'Course Level',
             'course':'Course',
+            'course_friendly_name':'Course Name',
+            'course_timetable':'Course Timetable',
             'course_cost_per_week':'Course Cost Per Week',
             'total_course_cost':'Total Course Cost',
             

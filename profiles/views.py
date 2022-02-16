@@ -22,13 +22,13 @@ def profiles(request):
     
     bookings = profile.bookings.all()
     
-    courses= Course.objects.all()
+    
     
     context ={
         'form':form,
         'bookings':bookings,
         'profile':profile,
-        'courses':courses,
+       
     }
 
     return render(request, 'profiles/profiles.html', context)

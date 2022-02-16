@@ -56,6 +56,9 @@ class Booking(models.Model):
     course_cost_per_week = models.DecimalField(max_digits=6, decimal_places=2, null=False, default =0)
     total_course_cost = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     course = models.CharField(max_length=8,null=True)
+    course_friendly_name =  models.CharField(max_length = 254, null = True, blank= True)
+    course_timetable = models.CharField(max_length = 30, null= True, blank = True)
+  
     
 
 
