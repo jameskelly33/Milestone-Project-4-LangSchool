@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Category, Course
 from .forms import CourseForm
@@ -75,9 +76,13 @@ def course_library(request):
 
     return render(request, 'courses/course_library.html', context)
 
+@login_required
 def add_course(request):
 
     """ Add a course to the course library """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admin users can do that.')
+        return redirect(reverse('home'))
     if request.method == 'POST':
         form = CourseForm(request.POST)
         if form.is_valid():
@@ -97,8 +102,12 @@ def add_course(request):
 
     return render(request, template, context)
 
+@login_required
 def edit_course(request, course_id):
     """ Edit course in course library """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admin users can do that.')
+        return redirect(reverse('home'))
     course = get_object_or_404(Course, course_id=course_id)
     if request.method == 'POST':
         form = CourseForm(request.POST, instance=course)
@@ -120,8 +129,12 @@ def edit_course(request, course_id):
 
     return render(request, template, context)    
 
+@login_required
 def delete_course(request, course_id):
     """ Delete a course from the course library """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admin users can do that.')
+        return redirect(reverse('home'))
     course = get_object_or_404(Course, course_id = course_id)
     course.delete()
     messages.success(request, 'Course deleted.')
