@@ -4,13 +4,14 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-6">
-            <form method="POST" action="{% url 'edit_course' course.course_id %}" class="form mb-2">
+        <div class="col-12 my-4 col-md-6 mx-md-auto">
+            <h1 class="heading-bg mx-md-auto">Edit Course</h1>
+            <form method="POST" action="{% url 'edit_course' course.course_id %}" class="form my-5">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <div class="text-right">
                     <a class="btn btn-primary " href="{% url 'courses' %}">Cancel</a>
-                    <button class="btn btn-primary" type="submit">Edit Course</button>
+                    <button class="btn btn-primary my-3" type="submit">Update Course</button>
                 </div>
             </form>
         </div>
