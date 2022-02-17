@@ -5,10 +5,12 @@
 
 
 <div class="container"> 
-
     <div class="row">
         <div class="col-md-8 my-5 mx-auto text-center">
-            <h1>You Scored {{total}} points</h1>
+            <h1>Well done you answered {{total}} questions correctly.</h1>
+            <hr>
+            <h2>Your estimated level of English is</h2>
+            <h2 class="heading-bg mx-auto p-3"> {{result}}</h2>
             <a href = '{% url "courses" %}' class = 'btn btn-primary my-5'> Find Courses</a>
         </div>
 
