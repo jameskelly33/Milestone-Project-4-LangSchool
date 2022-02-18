@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 my-4 col-md-6 mx-md-auto">
+            <h1 class="heading-bg mx-md-auto p-2">Edit Post</h1>
+            <form method="POST" action="{% url 'edit_post' post.id %}" class="form my-5">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="text-right">
+                    <a class="btn btn-primary " href="{% url 'blog' %}">Cancel</a>
+                    <button class="btn btn-primary my-3" type="submit">Edit Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
