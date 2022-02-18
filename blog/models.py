@@ -14,8 +14,10 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     post_content= models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    likes = models.DecimalField(max_digits=10, decimal_places=0)
-    
+    likes = models.ManyToManyField(User, related_name='blog_posts')
+
+    def total_likes(self):
+        return self.likes.count()
    
   
    

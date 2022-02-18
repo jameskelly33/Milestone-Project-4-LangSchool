@@ -11,9 +11,6 @@ class BlogAdmin(admin.ModelAdmin):
         'post_content',
         'author',
         'date_posted',
-        'likes',
-
-       
     )
 
 admin.site.register(Post, BlogAdmin)
