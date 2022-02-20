@@ -8,11 +8,11 @@
 <!-- Banner Image and animated heading -->
 <div class="container-fluid">
   <div class="row course-banner-img">
-    <div class="container-fluid my-3 text-center ">
+    <div class="container-fluid my-5 text-center ">
       <div class="row ">
         <div class="col">
           {% for category in categories %} 
-          <h1 class='heading-bg mx-auto vivify'>{{category.friendly_name}}</h1>
+          <h1 class='heading-bg p-3 mx-auto vivify'>{{category.friendly_name}}</h1>
           {% endfor %}
         </div>
       </div>
@@ -22,7 +22,7 @@
 <!-- Search bar -->
 <div class="container my-3">
   <div class="row">
-    <div class="col mx-auto">
+    <div class="col-lg-6 mx-lg-auto">
       <form class="d-flex justify-content-center" method="GET" action="{% url 'courses'%}">
         <input  class="form-control" type="search" name='q'
           placeholder="Search all courses" aria-label="Search" >
@@ -40,22 +40,22 @@
 
 
 <!-- Course Library for med and above screens -->
-<div class="container d-none d-sm-block mt-3">
+<div class="container d-none d-sm-block mt-5">
   <div class="row g-0">
     <div class="col">
       {% for course in course_list %}
-      <div class="card shadow mx-auto my-3 course-card">
-        <div class="row g-0"><div class="card-header course-card-header">{{course.friendly_name}}
-        </div>
+      <div class="card bg-light shadow mx-auto my-5 course-card">
+        <div class="row g-0">
+          <h4 class="card-header course-card-header">{{course.friendly_name}}</h4>
           <div class="col-md-8">
             <div class="card-body mb-3 ">
                 <p class="card-text">{{course.course_description}}</p>
             </div>
-            <div class="card-footer bg-light ">
+            <div class="card-footer border-0 bg-light ">
               <ul class="list-group list-group-horizontal text-center">
-                <li class="list-group-item mx-md-3 ">Total Course Hours {{course.course_hours}}</li>
-                <li class="list-group-item mx-md-3 "> Minimum Age {{course.minimum_age}}</li>
-                <li class="list-group-item  mx-md-3">Maximum Class Size  {{course.maximum_class_size}} </li>
+                <li class="list-group-item mx-md-3 ">Total Course Hours - {{course.course_hours}}</li>
+                <li class="list-group-item mx-md-3 "> Minimum Age - {{course.minimum_age}}</li>
+                <li class="list-group-item  mx-md-3">Maximum Class Size - {{course.maximum_class_size}} </li>
               </ul>
             </div>
           </div>
@@ -63,8 +63,7 @@
             <div class="card shadow my-3 mx-3">
               <ul class="list-group ">
                 <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span> {{course.course_timetable}} </li>
-                <li class="list-group-item "><span class='me-1'><i class="fas fa-calendar"></i></span>Course Length - 
-                  weeks</li>
+                <li class="list-group-item "><span class='me-1'><i class="fas fa-calendar"></i></span>Course Levels - {{course.course_levels}}</li>
                 <li class="list-group-item"> <span class='me-1'><i class="fas fa-euro"></i></span> Cost - {{course.cost_per_week}} per week
                 </li>
               </ul>

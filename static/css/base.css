@@ -103,6 +103,7 @@ body{
     animation-name: fadeInLeft;
     animation-duration: 2s;
     }
+
 .hero-text-divider{
   width:50vw;
   margin:auto;
@@ -175,6 +176,9 @@ body{
   background-color: var(--button-background);
 }
 
+.nav-link:focus, .nav-link:hover {
+  color:#a85f16;
+}
 .nav-link{
   color:black;
 }
