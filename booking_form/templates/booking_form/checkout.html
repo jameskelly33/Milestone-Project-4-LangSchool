@@ -20,29 +20,32 @@
             <div class="col-md-6 mx-auto">
                 <p class="text-center">Please check these details  and then enter your billing information.</p>
                 <div class="card shadow">
-                    <h3 class='card-header booking-card-header'>{{course.friendly_name}}</h3>
+                    <h3 class='card-header booking-card-header'>Booking Details</h3>
                         <div class="card-body">
-                            <h4>Course Dates</h4>
-                            <p>{{booking.course_start_date}} - {{end_date}}</p>
-                            <h4>Course Timetable</h4>
-                            <p>{{course.course_timetable}}</p>
-                            <h4>Course Level</h4>
-                            <p>{{booking.course_level}}</p>
+                            <h5 class="mb-3">Course - <span class='text-uppercase ms-3 ms-3'>{{course.friendly_name}}</span></h5>
+
+                            <h5 class="mb-3">Course Dates - <span class='text-uppercase ms-3'>{{booking.course_start_date}} - {{end_date}}</span></h5>
                             
-                            <h4>Student Details</h4>
                             
-                            <p>Name - <span id='full-name'>{{booking.full_name}}</span></p>
-                            <p>Email - <span id ='email'>{{booking.email}}</span></p>
-                            <p>Age - {{booking.age}} </p>
-                            <p>Phone Number - <span id = 'phone-number'>{{booking.phone_number}}</span></p>
-                            <p>Nationality & First Language - {{booking.nationality}} / {{booking.first_language}} </span> </p>
+                            <h5 class="mb-3">Course Timetable- <span class='text-uppercase ms-3'>{{course.course_timetable}}</span></h5>
+                            
+                            <h5 class="mb-3">Course Level - <span class='text-uppercase ms-3'>{{booking.course_level}}</span></h5>
+                            <h5 class="mb-3">Total Course Cost - <span class='text-uppercase ms-3'>€{{booking.total_course_cost}}</span></h5>
+                            
+                           
+                            
+                            <h5 class="mb-3"> Student Name - <span class='text-uppercase ms-3' id='full-name'>{{booking.full_name}}</span></h5>
+                            <h5 class="mb-3">Student Email - <span class='text-uppercase ms-3'id ='email'>{{booking.email}}</span></h5>
+                            <h5 class="mb-3">Student Age - <span class='text-uppercase ms-3'>{{booking.age}}</span> </h5>
+                            <h5 class="mb-3">Phone Number - <span class='text-uppercase ms-3'id = 'phone-number'>{{booking.phone_number}}</span></h5>
+                            <h5 class="mb-3">Nationality & First Language - <span class='text-uppercase ms-3'>{{booking.nationality}} / {{booking.first_language}} </span></h5>
                         </div>
                 </div>
             </div>
         </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid mb-5">
     <div class="row">
         <div class="col-md-8 mx-auto">
             <form id='payment-form' method="POST" action="{% url 'checkout' booking %}">
@@ -50,7 +53,7 @@
 
  <fieldset class="px-3 ms-2"> 
                     
-                    <legend class="fieldset-label ms-2"> Billing Address Details</legend> 
+                    <legend class="fieldset-label"> Billing Address Details</legend> 
                         <div class="mb-3">
                             <label for="inputName" class="form-label">Name on Card</label>
                             <input type="text" class="form-control" id="inputName" value="{{booking.full_name}}" >
