@@ -16,8 +16,6 @@ def booking_form(request, course):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     
-    
-    
     booking_form = BookingForm
     if request.method == 'POST':
         
@@ -51,20 +49,23 @@ def booking_form(request, course):
             booking_form = BookingForm(form_data)
             if booking_form.is_valid():
                 booking = booking_form.save()
+                return redirect(reverse('checkout', args=[booking]))
             else:
-                messages.error(request, 'There was an error with your form. \
+                messages.error(request, f'There was an error with your form. \
                     Please double check your information.')
+                   
 
             
             context = {
-                'booking':booking,
+               
                 'booking_form': booking_form,
                 'course':course,
                 'form_data':form_data,
                 'stripe_public_key':stripe_public_key,
             }
 
-            return redirect(reverse('checkout', args=[booking]))
+            return render(request, 'booking_form/booking_form.html', context)
+            
 
     else:
         
