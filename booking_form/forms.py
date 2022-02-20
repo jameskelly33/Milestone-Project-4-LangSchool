@@ -4,8 +4,8 @@ from courses.models import Course
 from django.core.validators import ValidationError
 import datetime
 
-class DateInput(forms.DateInput):
-    input_type = 'date'
+
+    
     
     
    
@@ -14,7 +14,7 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
     
-        widgets = {'course_start_date': DateInput()}
+        widgets = {'course_start_date': forms.DateInput(attrs={'type':'date','class':'myDateClass'})}
         fields = ('full_name', 'email', 'phone_number',
                   'country', 'nationality',
                   'first_language', 'age',
@@ -54,13 +54,14 @@ class BookingForm(forms.ModelForm):
         self.fields['course_length'].widget.attrs['min'] = 1
         
         self.fields['age'].widget.attrs['min']=5
-         
+        
         
         for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
+            if field != 'age' :
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
