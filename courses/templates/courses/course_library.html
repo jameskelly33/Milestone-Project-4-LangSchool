@@ -69,10 +69,12 @@
               </ul>
             </div>
             <div class="d-flex justify-content-center my-3">
-             <a class="btn btn-primary" href ='{% url "booking_form" course.course_id %}'>Book Course</a>
              {% if request.user.is_superuser %}
-            <a class="btn btn-primary ms-2" href="{% url 'edit_course' course.course_id %}">Edit Course</a>
-            <a class="btn btn-primary ms-2" href="{% url 'delete_course' course.course_id %}">Delete Course</a>
+            <a class="btn btn-sm btn-primary mx-1" href ='{% url "booking_form" course.course_id %}'>Book Course</a>
+            <a class="btn btn-sm btn-primary mx-1" href="{% url 'edit_course' course.course_id %}">Edit Course</a>
+            <a class="btn btn-sm btn-primary mx-1" href="{% url 'delete_course' course.course_id %}">Delete Course</a>
+            {% else %}
+            <a class="btn btn-primary" href ='{% url "booking_form" course.course_id %}'>Book Course</a>
             {% endif %}
             </div>
           </div>
