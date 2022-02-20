@@ -4,7 +4,7 @@
 {% block content %}
 <!-- Banner Image and animated heading -->
 <div class="container-fluid">
-    <div class="row course-banner-img">
+    <div class="row blog-banner-img">
       <div class="container-fluid my-3 text-center ">
         <div class="row ">
           <div class="col">
@@ -23,7 +23,7 @@
         <p class='blog-sub-heading '>{{post.description}}</p>
         <hr class='my-4'>
         <p class='post-content'>{{post.post_content|escape|linebreaks}}</p>
-        <p class='text-muted'>Written by {{post.author}}</p>
+        <p class='text-muted'>Written by {{post.author|title}}</p>
         <p class='text-muted'>Posted on {{post.date_posted}}</p>
         {% if user_liked %}
         <p class="text-muted">{{total_likes}} Likes</p>

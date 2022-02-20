@@ -4,7 +4,7 @@
 {% block content %}
 <!-- Banner Image and animated heading -->
 <div class="container-fluid">
-    <div class="row course-banner-img">
+    <div class="row blog-banner-img">
       <div class="container-fluid my-3 text-center ">
         <div class="row ">
           <div class="col">
@@ -19,12 +19,12 @@
   <div class="container-fluid">
       <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-md-10 col-lg-8 col-xl-7 my-3 blog-post-description text-center ">
-            <a class ="text-decoration-none blog-preview green" href="{% url 'blog_post' post.id %}">
+            <a class ="text-decoration-none blog-preview" href="{% url 'blog_post' post.id %}">
               <h2 class='blog-heading'>{{post.title}}</h2>
               <p class='blog-sub-heading ' >{{post.post_description}}</p>    
             </a>
               
-              <p class='text-muted'>Posted by {{post.author}} on {{post.date_posted}} </p>
+              <p class='text-muted'>Posted by {{post.author|title}} on {{post.date_posted}} </p>
              <hr class='mt-4'>
 
           </div>
@@ -38,7 +38,4 @@
     </div>
   </div>
 </div>
-
-
-
 {% endblock %}

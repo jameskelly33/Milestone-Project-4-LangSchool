@@ -4,17 +4,6 @@
 {% block content%}
 
 
-<!-- <div class="container"> 
-
-    <div class="row">
-        <div class="col-md-8 my-5 mx-auto text-center">
-            <h1>Test your English level to see which course is best for you</h1>
-            <a href = '#' class = 'btn btn-primary my-5'> Start Quiz</a>
-        </div>
-
-    </div>
-</div> -->
-
 
 
 <div class="container"> 
@@ -31,10 +20,10 @@
 </div>
 
 
-<form method ="GET" action="{% url 'check_answer' question_counter total %}">
+<form  method ="GET" action="{% url 'check_answer' question_counter total %}">
 
-<div class="container question-container my-5">
-        <div class="card mb-5t">
+<div class="container question-container pb-5 my-5">
+        <div class="card mb-5">
             <div class="card-header">
                 <h3 class='border rounded-circle question-number text-center'>{{question.question_number}}</h3>
                 <p class='ms-3'>{{question.question_text}}</p>
