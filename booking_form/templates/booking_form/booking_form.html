@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block extra_css %}
+    
     <link rel="stylesheet" href="{% static 'css/booking_form.css' %} ">
+    
 {% endblock %}
 
 
@@ -22,7 +24,7 @@
                         <h3 class='card-header booking-card-header'>Selected Course</h3>
                         <div class="card-body">
                             <h3 class = 'card-title'>{{course.friendly_name}}</h3>
-                                <fieldset class="px-3 mb-2">
+                                <fieldset class="px-3  mb-2">
                                     <legend class="fieldset-label small">How many weeks would you like to study for?</legend>
                                         {{booking_form.course_length | as_crispy_field}}
                                     <legend class="fieldset-label small">What is your current level of English?</legend>
@@ -33,7 +35,6 @@
                                         {{ booking_form.age | as_crispy_field }}
                                     <legend class="fieldset-label small">Total Course Cost</legend>
                                         <p> €<span id="total_course_cost">{{course.cost_per_week}}</span></p>
-                                        <!-- {{ booking_form.total_course_cost | as_crispy_field}} -->
                                 </fieldset>
                                
                         </div>
@@ -73,7 +74,7 @@
         
 </form>
 
-{{form_data}}
+
 
 
 
@@ -85,9 +86,8 @@
 
 
 {% block postloadjs %}
-    <!-- {{ block.super }} -->
-    <!-- {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }} -->
+    {{ block.super }}
+    
     <script src="{% static 'js/stripe_elements.js' %}"></script>
     <script src="{% static 'js/booking_form.js' %}"></script>
 {% endblock %}
