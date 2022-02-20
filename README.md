@@ -26,6 +26,8 @@
 - [**Credits and Content**](#credits-and-content)
   * [**Code**](#code)
   * [**Acknowledgements**](#acknowledgements)
+
+
 ## **UX**
 
 ### **Project Goals**
@@ -72,14 +74,15 @@ The central audience for this site are English language learners, or the parents
 
 
 
-**Design Choices**
+## **Design Choices**
 
 
 	
-* **Font**
+**Font**
+
 There is only one font used throughout the website, which is Raleway sans-serif. I chose this font for not only its elegance and clarity but it's readabilty. This site's main users will not be native speakers and may find reading in English challenging. Therefore I chose to use only one font throughout the site so as to not clutter the pages with contrasting styles. 
 
-* **Colours**
+**Colours**
 
 The color palette was chosen to maximise the white space of the site and let images stand out, whilst also reinforcing that this is English Language school in Ireland with the green and orange of the highlighting colours suggesting the Irish flag. 
 
@@ -87,32 +90,54 @@ The color palette was chosen to maximise the white space of the site and let ima
 
 ### **On Every Page**
 
+
 **Navigation**
+
 
 On every page there is a standard, collapsible nav bar built using Bootstrap 5 classes that shows the website’s name and brand in the top left. There are links for the homepage, a dropdown menu for the course library offering options for General English, Business, Acadmic and Under 16s courses with an option to view all courses as week. The next link is for the site's Level Test and the fourth nav-link is for the site's blog. On the right are options to log in / register. If a user is logged in then the login and register links are replaced with User profile and log out links.
 
+![A screenshot of the navbar](media/readme_images/homepage/navbar.png "Screenshot of the navbar")
+
+![A screenshot of the navbar on mobile](media/readme_images/homepage/mobile_navbar.png "Screenshot of the navbar on mobile")
+
+
 **Footer**
+
 The footer includes social media links to the site's social media pages. Additional links to the separate course categories and blog and level test as well as contact information for the school. 
 
+![A screenshot of the navbar](media/readme_images/homepage/footer.png "Screenshot of the navbar")
 
 ### **Homepage**
 
-![A screenshot of the homepage]( "Screenshot of the homepage")
 
 **Banner-Image**
+
 The homepage banner image is an image of the Temple Bar area of Dublin where the fictional school is located. The image was chosen as it is a good representation of the lively area and includes the name Temple Bar written clearly on one of the buldings.
 
 **Homepage Headings and call to action button**
+
 Below the image is a white band with fours lines of black text and a call to action button . 'Learn English in the heart of Dublin' is the main heading. The secondary headings reads 'Courses to suit all levels', 'Fun and Engaging Teachers' and 'Reach your English goals'. The call to action button reads 'Find Courses' and will take a user to the course library section of the site. 
 
-**Homepage Headings and call to action button**
+
+![A screenshot of the homepage](media/readme_images/homepage/homepage_desktop.png "Screenshot of the homepage")
+
+![A screenshot of the homepage on mobile](media/readme_images/homepage/homepage_mobile.png "Screenshot of the mobile homepage")
+
+**Why study with us section**
+
 A green band with white text asks the question 'Why study at Temple Bar School of English?' and below it are three large font-awesome icons representing the three main reasons why students should study at the school, teaching, facilities and experience.
 
+
+![A screenshot of the why study banner](media/readme_images/homepage/whystudy.png "Screenshot of the why study banner")
+
 **Course Cards**
+
 The four category of courses that the school offers are each given a card with a matching image and a short description of the content of each course. At the foot of each card is a link taking the user to the specific course library for that category so the user does not have to manually search for a course. 
 
-### ** Courses **
-![A screenshot of the courses page]( "Screenshot of the Courses Page")
+![A screenshot of the course category cards](media/readme_images/homepage/course_cards.png "Screenshot of the course category cards")
+
+## **Courses**
+
 
 The courses page can be navigated to from the navbar, the individual course card or the call to action button on the homepage. There are two possible views that a user can see. 
 
@@ -120,8 +145,16 @@ The courses page can be navigated to from the navbar, the individual course card
 
 The all courses view has a heading with the question 'What type of course are you looking for?" and a vertical pills nav section with an accompanying card with information about each course category. If a user clicks on the find course button for a category they will be taken to the course library view as shown below. The user also has the option to search for a term in the search bar above the course category navigation which will return the course library view showing only courses which include the search term. 
 
+
+![A screenshot of the courses page](media/readme_images/courses/courses.png "Screenshot of the Courses Page")
+
+
 The course library view includes the search bar for any futher search terms the user might want to use. Below the search box the user will be shown the course detail cards giving the user all the information they need about each course in a particular category or matching a search term. 
 
+![A screenshot of the courses page](media/readme_images/courses/course_library.png "Screenshot of the Courses Page")
+
+
+![A screenshot of the course cards on mobile ](media/readme_images/courses/courses.png "Screenshot of the Course Cards on Mobile")
 
 **Booking Form**
 
@@ -138,26 +171,50 @@ Below the card is the student details form into which the user inputs their:
 *  full name
 *  email address
 *  phone number
-* country of residence
-* nationality
-* first language
+*  country of residence
+*  nationality
+*  first language
 
 The user can then proceed to the payment screen via the 'Proceed to Payment' Button or go back the courses page.
+
+
+![A screenshot of the booking form page](media/readme_images/booking_form/course_details.png "Screenshot of the booking form")
+
+
+![A screenshot of the booking form page](media/readme_images/booking_form/student_details.png "Screenshot of the booking form")
 
 *** Checkout ***
 The checkout page has a booking summary car at the top recapping all the details the user has just entered on the booking form page. B
 
 After confirming these details are correct the user can then add billing information, (the full name and country from the previous page will be auto added) and add their card number , cvc and zip code to confirm payment.
 
+
+![A screenshot of the booking summary page](media/readme_images/booking_form/booking_details.png  "Screenshot of the booking summary")
+
+
+![A screenshot of the billing details form](media/readme_images/booking_form/billing_details.png "Screenshot of the booking form")
+
 ***Checkout Success***
 
 Once payment is completed the user will see the checkout success page which contains the users booking number , course start date and links to the blog and level test in order for them to contitnue to explore the site. 
+
+
+![A screenshot of the booking form success page](media/readme_images/booking_form/booking_success.png "Screenshot of the booking form success page")
+
+![A screenshot of the explore out site banner](media/readme_images/booking_form/explore.png "Screenshot of the explore out site banner ")
 
 **Level Test**
 
 The Level test can be reached by the link in the nav bar and through the hompepage as well as the checkout success view. The test is a series of 20 multiple choice questions which increase in difficulty, designed to assess a student's approximate level of English.
 
 The test begins when a student selects the first answer. They are given immediate feedback by the button colour changing to green  if the QUESTION IS CORRECT AND RED IF THE QUESTION IS WRONG. AFTER THE the 20th question has been answered a result page will appear informing the student how many questions they answered correctly and their approximate level of English with a button that links the user to the courses section in which they can find a course to suit their level. 
+
+
+
+![A screenshot of the level test page](media/readme_images/level_test/level_test.png "Screenshot of the level test page")
+
+![A screenshot of the level test results page](media/readme_images/level_test/results.png "Screenshot of the level test results page")
+
 
 
 **Blog**
@@ -175,17 +232,41 @@ Admin users will find an add post button at the bottom of the page from which th
 
 Admin users can also edit a post and delete a post from the blog post page via the two buttons found at the bottom of the post. 
 
+
+![A screenshot of the blog page](media/readme_images/blog/blog.png "Screenshot of the level test page")
+
+![A screenshot of the blog post page](media/readme_images/blog/blog_post.png "Screenshot of the level test page")
+
+![A screenshot of teh edit post form page](media/readme_images/blog/edit_post.png "Screenshot of the edit form post page")
+
+
 **Log In / Register Forms**
 
 The site utilises the Django Allauth forms to carry out all login and authenication processes. The built in allauth forms have been appropriately styled , placed beneath the site's banner image styled into a Bootstrap card layout matching the sites color scheme.
 
+![A screenshot of login form](media/readme_images/admin/login.png "Screenshot of the login form")
+
+![A screenshot of register form](media/readme_images/admin/register.png "Screenshot of the register form")
+
+
 **User Profile**
 Once a user is logged in the can visit the user profile section via the link in the navbar. On this page there are two columns on the left there is a form in which the user's can upload and update their  full name, email, phone number, country of residence, nationality, and first langauge. On the right hand column (or below on mobile) there are details about any bookings the user has made. The user will be able to see a booking number and the date booked and by clicking the more details button the user will see the course dates, course level, start date and timetable. 
+
+
+![A screenshot of the profile page](media/readme_images/admin/profile.png "Screenshot of the profile page")
+
+
+![A screenshot of booking details dropdown](media/readme_images/admin/booking_detail.png "Screenshot of the booking details dropdown ")
 
 **Messages**
 
 All django messages are presented throughout the site via Bootstrap Toasts that appear on the top right of the screen jsut below the navbar.
 Each toast has a header coloru matching the type of message with bootstrap's built in color classes, success, danger, info, warning. 
+
+![A screenshot of error message](media/readme_images/messages/error.png "Screenshot of error message")
+
+
+
 
 
 **Admin Procedures**
@@ -194,6 +275,8 @@ For admin users who are logged in the course management navlink will become avai
 
 
 Admin users also have the option to edit course details or delete a course entirely for the course library page by clicking on the edit course or delete course buttons found next to the book course button on course detail card. 
+
+
 
 
 
