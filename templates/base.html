@@ -70,7 +70,7 @@
                 <a class="nav-link active " aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item mx-lg-2 dropdown">
-                <a class="nav-link dropdown-toggle text-center " id="Dropdown" href="" role="button"
+                <a class="nav-link dropdown-toggle  " id="Dropdown" href="" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">Courses</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown">
                   <li><a class="dropdown-item" href="{% url 'course_library' %}?category=general">General English</a></li>
@@ -82,10 +82,10 @@
               </li>
               
               <li class="nav-item mx-lg-2">
-                <a class="nav-link text-center" href="{% url 'level_test' %}">Level Test</a>
+                <a class="nav-link " href="{% url 'level_test' %}">Level Test</a>
               </li>
               <li class="nav-item mx-lg-2">
-                <a class="nav-link text-center" href="{% url 'blog' %}">
+                <a class="nav-link " href="{% url 'blog' %}">
                   Blog
                 </a>
               </li>
@@ -95,20 +95,20 @@
                 {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
                   <li class="nav-item">
-                    <a href="{% url 'add_course' %}" class= 'nav-link text-center'>Course Management</a></li>
+                    <a href="{% url 'add_course' %}" class= 'nav-link '>Add Course</a></li>
                     <li>
                   {% endif %}    
               <li class="nav-item">
-                <a href="{% url 'profiles' %}" class= 'nav-link text-center'>My Profile</a></li>
+                <a href="{% url 'profiles' %}" class= 'nav-link'>My Profile</a></li>
                 <li>
                   <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                 </li>
               {% else %} 
               <li class="nav-item">
-                <a class="nav-link text-center" href="{% url 'account_signup' %}">Register</a>
+                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
               </li>  
               <li>
-                <a href="{% url 'account_login' %}" class="nav-link text-center">Login</a>
+                <a href="{% url 'account_login' %}" class="nav-link ">Login</a>
               </li>
                 
               {% endif %}

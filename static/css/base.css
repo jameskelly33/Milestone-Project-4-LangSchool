@@ -144,6 +144,10 @@ body{
    
    font-size:1rem;
  }
+
+ .banner-heading-text{
+   
+ }
 }
 
 
@@ -194,14 +198,13 @@ body{
   background-position: center;
   background-size: cover;
 }
+
 .heading-bg{
   background-color: rgba(94, 194, 125, 0.9);
   color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
   width:fit-content;
-  
-  /* clip-path: polygon(11% 0, 100% 0%, 88% 100%, 0% 100%); */
   animation-name: fadeInLeft;
   animation-duration:2s;
 }
