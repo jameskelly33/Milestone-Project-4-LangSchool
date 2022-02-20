@@ -239,7 +239,7 @@ color:var(--main-white)
 .blog-heading{
   
   letter-spacing:0.2rem;
-  font-weight:;
+
 }
 
 .blog-sub-heading{
@@ -309,4 +309,6 @@ color:var(--main-white)
   right: 15px;
   z-index: 99999999999;
 }
+
+/* form stylings */
 
