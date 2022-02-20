@@ -63,7 +63,7 @@
             <div class="card shadow my-3 mx-3">
               <ul class="list-group ">
                 <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span> {{course.course_timetable}} </li>
-                <li class="list-group-item "><span class='me-1'><i class="fas fa-calendar"></i></span>Course Levels - {{course.course_levels}}</li>
+                <li class="list-group-item "><span class='me-1'><i class="fas fa-stairs"></i></span>Course Levels - {{course.course_levels}}</li>
                 <li class="list-group-item"> <span class='me-1'><i class="fas fa-euro"></i></span> Cost - {{course.cost_per_week}} per week
                 </li>
               </ul>
@@ -118,15 +118,18 @@
        
             <ul class="list-group text-center">
               <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span> {{course.course_timetable}} </li>
-              <li class="list-group-item "><span class='me-1'><i class="fas fa-calendar"></i></span>Course Length - 4
-                weeks</li>
+              <li class="list-group-item "><span class='me-1'><i class="fas fa-stairs"></i></span>Course Levels - {{course.course_levels}</li>
               <li class="list-group-item"> <span class='me-1'><i class="fas fa-euro"></i></span> Cost - €275 per week
               </li>
             </ul>
           </div>
 
           <div class="d-flex justify-content-center my-3">
-            <a class="btn btn-primary" href ='#'>Book Course></a>
+            <a class="btn btn-primary" href ='{% url "booking_form" course.course_id %}'>Book Course</a>
+             {% if request.user.is_superuser %}
+            <a class="btn btn-primary ms-2" href="{% url 'edit_course' course.course_id %}">Edit Course</a>
+            <a class="btn btn-primary ms-2" href="{% url 'delete_course' course.course_id %}">Delete Course</a>
+            {% endif %}
           </div>
       </div>
       
