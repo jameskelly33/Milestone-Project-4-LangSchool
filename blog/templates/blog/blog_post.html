@@ -22,7 +22,7 @@
         <h2 class='blog-heading'>{{post.title}}</h2>
         <p class='blog-sub-heading '>{{post.description}}</p>
         <hr class='my-4'>
-        <p class='post-content'>{{post.post_content}}</p>
+        <p class='post-content'>{{post.post_content|escape|linebreaks}}</p>
         <p class='text-muted'>Written by {{post.author}}</p>
         <p class='text-muted'>Posted on {{post.date_posted}}</p>
         {% if user_liked %}
@@ -37,8 +37,8 @@
         {% endif %}
         {% if request.user.is_superuser %}
 
-        <a class='btn btn-primary me-2' href="{% url 'edit_post' post.id %}">Edit post</a>
-        <a class='btn btn-primary' href="{% url 'delete_post' post.id %}">Delete post</a>
+        <a class='btn btn-primary mt-5 me-2' href="{% url 'edit_post' post.id %}">Edit post</a>
+        <a class='btn btn-primary mt-5' href="{% url 'delete_post' post.id %}">Delete post</a>
         {% endif %}
       </div>
     </div>
