@@ -193,8 +193,6 @@ body{
   height:50vh;
   background-position: center;
   background-size: cover;
-
-  
 }
 .heading-bg{
   background-color: rgba(94, 194, 125, 0.9);
@@ -240,6 +238,13 @@ color:var(--main-white)
 
 }
 
+.blog-banner-img{
+    background-image: url(/media/book_laptop.jpg);
+    height:50vh;
+    background-position: center;
+    background-size: cover;
+}
+
 .blog-heading{
   
   letter-spacing:0.2rem;
@@ -250,13 +255,24 @@ color:var(--main-white)
   font-size: 1.5rem;
 }
 
-.blog_preview{
-  color: #305e3f;
+.blog-preview {
+  color: var(--secondary-green);
+}
+
+.blog-preview:hover{
+  color:var(--main-green)
 }
 
 .post-content{
   line-height: 2;
   font-size: 1.25rem;
+}
+
+.level-test-banner-img{
+  background-image: url(/media/students_doing_exam.jpg);
+  height:50vh;
+  background-position: center;
+  background-size: cover;
 }
 
 .all-auth-banner{
