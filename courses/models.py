@@ -23,7 +23,7 @@ class Course(models.Model):
         verbose_name_plural = 'Courses'
     
     
-    course_id = models.CharField(max_length = 8)
+    course_id = models.CharField(max_length = 10)
     course_category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length = 254)
     friendly_name = models.CharField(max_length = 254, null = True, blank= True)
