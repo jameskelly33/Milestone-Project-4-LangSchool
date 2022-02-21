@@ -8,10 +8,13 @@ from profiles.models import UserProfile
 from django.conf import settings
 import stripe 
 import datetime
+from django.core.mail import send_mail
+
 
 
 def booking_form(request, course):
 
+    
     course = Course.objects.get(course_id=course)
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -127,9 +130,12 @@ def checkout_success(request, booking):
         profile = UserProfile.objects.get(user = request.user)
         booking.user_profile = profile
         booking.save()
+    
+    
 
     
     messages.success(request, 'Booking successfully processed!' )
+    send_mail('hello','hello1',EMAIL_HOST_USER,['jameskelly33@gmail.com'], fail_silently = False)
 
     
 
