@@ -56,26 +56,26 @@
                     <legend class="fieldset-label"> Billing Address Details</legend> 
                         <div class="mb-3">
                             <label for="inputName" class="form-label">Name on Card</label>
-                            <input type="text" class="form-control" id="inputName" value="{{booking.full_name}}" >
+                            <input type="text" class="form-control" id="inputName" value="{{booking.full_name}}" required >
                         </div>
                         <div class="mb-3">
                             <label for="inputAddress" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="inputAddress" >
+                            <input type="text" class="form-control" id="inputAddress" required>
                         </div>
                          <div class="mb-3">
                              <label for="inputAddress2" class="form-label">Address 2</label>
-                            <input type="text" class="form-control" id="inputAddress2" >
+                            <input type="text" class="form-control" id="inputAddress2"required >
                          </div>
                          <div class="mb-3">
                             <label for="inputCity" class="form-label">City</label>
-                            <input type="text" class="form-control" id="inputCity">
+                            <input type="text" class="form-control" id="inputCity"required>
                           </div>    
                           <div class="mb-3">
                             <label for="inputCountry" class="form-label">Country</label>
                             {% load countries %}
                             {% get_countries as countries %}
-                            <select class="form-control" id="inputCountry">
-                            <option value="{{booking.country}}" selected></option>
+                            <select class="form-control" id="inputCountry" required>
+                            <option value="{{booking.country}}" selected ></option>
                             {% for country in countries %}
                                 {% if country.code == booking.country %}
                                 <option value="{{country.code}}" selected>{{country.name}}</option>
