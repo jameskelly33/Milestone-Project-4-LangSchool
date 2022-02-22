@@ -89,10 +89,25 @@ def checkout(request, booking):
     course = Course.objects.get(course_id = booking.course)
     course_start_date = booking.course_start_date
     end_date = course_start_date + datetime.timedelta(weeks=int(booking.course_length))
-
+    
     if request.method == 'POST':
         
-        
+        # Send Confirmation email
+        cust_email = booking.email
+        subject = render_to_string(
+        'booking_form/confirmation_emails/email_subject.txt',
+        {'booking': booking})
+        body = render_to_string(
+        'booking_form/confirmation_emails/email_body.txt',
+        {'booking': booking,})
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )        
+
         
         context={
             'booking':booking,
@@ -135,20 +150,20 @@ def checkout_success(request, booking):
     
     
 
-    cust_email = booking.email
-    subject = render_to_string(
-        'booking_form/confirmation_emails/email_subject.txt',
-        {'booking': booking})
-    body = render_to_string(
-        'booking_form/confirmation_emails/email_body.txt',
-        {'booking': booking,})
+    # cust_email = booking.email
+    # subject = render_to_string(
+    #     'booking_form/confirmation_emails/email_subject.txt',
+    #     {'booking': booking})
+    # body = render_to_string(
+    #     'booking_form/confirmation_emails/email_body.txt',
+    #     {'booking': booking,})
     
-    send_mail(
-        subject,
-        body,
-        settings.DEFAULT_FROM_EMAIL,
-        [cust_email]
-    )        
+    # send_mail(
+    #     subject,
+    #     body,
+    #     settings.DEFAULT_FROM_EMAIL,
+    #     [cust_email]
+    # )        
     messages.success(request, 'Booking successfully processed!' )
     
 
