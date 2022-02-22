@@ -1,0 +1,20 @@
+Hello {{booking.full_name}}
+
+Thank you for booking with Temple Bar School of English.
+
+Your course details are as follows:
+
+Course Name - {{booking.course_friendly_name}}
+Course Start Date - {{booking.course_start_date}}
+Course Length - {{booking.course_length}} weeks.
+Course Level - {{booking.course_level}}
+
+We will be in touch sooner to your course start date with more information about your course and what to do on your first day.
+
+If you have any questions please contact us at templebarschool@gmail.com.
+
+We look forward to seeing you!
+
+Sincerely
+
+Temple Bar School of English 

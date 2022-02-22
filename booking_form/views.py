@@ -9,6 +9,7 @@ from django.conf import settings
 import stripe 
 import datetime
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 
 
@@ -20,6 +21,7 @@ def booking_form(request, course):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     
     booking_form = BookingForm
+    
     if request.method == 'POST':
         
         form_data={
@@ -90,7 +92,7 @@ def checkout(request, booking):
 
     if request.method == 'POST':
         
-       
+        
         
         context={
             'booking':booking,
@@ -133,9 +135,22 @@ def checkout_success(request, booking):
     
     
 
+    cust_email = booking.email
+    subject = render_to_string(
+        'booking_form/confirmation_emails/email_subject.txt',
+        {'booking': booking})
+    body = render_to_string(
+        'booking_form/confirmation_emails/email_body.txt',
+        {'booking': booking,})
     
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [cust_email]
+    )        
     messages.success(request, 'Booking successfully processed!' )
-    send_mail('hello','hello1',EMAIL_HOST_USER,['jameskelly33@gmail.com'], fail_silently = False)
+    
 
     
 

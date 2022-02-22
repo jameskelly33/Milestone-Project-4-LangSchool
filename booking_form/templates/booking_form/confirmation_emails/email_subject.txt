@@ -1,0 +1,1 @@
+Temple Bar School of English Boking Confirmation - Booking Number {{booking.booking_number}}
