@@ -33,8 +33,8 @@
                                         {{booking_form.course_start_date | as_crispy_field}}
                                     <legend class="fieldset-label small">Student Age</legend>
                                         {{ booking_form.age | as_crispy_field }}
-                                    <legend class="fieldset-label small">Total Course Cost</legend>
-                                        <p> €<span id="total_course_cost">{{course.cost_per_week}}</span></p>
+                                    <legend class="fieldset-label ">Total Course Cost</legend>
+                                        <p class="total-cost"> €<span id="total_course_cost" >{{course.cost_per_week}}</span></p>
                                 </fieldset>
                                
                         </div>

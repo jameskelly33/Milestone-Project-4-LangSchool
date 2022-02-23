@@ -43,3 +43,8 @@ select option[value=""] {
 .dateinput::placeholder{
     color:#aab7c4  ;
 }
+
+.total-cost{
+    font-size: 1.5rem;
+}
+
