@@ -21,13 +21,45 @@
             <hr>
             <h2>Your estimated level of English is</h2>
             <h2 class="heading-bg mx-auto p-3"> {{result}}</h2>
+            <a href = '{% url "level_test" %}' class = 'btn btn-primary my-5'>Retake test</a>
             <a href = '{% url "courses" %}' class = 'btn btn-primary my-5'> Find Courses</a>
+            <a class= 'btn btn-primary' data-bs-toggle="collapse" href="#collapseDetails" role="button" aria-expanded="false" aria-controls="collapseDetails">Show Correct Answers</a>
         </div>
 
     </div>
 </div>
 
+{% for question in all_questions %}
+<div class="container question-container pb-5 my-5 collapse" id="collapseDetails">
+  <div class="card mb-5">
+      <div class="card-header">
+          <h3 class='border rounded-circle question-number text-center'>{{question.question_number}}</h3>
+          <p class='ms-3'>{{question.question_text}}</p>
+      </div>
+      <div class="card-block ">
+          <div class="row  g-0 text-center">
+              <div class="col-md-6 border py-3">
+                  <button  value='{{question.option1}}'
+                      class='btn btn-primary w-50 h-75 my-3 {% if question.correct_answer == question.option1 %}bg-success border-success shadow{% endif %}'>{{question.option1}}</button>
+              </div>
+              <div class=" col-md-6 py-3 border ">
+                  <button  class='btn btn-primary w-50 h-75 my-3 {% if question.correct_answer == question.option2 %}bg-success border-success shadow{% endif %}' 
+                      >{{question.option2}}</button>
+              </div>
+              <div class=" col-md-6 py-3 border ">
+                  <button class='btn btn-primary w-50 h-75 my-3 {% if question.correct_answer == question.option3 %}bg-success{% endif %}' 
+                     >{{question.option3}}</button>
+              </div>
+              <div class=" col-md-6 py-3 border ">
+                  <button name='answer' 
+                  class='btn btn-primary w-50 h-75 my-3 {% if question.correct_answer == question.option4 %}bg-success{% endif %}'>{{question.option4}}</button>
+              </div>
 
+          </div>
+      </div>
+  </div>
+</div>
+{% endfor %}
 
 
 
