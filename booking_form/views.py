@@ -50,6 +50,19 @@ def booking_form(request, course):
             if int(form_data.get('age')) > course.maximum_age:
                 messages.error(request, f'Sorry, the maximum age for this course is {course.maximum_age}.Please find another course')
                 return redirect(reverse('courses'))
+        # Level Verification for B1+ classes
+        if form_data.get('course_level') in ['A1','A2','A2H']:
+            print('test')
+            if course.course_levels != "all":
+                messages.error(request, f'Sorry, the minimum level for this course  {course.course_levels}.Please find another course')
+                return redirect(reverse('courses'))
+        # Level Verification for C1 only classes 
+        elif form_data.get('course_level') != 'C1':
+            if course.course_levels == "C1":
+                print('c1')
+                messages.error(request, f'Sorry, the minimum level for this course  {course.course_levels}.Please find another course')
+                return redirect(reverse('courses'))        
+                
         else:
             booking_form = BookingForm(form_data)
             if booking_form.is_valid():
@@ -146,24 +159,7 @@ def checkout_success(request, booking):
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user = request.user)
         booking.user_profile = profile
-        booking.save()
-    
-    
-
-    # cust_email = booking.email
-    # subject = render_to_string(
-    #     'booking_form/confirmation_emails/email_subject.txt',
-    #     {'booking': booking})
-    # body = render_to_string(
-    #     'booking_form/confirmation_emails/email_body.txt',
-    #     {'booking': booking,})
-    
-    # send_mail(
-    #     subject,
-    #     body,
-    #     settings.DEFAULT_FROM_EMAIL,
-    #     [cust_email]
-    # )        
+        booking.save()      
     messages.success(request, 'Booking successfully processed!' )
     
 
