@@ -1,23 +1,25 @@
 from django.shortcuts import render
 from .models import Question
-
+from django.contrib import messages
 
 def level_test(request):
    
     question_counter = 1
     question = Question.objects.get(question_number=question_counter)
+    questions = Question.objects.all()
     total = 0
     
     context = {
         'question': question,
         'question_counter':question_counter,
         'total':total,
+        'questions':questions
     }
     return render(request, 'level_test/level_test.html', context)
 
     
 def check_answer(request, question_counter, total):
-    
+    all_questions= Question.objects.all()
     total_qs = Question.objects.all().count()
     current_question = Question.objects.get(question_number=question_counter)
     correct_answer = current_question.correct_answer
@@ -37,6 +39,7 @@ def check_answer(request, question_counter, total):
         answer = request.GET['answer']
         
         if answer == correct_answer:
+            messages.success(request, 'Correct')
             result=''
             total +=1
             for key in result_key:
@@ -47,16 +50,19 @@ def check_answer(request, question_counter, total):
             context={
                 'total':total,
                 'result':result,
+                'all_questions':all_questions
             }
             return render(request, 'level_test/level_test_results.html', context)
         else:
+            messages.error(request, 'Incorrect')
             for key in result_key:
                 if total in key:
                     result = result_key[key]
                     break
             context={
                 'total':total,
-                'result':result
+                'result':result,
+                'all_questions':all_questions
             }
             return render(request, 'level_test/level_test_results.html', context)
     
@@ -66,7 +72,9 @@ def check_answer(request, question_counter, total):
         answer = request.GET['answer']
         if answer == correct_answer:
             total +=1
-        
+            messages.success(request, 'Correct')
+        else:
+            messages.error(request, 'Incorrect')
         context = {
                 'question':question,
                 'current_question':current_question,
@@ -74,7 +82,8 @@ def check_answer(request, question_counter, total):
                 'answer': answer,
                 'question_counter':question_counter,
                 'total':total,
-                'total_qs':total_qs
+                'total_qs':total_qs,
+                'all_questions':all_questions
             }
         return render(request, 'level_test/level_test.html', context)
 
