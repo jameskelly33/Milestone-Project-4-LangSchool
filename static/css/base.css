@@ -55,8 +55,14 @@ body{
 
 /* Custom Button styles */
 .btn{
-  background-color:#D47F2B;
-  border-color:#D47F2B;
+  background-color:var(--button-background);
+  border-color:var(--button-background);
+}
+
+.btn:disabled{
+  background-color: var(--button-background);
+  border-color: var(--button-background);
+  opacity: 1;
 }
 
 .btn:hover{
@@ -76,6 +82,12 @@ body{
 .alternate_btn{
   background-color:var(--main-green);
   border-color:var(--main-green);
+}
+
+.alternate_btn:disabled{
+  background-color: var(--button-background);
+  border-color: var(--button-background);
+  opacity: 1;
 }
 .alternate_btn:hover{
   background-color: var(--secondary-button-background);
@@ -338,4 +350,13 @@ color:var(--main-white)
 }
 
 /* form stylings */
+
+/* Level Test correct and incorrect disabled buttons */
+
+/* .correct-answer-btn:disabled{
+  background-color: var(--main-green);
+  border: var(--main-green);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  pointer-events: none;
+} */
 
