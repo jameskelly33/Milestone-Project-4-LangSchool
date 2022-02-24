@@ -112,11 +112,11 @@ The footer includes social media links to the site's social media pages. Additio
 
 **Banner-Image**
 
-The homepage banner image is an image of the Temple Bar area of Dublin where the fictional school is located. The image was chosen as it is a good representation of the lively area and includes the name Temple Bar written clearly on one of the buldings.
+The homepage banner image is an image of the Temple Bar area of Dublin where the fictional school is located. The image was chosen as it is a good representation of the lively area and includes the name Temple Bar written clearly on one of the buldings. The name of the school is displayed on a green backgroun and is animated to enter the site from the left
 
-**Homepage Headings and call to action button**
+**Animated Homepage Headings and call to action button**
 
-Below the image is a white band with fours lines of black text and a call to action button . 'Learn English in the heart of Dublin' is the main heading. The secondary headings reads 'Courses to suit all levels', 'Fun and Engaging Teachers' and 'Reach your English goals'. The call to action button reads 'Find Courses' and will take a user to the course library section of the site. 
+Below the image is a white band with fours lines of black text and a call to action button . 'Learn English in the heart of Dublin' is the main heading. The secondary headings reads 'Courses to suit all levels', 'Fun and Engaging Teachers' and 'Reach your English goals'. The call to action button reads 'Find Courses' and will take a user to the course library section of the site. All of the headings are animated with the main heading enetering from the left of the screen and the three sub-headings from the bottom to add a little dynamimism to the homepage.
 
 
 ![A screenshot of the homepage](media/readme_images/homepage/homepage_desktop.png "Screenshot of the homepage")
@@ -207,13 +207,15 @@ Once payment is completed the user will see the checkout success page which cont
 
 The Level test can be reached by the link in the nav bar and through the hompepage as well as the checkout success view. The test is a series of 20 multiple choice questions which increase in difficulty, designed to assess a student's approximate level of English.
 
-The test begins when a student selects the first answer. They are given immediate feedback by the button colour changing to green  if the QUESTION IS CORRECT AND RED IF THE QUESTION IS WRONG. AFTER THE the 20th question has been answered a result page will appear informing the student how many questions they answered correctly and their approximate level of English with a button that links the user to the courses section in which they can find a course to suit their level. 
+The test begins when a student selects the first answer. They are given feedback by the a success message if they are correct or and error message toast in red.  After the 20th question has been answered a result page will appear informing the student how many questions they answered correctly and their approximate level of English with a button that links the user to the courses section in which they can find a course to suit their level. The user can also click on the show correct answers button to view all test questions again with the correct answer highlighted. 
 
 
 
 ![A screenshot of the level test page](media/readme_images/level_test/level_test.png "Screenshot of the level test page")
 
 ![A screenshot of the level test results page](media/readme_images/level_test/results.png "Screenshot of the level test results page")
+
+![A screenshot of the level test results page with correct answers]( "Screenshot of the level test results page")
 
 
 
@@ -281,10 +283,12 @@ Admin users also have the option to edit course details or delete a course entir
 
 
 
-For users 
+
 ## **Information Architecture**
 
 **Database Models and Schema**
+
+During the production of the site a sqlite3 databse was used to store data , however after deploying to Heroku to serve the final version of the site a PostGres databse has been used with the following models.
 
 ***Models***
 * User
@@ -377,20 +381,296 @@ The full models and their relationship to each other are outlined in the schema 
 
 * [Unsplash](https://unsplash.com/)
     * Used to source images for the site, including the hero images, all ingrdient and recipe images. 
+
 * [Heroku](https://www.heroku.com/)   
     * Used to deploy the site
 
+* [Gunicorn](https://gunicorn.org/)   
+    * Used in deploying the site to heroku.
+
+* [DbDiagram](https://dbdiagram.io)
+    * Used to draw the databse schema   
+
+* [Amazon Web Services](https://aws.amazon.com/)
+    * Used to host static files and images
 
 ## **Testing**
 
-Testing information can be found in this [separate file](). 
+Testing information can be found in this [separate file](TESTING.md). 
 
 
 ## **Deployment**
 
+The site was created in Gitpod and pushed to gitbhub in the development stage. After the site was finished it was depolyed via Heroku and static files and images were hosted by Amazon Web Services following these steps.
+
 ## **How to deploy this project to Heroku**
 
 To deploy this site to heroku the following steps need to be taken.
+
+* Create a new app via the Heroku website and choose a name and appropriate region.
+
+
+* Add a Postgres database to the app via the resources section.
+
+* A Postgres databse requires 2 dependencies to run, dj_database_url and psycopg2, which can be installed from the project's terminal using a pip install.
+
+        pip3 install dj_databse_url
+
+        pip3 instal_pycopg2
+
+* Once these dependencies have been succesfully installed is is important to add them to the requirement.txt file of the project.
+
+        pip3 freeze > requirements.txt
+
+* In order to save any data stored in the previous databse it is important at this stage to creat a JSON dump of the data in the current databse using this command.
+
+    python3 manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json
+
+* To set up the new Postgres database in Django first import dj_database_url in the project's settings.py file.
+
+        import dj_database_url
+
+* Comment out the previous Django database settings in your settings.py file and replace it with the following code.
+
+    ```
+    DATABASES = {
+        'default': dj_database_url.parse('DATABASE_URL')
+        }
+    ```
+* Your database URL found in your app config settings should be entered to the above parse statment but be careful not to upload it to version control as it should be kept as an enviroment variable.
+
+* Once the new database has been set up it is possible to migrate your existing models to the new database and create a new superuser.
+
+     python3 manage.py migrate
+
+        python3 manage.py createsuperuser
+
+* This project did not use fixtures to populate models so this command will load your data from the db.json file created earlier into the new postgres database:
+
+        python3 manage.py loaddata db.json 
+    
+* The final step of setting upp the new databse is to create an if/else statement to use the Postgres databse if  the DATABASE_URL environment variable is available and if not use the default database.
+
+```
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+```
+
+* Now the new database should be set up and working. 
+
+
+## **Gunicorn**
+
+* In order to run the app succesfully Gunicorn, a Python WSGI HTTP Server must be installed.
+
+        pip3 install Gunicorn
+
+## **Procfile and final Heroku steps**
+
+* A Procfile must be created  to let Heroku know how to run the app.
+   
+        touch Procfile
+
+* The content of the Procfile  should be the following code.
+
+      web: gunicorn <app name>.wsgi:application
+
+
+* Log into Heroku via the command line
+
+        heroku login -i
+
+    
+* Disable the static files temporarily until they have been set up on Amazon Aws.(The --app command is needed if you have more than one Heroku app in your account.)
+
+        heroku config:set DISABLE_COLLECTSTATIC=1 --app <app name>
+
+
+* Add Heroku to allowed hosts, and localhost so the project can still be run locally.
+
+        ALLOWED_HOSTS = ["<heroku app name>.herokuapp.com", "localhost"]
+
+* Set up pushing to Heroku
+    
+        heroku git:remote -a <heroku app name>
+
+* Then push the project to Heroku using the command
+
+        git push heroku main
+    
+* Heroku will now be able to build the app.
+
+* Connect the heroku app to your Github account via the Deploy section of the Heroku site.
+
+* Search for the project repository and select the Automatic Deploys option. Now all git pushes will update the Heroku app.
+
+## **Amazon AWS**
+Amazon AWS was used to host both static files and media files.
+
+In order to set this up the following steps need to be taken.
+
+* Create an AWS account via the sign up process at aww.amazon.com
+
+
+* From  the main dashboard search for S3 and then click to get started.
+
+* Click on the Create bucket button giving it a new and selecting the region most suitable to your location.
+
+*  Uncheck Block Public Access and acknowledge that the bucket will now be public.
+
+* Click create bucket.
+
+* Navigate to the bucket properties settings.
+
+* Turn on static website hosting.
+
+* In the index and error add index.html and error.html and click Save.
+
+* Click on the buckets Permissions tabs.
+
+* Add the following cors config.
+
+```
+[
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+```
+
+* Naviate to the the bucket policy tap and click on generate policy.
+
+***Policy***
+
+* Select S3 bucket policy
+* Add * to the principal field to select all principals
+* Set the action to get object.
+* Paste in your ARN which is available on the previous page.
+* Click, add statement
+* Then click, generate policy.
+* Copy your new policy and paste it into the bucket policy.
+* Add /*  to the end of the resources key
+* Click Save.
+
+
+***Access control list***
+
+* In the access control list tab set the list objects permission to everyone.
+
+**Create a Group and User**
+
+**Add group**
+
+* Navigate to the  main dashboard and search for IAM .
+* Click create a new group and give it an appropriate name.
+* Click through to the end and save the group.
+* Click on Policy and Create New Policy
+* Select the JSON tab and then import managed policies.
+* Search S3 and select AmazonS3FullAccess and import.
+* In the resources section paste in  ARN from previous steps.
+* Continue to click through to review the policy.
+* Fill in name and description and then click generate policy.
+* In the group click permission and then attach the policy.
+* Find the newly created policy and attach it.
+
+***Add User***
+
+* Select Users from the sidebar and then click, Add User.
+* Create a user name and select programmatic access then click next.
+* Then select the newly created to add your user to it.
+* Click through to the end and then click create user.
+* Download the CSV file containing the users keys.
+
+**Connecting to Django**
+
+Once AWS has been set up, it needs to be connected to Django
+
+* Install two packages, boto3 and django-storages and add to requirements.txt
+
+
+        pip3 install boto3
+
+        pip3 install django-storages
+
+        pip3 freeze > requirements.txt
+
+* Add storages to installed apps in settings.py
+
+* Add the following code to our settings.py in order to only use AWS when the environemnt variable USE_AWS is present. 
+```
+if "USE_AWS" in os.environ:
+
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = '<bucket name>'
+    AWS_S3_REGION_NAME = '<your region>'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    # static and media file storage
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```        
+
+* The enviroment variables USE_AWS, AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY can be added to Heroku's Config Vars in the settings tab of the Heroku Dashboard.
+
+**Custom Storage File**
+
+* Create a file called custom_storages.py.
+
+* At the top of the file import S3Boto3Storage.
+
+* Create two new classes to tell Django where to store the files.
+    ```
+    class StaticStorage(S3Boto3Storage):
+        location = settings.STATICFILES_LOCATION
+
+
+    class MediaStorage(S3Boto3Storage):
+        location = settings.MEDIAFILES_LOCATION
+    ```    
+
+* Push to github and heroku.
+
+
+
+* Add required media files to AWS bucket in a new folder named media.
+
+
+* Select upload and add your image files.
+* Grant public access and the files should be uploaded successfully. 
+
+
+
+
+
+
+
+
 
 
 
@@ -399,10 +679,54 @@ To deploy this site to heroku the following steps need to be taken.
 
 ## **How to run this project locally**
 
-To run this project locally you will need an IDE (e.g. VS Code/Gitpod) with PIP , Python 3 and Git installed. A free account at Mongo DB is also required.
+To run this project locally you will need an IDE (e.g. VS Code/Gitpod) with PIP , Python 3 and Git installed as weel an account with Stripe.
 Below are the steps to run this project locally for Gitpod although steps may be different depending on the IDE used. 
 
-1. Clone the repository by navigating to the [GitHub Repository ](), and clicking on the code button with the dropdown arrow. 
+* Clone the repository by navigating to the [GitHub Repository ](https://github.com/jameskelly33/Milestone-Project-4-LangSchool), and clicking on the code button with the dropdown arrow. 
+
+* Once you have cloned the repository, download the requirements by running the following command.
+
+        pip3 install -r requirements.txt
+
+* The following environment variables need to be set up to ensure the site is fully functional.
+
+DJANGO_SECRET_KEY = your secret key.
+
+STRIPE_PUBLIC_KEY = your stripe public key.
+
+STRIPE_SECRET_KEY = your stripe secret key.
+
+IN_DEVELOPMENT = True
+
+* The Stripe public key and secret key  can be found on the stripe dashboard.
+
+* You can generate a Django secret key using the [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
+
+* Migrate the models to the database by first checking 
+
+
+        python3 manage.py makemigrations --dry-run
+
+* Then make migrations.
+
+        python3 manage.py makemigrations
+* Check the migration plan to ensure no errors have occurred
+
+        python3 manage.py migrate --plan
+
+* Then, if there are no issues, migrate
+    
+         python3 manage.py migrate
+
+* Create a  superuser to access the admin section.
+
+         python3 manage.py createsuperuser
+
+* Follow the setup  prompts.
+
+* The project is ready to be run tusing the following command.
+
+        python3 manage.py runserver
 
 
 
