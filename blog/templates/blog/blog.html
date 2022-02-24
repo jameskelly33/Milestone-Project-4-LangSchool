@@ -25,6 +25,8 @@
             </a>
               
               <p class='text-muted'>Posted by {{post.author|title}} on {{post.date_posted}} </p>
+              <p class='text-muted'>{{post.total_likes}} {% if post.total_likes == 1 %} like {% else %} likes {% endif %}</p>
+
              <hr class='mt-4'>
 
           </div>
