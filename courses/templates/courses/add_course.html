@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 my-4 col-md-6 mx-md-auto">
-            <h1 class="heading-bg mx-md-auto">Add Course</h1>
+            <h1 class="heading-bg mx-md-auto p-3">Add Course</h1>
             <form method="POST" action="{% url 'add_course' %}" class="form my-5">
                 {% csrf_token %}
                 {{ form | crispy }}
