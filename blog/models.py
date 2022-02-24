@@ -8,7 +8,7 @@ class Post(models.Model):
 
     class Meta:
         verbose_name_plural = 'Posts'
-        ordering = ('date_posted',)
+        ordering = ('-date_posted',)
     
     title = models.CharField(max_length = 100)
     post_description = models.CharField(max_length = 500)
