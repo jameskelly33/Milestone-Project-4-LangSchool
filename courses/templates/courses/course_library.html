@@ -40,10 +40,32 @@
 
 
 <!-- Course Library for med and above screens -->
-<div class="container d-none d-sm-block mt-5">
+
+ {% if not course_list %}
+
+ <div class="container my-5">
+   <div class="row justify-content-center">
+     <div class="col-4">
+       <div class="card h-100">
+            <img src="{{MEDIA_URL}}library.jpg" class=" card-img-top" alt="A student searching for a book in a library">
+          <div class="card-body">
+          <h3 class="card-title">No Search Results found</h3>
+         <p>Sorry, we don't have any courses that match your search term, please try again.</p>
+       </div>
+       </div>
+       
+       </div>
+       
+     </div>
+   </div>
+ </div>
+
+    
+  {% else %}
+  <div class="container d-none d-sm-block mt-5">
   <div class="row g-0">
     <div class="col">
-      {% for course in course_list %}
+        {% for course in course_list %}
       <div class="card bg-light shadow mx-auto my-5 course-card">
         <div class="row g-0">
           <h4 class="card-header course-card-header">{{course.friendly_name}}</h4>
@@ -82,7 +104,8 @@
         </div>
       </div>
       
-    {% endfor %}
+      {% endfor %}
+    {% endif %}
     </div>
     
   </div>

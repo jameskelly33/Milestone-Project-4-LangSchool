@@ -22,9 +22,9 @@ class Course(models.Model):
     class Meta:
         verbose_name_plural = 'Courses'
     # Add options for course levels
-    all = 'All Levels'
-    b1_and_above = 'B1 and over'
-    c1 = 'C1'
+    all = 'all'
+    b1_and_above = 'b1'
+    c1 = 'c1'
     
     course_level_choices= [
         (all,'All levels'),
