@@ -67,10 +67,10 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item mx-lg-2">
-                <a class="nav-link active " aria-current="page" href="{% url 'home' %}">Home</a>
+                <a  {% if request.path == '/' %} class="nav-link active" aria-current="page"{% else %} class="nav-link" {% endif %} href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item mx-lg-2 dropdown">
-                <a class="nav-link dropdown-toggle  " id="Dropdown" href="" role="button"
+                <a class="nav-link {% if 'courses' in request.path %} active" aria-current="page" {% endif %} dropdown-toggle" id="Dropdown" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">Courses</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown">
                   <li><a class="dropdown-item" href="{% url 'course_library' %}?category=general">General English</a></li>
@@ -82,10 +82,10 @@
               </li>
               
               <li class="nav-item mx-lg-2">
-                <a class="nav-link " href="{% url 'level_test' %}">Level Test</a>
+                <a {% if 'level_test' in request.path  %} %} class="nav-link active" aria-current="page"{% else %} class="nav-link" {% endif %} href="{% url 'level_test' %}">Level Test</a>
               </li>
               <li class="nav-item mx-lg-2">
-                <a class="nav-link " href="{% url 'blog' %}">
+                <a {% if 'blog' in request.path %} class="nav-link active" aria-current="page"{% else %} class="nav-link" {% endif %} href="{% url 'blog' %}">
                   Blog
                 </a>
               </li>
@@ -95,20 +95,20 @@
                 {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
                   <li class="nav-item">
-                    <a href="{% url 'add_course' %}" class= 'nav-link '>Add Course</a></li>
+                    <a href="{% url 'add_course' %}"  class="nav-link" >Add Course</a></li>
                     <li>
                   {% endif %}    
               <li class="nav-item">
-                <a href="{% url 'profiles' %}" class= 'nav-link'>My Profile</a></li>
+                <a href="{% url 'profiles' %}" {% if 'profile/' in request.path %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %}>My Profile</a></li>
                 <li>
-                  <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                  <a {% if 'logout' in request.path %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'account_logout' %}">Logout </a>
                 </li>
               {% else %} 
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                <a {% if 'signup' in request.path %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'account_signup' %}">Register</a>
               </li>  
               <li>
-                <a href="{% url 'account_login' %}" class="nav-link ">Login</a>
+                <a href="{% url 'account_login' %}" {% if 'login' in request.path %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %}>Login</a>
               </li>
                 
               {% endif %}
@@ -123,7 +123,6 @@
     </div>
   </div>
 
-    
   {% if messages %}
   <div class="message-container">
     {% for message in messages %}
