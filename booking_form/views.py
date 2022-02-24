@@ -51,17 +51,13 @@ def booking_form(request, course):
                 messages.error(request, f'Sorry, the maximum age for this course is {course.maximum_age}.Please find another course')
                 return redirect(reverse('courses'))
         # Level Verification for B1+ classes
-        if form_data.get('course_level') in ['A1','A2','A2H']:
-            print('test')
-            if course.course_levels != "all":
-                messages.error(request, f'Sorry, the minimum level for this course  {course.course_levels}.Please find another course')
-                return redirect(reverse('courses'))
+        if course.course_levels == "b1" and form_data.get('course_level') in ['A1','A2','A2H']:
+            messages.error(request, f'Sorry, the minimum level for this course is {course.course_levels}.Please find another course')
+            return redirect(reverse('courses'))
         # Level Verification for C1 only classes 
-        elif form_data.get('course_level') != 'C1':
-            if course.course_levels == "C1":
-                print('c1')
-                messages.error(request, f'Sorry, the minimum level for this course  {course.course_levels}.Please find another course')
-                return redirect(reverse('courses'))        
+        if course.course_levels == "c1" and form_data.get('course_level') != 'C1':
+            messages.error(request, f'Sorry, the minimum level for this course  is {course.course_levels}.Please find another course')
+            return redirect(reverse('courses'))        
                 
         else:
             booking_form = BookingForm(form_data)
