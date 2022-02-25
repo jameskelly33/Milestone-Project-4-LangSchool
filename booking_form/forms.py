@@ -5,16 +5,21 @@ from django.core.validators import ValidationError
 import datetime
 
 
-    
-    
+ 
     
    
 
 class BookingForm(forms.ModelForm):
+    # Make course Length field a choice field to better incorporate javascript *see bugs section in readme*
+    
+    course_length = forms.ChoiceField(choices=[(x, x) for x in range(1,52)])  
+    
     class Meta:
         model = Booking
     
-        widgets = {'course_start_date': forms.DateInput(attrs={'type':'date','class':'myDateClass'})}
+        widgets = {
+            'course_start_date': forms.DateInput(attrs={'type':'date','class':'myDateClass'}),
+            }
         fields = ('full_name', 'email', 'phone_number',
                   'country', 'nationality',
                   'first_language', 'age',
@@ -25,7 +30,7 @@ class BookingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated
+        Add placeholders and stripe class, remove auto-generated
         labels and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
@@ -63,5 +68,5 @@ class BookingForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+           
             self.fields[field].label = False
