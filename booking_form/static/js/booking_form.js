@@ -10,7 +10,7 @@ courseLength.addEventListener("change", calculateTotal);
 function calculateTotal(){
 
     currentTotal = parseFloat(courseLength.value) * parseFloat(courseCostPerWeek)
-    totalCourseCost.innerText = currentTotal.toFixed(2))
+    totalCourseCost.innerText = currentTotal.toFixed(2)
 }
 
 
