@@ -10,8 +10,8 @@
 
     <div class="row">
         <div class="col-md-8 mx-auto">
-            <h1 class= 'text-center my-5 bg-green px-2 mx-auto test-heading'>Level Test</h1>
-            <h2 class="text-center" >Discover your English level by taking our test.</h2>
+            <h1 class= 'text-center my-1 my-md-5 bg-green px-2 mx-auto test-heading'>Level Test</h1>
+            <h2 class="text-center d-none d-md-block" >Discover your English level by taking our test.</h2>
             <p class= 'text-center'>Choose the answer that best fits the gap</p>
 
         </div>
@@ -22,7 +22,7 @@
 
 <form  method ="GET" action="{% url 'check_answer' question_counter total %}">
 
-<div class="container question-container pb-5 my-5">
+<div class="container question-container my-md-5">
         <div class="card mb-5">
             <div class="card-header">
                 <h3 class='border rounded-circle question-number text-center'>{{question.question_number}}</h3>
@@ -30,20 +30,20 @@
             </div>
             <div class="card-block ">
                 <div class="row  g-0 text-center">
-                    <div class="col-md-6 border py-3">
+                    <div class="col-sm-6 border py-2 py-md-3 py-lg-5">
                         <button name='answer' value='{{question.option1}}'
-                            class='btn btn-primary w-50 h-75 my-3'>{{question.option1}}</button>
+                            class='btn btn-primary w-50 h-75 p-md-4 my-3'>{{question.option1}}</button>
                     </div>
-                    <div class=" col-md-6 py-3 border ">
-                        <button name='answer' class='btn btn-primary w-50 h-75 my-3' 
+                    <div class=" col-sm-6 py-2 py-md-3 py-lg-5 border ">
+                        <button name='answer' class='btn btn-primary p-md-4 w-50 h-75 my-3' 
                             value='{{question.option2}}'>{{question.option2}}</button>
                     </div>
-                    <div class=" col-md-6 py-3 border ">
-                        <button name='answer' class='btn btn-primary w-50 h-75 my-3' 
+                    <div class=" col-sm-6 py-2 py-md-3 py-lg-5 border ">
+                        <button name='answer' class='btn btn-primary p-md-4 w-50 h-75 my-3' 
                             value='{{question.option3}}'>{{question.option3}}</button>
                     </div>
-                    <div class=" col-md-6 py-3 border ">
-                        <button name='answer' class='btn btn-primary w-50 h-75 my-3'
+                    <div class=" col-sm-6 py-2 py-md-3  py-lg-5 border ">
+                        <button name='answer' class='btn btn-primary p-md-4 w-50 h-75 my-3'
                             value='{{question.option4}}'>{{question.option4}}</button>
                     </div>
 
