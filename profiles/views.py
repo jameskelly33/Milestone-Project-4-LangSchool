@@ -38,8 +38,6 @@ def profiles(request):
         'bookings':bookings,
         'profile':profile,
         'liked_posts':liked_posts,
-        
-       
     }
 
     return render(request, 'profiles/profiles.html', context)

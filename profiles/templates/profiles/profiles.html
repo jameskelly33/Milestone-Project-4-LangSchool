@@ -18,12 +18,20 @@
                 {{ form|crispy }}
                 <button class="btn btn-primary my-3">Update Information</button>
             </form>
-            <h1>You have liked the following articles</h1>
-           {% for key,value in liked_posts.items %}
             
-            <a href="{% url 'blog_post' key %}">{{value}}</a>
+            <h2 class="mt-3">Liked Blog Posts</h2>
+            <hr>
+           {% if liked_posts %}
+            {% for key,value in liked_posts.items %}
+            <a class="text-decoration-none blog-preview" href="{% url 'blog_post' key %}">
+                <p class="blog-sub-heading">{{value}}</p>
+            </a>
          
-           {% endfor %} 
+           {% endfor %}
+           {% else %}
+           <p>You haven't liked any blog posts yet. </p>
+           <a class='btn btn-primary' href="{% url 'blog' %}">Go to Blog</a> 
+           {% endif %}
         </div>  
         <div class="col-12 col-md-6 mb-5">
             <h2 class="my-4">Bookings</h2>
