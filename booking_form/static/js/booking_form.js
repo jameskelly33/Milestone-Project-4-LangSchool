@@ -5,12 +5,12 @@ const courseCostPerWeek =totalCourseCost.textContent
 
 let currentTotal  
 
-courseLength.addEventListener("click", calculateTotal);
+courseLength.addEventListener("change", calculateTotal);
 
 function calculateTotal(){
 
     currentTotal = parseFloat(courseLength.value) * parseFloat(courseCostPerWeek)
-    totalCourseCost.innerText = currentTotal.toFixed(2)
+    totalCourseCost.innerText = currentTotal.toFixed(2))
 }
 
 
