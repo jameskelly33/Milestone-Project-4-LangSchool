@@ -44,7 +44,8 @@
 </head>
 
 <body>
-
+<div id="page-container"> 
+  <div id="content-wrap">
   <div class="container-fluid">
     <div class="row">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -140,7 +141,7 @@
 
 
   {% block content %}
-  
+  </div>
   {% endblock %}
       
   
@@ -148,7 +149,7 @@
     
     {% block footer %}
     <!-- Footer -->
-    <div class="container-fluid d-block">
+    <div class="container-fluid d-block" id="'footer">
       <div class="row">
         <footer class="text-center text-lg-start bg-light text-muted">
       <!-- Section: Social media -->
@@ -260,7 +261,7 @@
     </div>
     {% endblock %}
     
-  
+</div>
 
     {% block postloadjs %}
 
