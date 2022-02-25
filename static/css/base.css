@@ -45,13 +45,7 @@ body{
   color:var(--main-green);
   font-size:5rem;
 }
-.lg-icons:hover{
-  color:var(--secondary-green);
-}
 
-.lg-icons:active{
-  color:var(--secondary-green);
-}
 
 /* Custom Button styles */
 .btn{
@@ -84,11 +78,7 @@ body{
   border-color:var(--main-green);
 }
 
-.alternate_btn:disabled{
-  background-color: var(--button-background);
-  border-color: var(--button-background);
-  opacity: 1;
-}
+
 .alternate_btn:hover{
   background-color: var(--secondary-button-background);
   border-color:var(--secondary-button-background);
@@ -109,10 +99,6 @@ body{
   background-color: var(--secondary-green);
   border-color:var(--secondary-green);
 }
-
-
-
-
 
 
 .hero-text{
@@ -161,9 +147,7 @@ body{
    font-size:1rem;
  }
 
- .banner-heading-text{
-   
- }
+
 }
 
 
@@ -185,7 +169,7 @@ body{
 
 @media screen and (min-width:1200px){
   .lg-green{
-    color:#5EC27D;
+    color:var(--main-green);
     font-size:7rem;
   }
 }
@@ -197,7 +181,7 @@ body{
 }
 
 .nav-link:focus, .nav-link:hover {
-  color:#a85f16;
+  color:var(--secondary-button-background);
 }
 .nav-link{
   color:black;
