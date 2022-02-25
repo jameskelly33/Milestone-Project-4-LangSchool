@@ -21,17 +21,18 @@ class Booking(models.Model):
     a2h = 'A2H'
     b1 = 'B1'
     b2 = 'B2'
-    b2h = 'B2H'
     c1 ='C1'
     level_choices= [
         (a1,'A1 - Beginner'),
         (a2, 'A2- Elementary'),
         (a2h, 'A2H- Pre-Intermediate'),
         (b1, 'B1- Intermediate'),
-        (b2h, 'B2H- Upper-Intermediate'),
+        (b2, 'B2- Upper-Intermediate'),
         (c1, 'C1- Advanced'),
         
     ]
+    
+
     # Validator to prevent users from booking a course in the past
     def no_past_dates(value):
         today = datetime.datetime.now().date()
