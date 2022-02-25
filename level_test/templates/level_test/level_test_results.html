@@ -43,18 +43,18 @@
           <div class="row  g-0 text-center">
               <div class="col-md-6 border py-3">
                   <button  value='{{question.option1}}' disabled
-                      class='btn btn-primary w-50 h-75 my-3 {% if question.correct_answer == question.option1 %}alternate-btn shadow'{% endif %}>{{question.option1}}</button>
+                      class='btn btn-primary w-50 h-75 my-3 {% if question.correct_answer == question.option1 %}bg-success border-success shadow{% endif %}'>{{question.option1}}</button>
               </div>
               <div class=" col-md-6 py-3 border ">
-                  <button  disabled class='btn btn-primary w-50 h-75 my-3 {% if question.correct_answer == question.option2 %}alternate-btn shadow{% endif %}' 
+                  <button  disabled class='btn btn-primary w-50 h-75 my-3 {% if question.correct_answer == question.option2 %}bg-success border-success shadow{% endif %}' 
                       >{{question.option2}}</button>
               </div>
               <div class=" col-md-6 py-3 border ">
-                  <button disabled class='btn btn-primary w-50 h-75 my-3 {% if question.correct_answer == question.option3 %}alternate-btn shadow{% endif %}' 
+                  <button disabled class='btn btn-primary w-50 h-75 my-3 {% if question.correct_answer == question.option3 %}bg-success border-success shadow{% endif %}' 
                      >{{question.option3}}</button>
               </div>
               <div class=" col-md-6 py-3 border ">
-                  <button disabled class='btn btn-primary w-50 h-75 my-3 disabled {% if question.correct_answer == question.option4 %}alternate-btn shadow{% endif %}'>{{question.option4}}</button>
+                  <button disabled class='btn btn-primary w-50 h-75 my-3 {% if question.correct_answer == question.option4 %}bg-success border-success shadow{% endif %}'>{{question.option4}}</button>
               </div>
 
           </div>
