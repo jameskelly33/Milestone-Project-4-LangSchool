@@ -3,9 +3,30 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col banner">
-            <h1 class="heading-bg">Sorry, that action is forbidden</h1>
-            <a href="{% url 'home' %}">Return to Home</a>
+            <h1 class="heading-bg p-3 mx-auto text-center my-5">Oh dear!</h1>
         </div>
     </div>
+</div>
+<div class="container-fluid my-5">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card">
+                <h4 class="card-header course-card-header">
+                    Error 403
+                </h4>
+                <div class="card-body p-5 text-center">
+                    <h4 class="card-title">Sorry, that action is forbidden</h4>
+                    
+                </div>
+                <div class="card-footer text-center bg-transparent border-0">
+                    <a class='btn btn-primary' href="{% url 'home' %}">Return to Home</a>
+                </div>
+               
+                
+            </div>
+            
+        </div>
+    </div>
+    
 </div>
 {% endblock %}
