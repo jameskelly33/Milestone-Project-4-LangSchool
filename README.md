@@ -389,6 +389,9 @@ The full models and their relationship to each other are outlined in the schema 
 * [Vivify CSS](http://vivify.mkcreative.cz/)
     * Used for CSS animations throughout the site.
 
+* [Markdown Toc](http://ecotrust-canada.github.io/markdown-toc/ )   
+    * Used to create table of contents
+
 ## **Testing**
 
 Testing information can be found in this [separate file](TESTING.md). 
