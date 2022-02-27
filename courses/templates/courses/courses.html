@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
+{% block extra_title %} - Courses {% endblock %}
 
 
 {% block content %}
@@ -21,7 +21,7 @@
 <div class="container my-3 ">
   <div class="row">
     <div class="col-lg-6 mx-lg-auto">
-      <form class="d-flex justify-content-center " method="GET" action="{% url 'courses'%}">
+      <form class="d-flex justify-content-center" method="GET" action="{% url 'courses'%}">
         <input class="form-control" type="search" name='q' placeholder="Search all courses" aria-label="Search">
         <button class="btn btn-primary form-btn ms-2" type="submit">Search</button>
       </form>
@@ -83,7 +83,7 @@
           <h2 class="accordion-header" id="{{category.name}}_heading">
             <button class="accordion-button {% if forloop.counter > 1 %} collapsed {% endif %}" type="button"
               data-bs-toggle="collapse" data-bs-target="#collapse-{{category.name}}"
-              aria-controls="collapse{{category.name}}">
+              aria-controls="collapse-{{category.name}}">
               {{category.friendly_name}}
             </button>
           </h2>
