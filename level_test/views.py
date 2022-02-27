@@ -5,10 +5,12 @@ from django.contrib import messages
 
 def level_test(request):
     question_counter = 1
+    progress_bar_width = question_counter * 5
     question = Question.objects.get(question_number=question_counter)
     questions = Question.objects.all()
     total = 0
     context = {
+        'progress_bar_width':progress_bar_width,
         'question': question,
         'question_counter': question_counter,
         'total': total,
@@ -65,6 +67,7 @@ def check_answer(request, question_counter, total):
                           context)
     else:
         question_counter += 1
+        progress_bar_width = question_counter * 5
         question = Question.objects.get(question_number=question_counter)
         answer = request.GET['answer']
         if answer == correct_answer:
@@ -80,6 +83,8 @@ def check_answer(request, question_counter, total):
                 'question_counter': question_counter,
                 'total': total,
                 'total_qs': total_qs,
-                'all_questions': all_questions
+                'all_questions': all_questions,
+                'progress_bar_width':progress_bar_width
+                
             }
         return render(request, 'level_test/level_test.html', context)
