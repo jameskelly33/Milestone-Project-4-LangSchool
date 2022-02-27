@@ -28,7 +28,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 4. ***Find out about the teachers and their style of teaching***
 - Users can navigate to the blog of the site which provides articles relating to learning English written by the school's teachers. Although they will have to register to view the article(see user story 10)
 
-5. ***Find out which course would suit my current level of English best ***
+5. ***Find out which course would suit my current level of English best***
 - Users can take an interactive level test to find out roughly what level of English they have and can book a course accordingly.
 
 ### **User stories 6 - 9**
@@ -136,7 +136,7 @@ All steps were taken on Google Chrome, Firefox, Safari and Internet Explorer on 
 
 **Course Category View**
 * Check that all course cards are appropriate to the course category view i.e. if the user is on the General English Course Library view make sure that every course card is of the category General English. 
-* * Try to submit an empty search query to check error message is displayed.
+* Try to submit an empty search query to check error message is displayed.
 * Try to submit a search for a term that is not included in the courses to check that the user sees the no results message.
 * Try to submit a search for appropriate terms found in the course library to check that the correct results are displayed in the course library view.
 * Check that each course card is showing a Card Header with the Course Name, the course description in the main card body, the minimum class size, total course hours, and minimum age in the card footer and course timetable, course cost and cost in the second column. 
@@ -218,13 +218,15 @@ All steps were taken on Google Chrome, Firefox, Safari and Internet Explorer on 
 * Check that the question number start at 1 and the correct question from the database and its four options are displayed.
 * Check that the question layout changes from 2 columns to 1 column on mobile screens.
 * Select the correct answer and check that the success message is displayed and the next question is loaded.
+* Check that the progress bar increases by 5% for each question.
 * Select the incorrect answer and check that error message is displayed and the next question is loaded.
 * Repeat the above process for each question.
 
 
 
-    ![A GIF of the level test functionality ](media/readme_images/testing/level_test.gif)
+    ![A GIF of the level test functionality ](media/readme_images/testing/level_test1.gif)
 
+    ![A GIF of the level test functionality ](media/readme_images/testing/level_test2.gif)
 
 
 **Level Test Results Page**
