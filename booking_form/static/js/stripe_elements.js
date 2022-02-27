@@ -1,9 +1,9 @@
 
-
+// Payment logic and Stripe functionality adapted from Code Institue Project Boutique Ado https://github.com/Code-Institute-Solutions/boutique_ado_v1/
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
-console.log(clientSecret)
-console.log (stripePublicKey)
+console.log(clientSecret);
+console.log (stripePublicKey);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
@@ -38,17 +38,11 @@ card.addEventListener('change', function (event) {
         errorDiv.textContent = '';
     }
 });
-
-
+// Get email and phone number to add to billing info
 var form = document.getElementById('payment-form');
-var bookingName = document.getElementById('full-name')
-var bookingEmail = document.getElementById('email')
-var bookingPhoneNumber = document.getElementById('phone-number')
+var bookingEmail = document.getElementById('email');
+var bookingPhoneNumber = document.getElementById('phone-number');
 
-
-
-
- 
 form.addEventListener('submit', function(ev) {
 ev.preventDefault();
 card.update({ 'disabled': true});
