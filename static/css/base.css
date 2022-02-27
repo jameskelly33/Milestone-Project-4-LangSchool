@@ -1,18 +1,17 @@
 :root {
   --main-white: #ecf4ef;
   --main-green: #5EC27D;
-  --secondary-green:#305e3f;
-  --button-background:#D47F2B;
-  --secondary-button-background:#a85f16;
- 
+  --secondary-green: #305e3f;
+  --button-background: #D47F2B;
+  --secondary-button-background: #a85f16;
 }
 
-html{
-    height:100%
+html {
+  height: 100%
 }
 
-body{
-  height:100%;
+body {
+  height: 100%;
   width: 100%;
   font-family: 'Raleway', sans-serif;
 }
@@ -24,127 +23,134 @@ body{
 }
 
 #content-wrap {
-  padding-bottom: 2.5rem;    
+  padding-bottom: 2.5rem;
 }
 
 #footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;            
+  height: 2.5rem;
 }
 
-.hidden{
-  display:none;
+.hidden {
+  display: none;
 }
 
 /* Homepage */
-.banner{
- height: 50vh;
- background-image: url(/media/templebar.jpg);
- background-position: center;
- background-size: cover;
+.banner {
+  height: 50vh;
+  background-image: url(/media/templebar.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
-.why-study-banner{
+.why-study-banner {
 
-  background-color:var(--main-green);
-  color:var(--main-white);
+  background-color: var(--main-green);
+  color: var(--main-white);
 }
 
-.text-black{
+.text-black {
   color: black;
 }
-.green{
+
+.green {
   color: var(--main-green);
 }
-.lg-icons{
-  color:var(--main-green);
-  font-size:5rem;
+
+.lg-icons {
+  color: var(--main-green);
+  font-size: 5rem;
 }
 
-.title-text{
-    animation-name: fadeInLeft;
-    animation-duration: 2s;
-    }
-
-.title-text-divider{
-  width:50vw;
-  margin:auto;
+.title-text {
   animation-name: fadeInLeft;
   animation-duration: 2s;
 }
 
-.title-text-2{
-  animation-name: fadeInBottom;
-  animation-duration: 2s;}
+.title-text-divider {
+  width: 50vw;
+  margin: auto;
+  animation-name: fadeInLeft;
+  animation-duration: 2s;
+}
 
-.title-text-3{
+.title-text-2 {
+  animation-name: fadeInBottom;
+  animation-duration: 2s;
+}
+
+.title-text-3 {
   animation-name: fadeInBottom;
   animation-duration: 2.5s;
 }
 
-.title-text-4{
+.title-text-4 {
   animation-name: fadeInBottom;
   animation-duration: 2.75s;
 }
 
-.title-btn{
+.title-btn {
   animation-name: fadeInBottom;
-  animation-duration:3s;
+  animation-duration: 3s;
 }
 
 /* Homepage Small Screens */
 
-@media screen and (max-width:720px){
-  .banner{
-  height: 40vh;
-  background-image: url(/media/templebar.jpg);
-  background-position: center;
-  background-size: cover;
- }
+@media screen and (max-width:720px) {
+  .banner {
+    height: 40vh;
+    background-image: url(/media/templebar.jpg);
+    background-position: center;
+    background-size: cover;
+  }
 
- .banner-text{
-   font-size:1rem;
- }
+  .banner-text {
+    font-size: 1rem;
+  }
 }
 
 /* Homepage Medium Screens */
-@media screen and (min-width:720px){
-  .title-text-2{
+@media screen and (min-width:720px) {
+  .title-text-2 {
     font-size: 1.5rem;
   }
-  .title-text-3{
+
+  .title-text-3 {
     font-size: 1.5rem;
   }
-  .title-text-4{
+
+  .title-text-4 {
     font-size: 1.5rem;
   }
-  .title-btn{
+
+  .title-btn {
     font-size: 1.5rem;
   }
 }
+
 /* Homepage Large Screens */
 
-@media screen and (min-width:1200px){
-  .lg-green{
-    color:var(--main-green);
-    font-size:7rem;
+@media screen and (min-width:1200px) {
+  .lg-green {
+    color: var(--main-green);
+    font-size: 7rem;
   }
 }
 
 /* Animated  and non-animated Heading Background used throughout the site */
-.heading-bg{
+.heading-bg {
   background-color: var(--main-green);
   color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
-  width:fit-content;
+  width: fit-content;
   animation-name: fadeInLeft;
-  animation-duration:2s;
+  animation-duration: 2s;
 }
 
-.bg-green{
+.bg-green {
   background: var(--main-green);
   color: white;
   border: 3px solid #f1f1f1;
@@ -152,83 +158,87 @@ body{
 }
 
 /* Custom Button styles used throughout the site */
-.btn{
-  background-color:var(--button-background);
-  border-color:var(--button-background);
+.btn {
+  background-color: var(--button-background);
+  border-color: var(--button-background);
 }
 
-.btn:disabled{
+.btn:disabled {
   background-color: var(--button-background);
   border-color: var(--button-background);
   opacity: 1;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: var(--secondary-button-background);
-  border-color:var(--secondary-button-background);
+  border-color: var(--secondary-button-background);
 }
 
-.btn:active{
+.btn:active {
   background-color: var(--secondary-button-background);
-  border-color:var(--secondary-button-background);
-}
-.btn:focus{
-    background-color:var(--secondary-button-background);
-    border-color: var(--secondary-button-background);
-    box-shadow: 0 0 0 0.25rem rgba(231, 87, 4, 0.733);
-}
-.alternate_btn{
-  background-color:var(--main-green);
-  border-color:var(--main-green);
+  border-color: var(--secondary-button-background);
 }
 
-.alternate_btn:hover{
+.btn:focus {
   background-color: var(--secondary-button-background);
-  border-color:var(--secondary-button-background);
+  border-color: var(--secondary-button-background);
+  box-shadow: 0 0 0 0.25rem rgba(231, 87, 4, 0.733);
 }
 
-.alternate_btn:active{
+.alternate_btn {
+  background-color: var(--main-green);
+  border-color: var(--main-green);
+}
+
+.alternate_btn:hover {
+  background-color: var(--secondary-button-background);
+  border-color: var(--secondary-button-background);
+}
+
+.alternate_btn:active {
   background-color: var(--secondary-green);
-  border-color:var(--secondary-green);
+  border-color: var(--secondary-green);
 }
 
-.alternate_btn:focus{
-    background-color:var(--secondary-green);
-    border-color: var(--secondary-green);
-    box-shadow: 0 0 0 0.25rem rgba(15, 75, 38, 0.733);
-}
-
-.alternate_btn:hover{
+.alternate_btn:focus {
   background-color: var(--secondary-green);
-  border-color:var(--secondary-green);
+  border-color: var(--secondary-green);
+  box-shadow: 0 0 0 0.25rem rgba(15, 75, 38, 0.733);
+}
+
+.alternate_btn:hover {
+  background-color: var(--secondary-green);
+  border-color: var(--secondary-green);
 }
 
 /* Course Category Navigation */
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
   color: #fff;
   background-color: var(--button-background);
 }
 
-.nav-link:focus, .nav-link:hover {
-  color:var(--secondary-button-background);
-}
-.nav-link{
-  color:black;
+.nav-link:focus,
+.nav-link:hover {
+  color: var(--secondary-button-background);
 }
 
-.course-card-header{
+.nav-link {
+  color: black;
+}
+
+.course-card-header {
   background-color: var(--button-background);
-  color:var(--main-white);
+  color: var(--main-white);
 }
 
-.course-banner-img{
+.course-banner-img {
   background-image: url(/media/templebar.jpg);
-  height:50vh;
+  height: 50vh;
   background-position: center;
   background-size: cover;
 }
-
 
 
 .accordion-button:not(.collapsed) {
@@ -237,15 +247,15 @@ body{
 }
 
 .accordion-button:not(.collapsed)::after {
-  
-color:var(--main-white)
+
+  color: var(--main-white)
 }
 
-.course-details-footer{
+.course-details-footer {
   font-size: 0.5rem;
 }
 
-.bg-green{
+.bg-green {
   background: var(--main-green);
   color: white;
   border: 3px solid #f1f1f1;
@@ -254,35 +264,36 @@ color:var(--main-white)
 
 /* Level Test CSS */
 
-.question-number{
+.question-number {
   background: var(--main-green);
   color: white;
-  width:1.5em;
-  height:1.5em;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 
-.level-test-banner-img{
+.level-test-banner-img {
   background-image: url(/media/students_doing_exam.jpg);
-  height:50vh;
+  height: 50vh;
   background-position: center;
   background-size: cover;
 }
+
 /* Blog CSS */
 
-.blog-banner-img{
-    background-image: url(/media/book_laptop.jpg);
-    height:50vh;
-    background-position: center;
-    background-size: cover;
+.blog-banner-img {
+  background-image: url(/media/book_laptop.jpg);
+  height: 50vh;
+  background-position: center;
+  background-size: cover;
 }
 
-.blog-heading{
+.blog-heading {
 
-  letter-spacing:0.2rem;
+  letter-spacing: 0.2rem;
 }
 
-.blog-sub-heading{
+.blog-sub-heading {
   font-size: 1.5rem;
 }
 
@@ -290,11 +301,11 @@ color:var(--main-white)
   color: var(--secondary-green);
 }
 
-.blog-preview:hover{
-  color:var(--main-green)
+.blog-preview:hover {
+  color: var(--main-green)
 }
 
-.post-content{
+.post-content {
   line-height: 2;
   font-size: 1.25rem;
 }
@@ -302,56 +313,58 @@ color:var(--main-white)
 
 /* Allauth forms styles */
 
-.all-auth-banner{
+.all-auth-banner {
   height: 40vh;
   background-image: url(/media/templebar.jpg);
   background-position: center;
   background-size: cover;
- }
- 
-.allauth-form-inner-content, .buttonHolder {
-  margin-top: 1.5rem; /* mt-4 */}
-  
+}
+
+.allauth-form-inner-content,
+.buttonHolder {
+  margin-top: 1.5rem;
+  /* mt-4 */
+}
+
 .allauth-form-inner-content a {
-	color:var(--secondary-green)
+  color: var(--secondary-green)
 }
 
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type='submit'] {
-	/* Bootstrap  btn styling */
-	display: inline-block;
-    font-weight: 400;
-    color: var(--main-white);
-    text-align: center;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: var(--button-background);
-    border: var(--button-background);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 0;
+  /* Bootstrap  btn styling */
+  display: inline-block;
+  font-weight: 400;
+  color: var(--main-white);
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: var(--button-background);
+  border: var(--button-background);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0;
 
-    /* Standard bootstrap btn transitions */
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  /* Standard bootstrap btn transitions */
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .allauth-form-inner-content button:hover,
-.allauth-form-inner-content input[type='submit']:hover {	
-	color: #fff;
-    background-color: var(--secondary-button-background);
-    border-color: var(--secondary-button-background);
+.allauth-form-inner-content input[type='submit']:hover {
+  color: #fff;
+  background-color: var(--secondary-button-background);
+  border-color: var(--secondary-button-background);
 }
 
 /* Django Message Toasts */
 
-.message-container{
-  position:fixed;
-  top:75px;
+.message-container {
+  position: fixed;
+  top: 75px;
   right: 15px;
   z-index: 99999999999;
 }
-
