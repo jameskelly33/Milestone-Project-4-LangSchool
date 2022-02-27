@@ -154,7 +154,13 @@ The courses page can be navigated to from the navbar, the individual course card
 
 The all courses view has a heading with the question 'What type of course are you looking for?" and a vertical pills nav section with an accompanying card with information about each course category. If a user clicks on the find course button for a category they will be taken to the course library view as shown below. The user also has the option to search for a term in the search bar above the course category navigation which will return the course library view showing only courses which include the search term. 
 
+
 ![A screenshot of the courses page](media/readme_images/courses/courses.png "Screenshot of the Courses Page")
+
+On mobile versions of the site the nav is replaced by an accordion to better make use of the limited screen size. 
+
+![A screenshot of the courses mobile screen accordion](media/readme_images/courses/accordion.png "Screenshot of the Courses Mobile Screen Accordion")
+
 
 The course library view includes the search bar for any further search terms the user might want to use. Below the search box the user will be shown the course detail cards giving the user all the information they need about each course in a particular category or matching a search term. 
 
@@ -263,7 +269,7 @@ Each toast has a header colour matching the type of message with bootstrap's bui
 
 All 404, 403 and 500 errors will trigger the custom error pages with the main banner and a card message detailing the error and a link to return to the homepage.
 
-![A screenshot of error page](media/readme_images/error/404.png.png "Screenshot of error page")
+![A screenshot of error page](media/readme_images/error/404.png "Screenshot of error page")
 
 **Admin Procedures**
 
@@ -751,7 +757,7 @@ The CSS code for pushing the footer to the bottom of the page was taken from [th
 
 ### **Acknowledgements**
 
-Thanks to Chris Zielinksi for such a thorough guide to building a project of this scope in Django, and as well for the helpful responses to common issues encounter on the Code Institute Slack channel. 
+Thanks to Chris Zielinksi for such a thorough guide to building a project of this scope in Django, and as well for the helpful responses to common issues encountered on the Code Institute Slack channel. 
 
 Thanks to family and friends for testing the site and looking for typos.
 
