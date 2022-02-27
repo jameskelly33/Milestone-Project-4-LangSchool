@@ -22,13 +22,12 @@
   <div class="row">
     <div class="col-lg-6 mx-lg-auto">
       <form class="d-flex justify-content-center " method="GET" action="{% url 'courses'%}">
-        <input  class="form-control" type="search" name='q'
-          placeholder="Search all courses" aria-label="Search" >
+        <input class="form-control" type="search" name='q' placeholder="Search all courses" aria-label="Search">
         <button class="btn btn-primary form-btn ms-2" type="submit">Search</button>
       </form>
     </div>
   </div>
-</div> 
+</div>
 
 <div class="container">
   <div class="row">
@@ -41,7 +40,6 @@
 <div class="container	d-none d-sm-block my-5" id='category_tabs'>
   <div class="row">
     <div class="col course-category-tabs col-lg-8 mx-lg-auto ">
-    
       <div class="d-flex align-items-start">
         <div class="nav flex-column nav-pills mt-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
           {% for category in categories %}
@@ -51,10 +49,8 @@
             aria-controls="v-pills-{{category.name}}">{{category.friendly_name}}</button>
           {% endfor %}
         </div>
-
         <div class="tab-content ms-3 mt-3" id="v-pills-tabContent">
           {% for category in categories %}
-
           <div {% if forloop.counter == 1 %} class="tab-pane fade show active" {% else %} class="tab-pane fade show"
             {% endif %} id="v-pills-{{category.name}}" role="tabpanel" aria-labelledby="v-pills-{{category.name}}-tab">
             <div class="card">
@@ -64,20 +60,18 @@
               <div class="card-body">
                 <h5 class="card-title">{{category.friendly_name}}</h5>
                 <p class="card-text text-start">{{category.category_description}}</p>
-                <a href="{% url 'course_library' %}?category={{category.name}}" class="btn btn-primary" id="{{category.name}}_btn">Find Courses</a>
+                <a href="{% url 'course_library' %}?category={{category.name}}" class="btn btn-primary"
+                  id="{{category.name}}_btn">Find Courses</a>
               </div>
             </div>
           </div>
           {% endfor %}
         </div>
       </div>
-
     </div>
   </div>
 </div>
 </div>
-
-
 
 <!-- Accordion for small screens only-->
 <div class="container d-xs-block d-sm-none">
@@ -100,14 +94,14 @@
                 <div class="card-body">
                   <h5 class="card-title">{{category.friendly_name}}</h5>
                   <p class="card-text">{{category.category_description}}</p>
-                  <a href= "{% url 'course_library' %}?category={{category.name}}" class="btn btn-primary">Find Courses</a>
+                  <a href="{% url 'course_library' %}?category={{category.name}}" class="btn btn-primary">Find
+                    Courses</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
         {% endfor %}
-
       </div>
     </div>
   </div>
@@ -122,23 +116,24 @@
       <div class="card shadow mx-auto my-3 course-card">
         <div class="row g-0">
           <div class="card-header course-card-header">{{course.friendly_name}}
-        </div>
+          </div>
           <div class="col">
             <div class="card-body mb-3 ">
-                <p class="card-text">{{course.course_description}}</p>
+              <p class="card-text">{{course.course_description}}</p>
             </div>
             <div class="card-footer bg-light ">
               <ul class="list-group list-group-horizontal text-center">
                 <li class="list-group-item mx-md-3 ">Total Course Hours {{course.course_hours}}</li>
                 <li class="list-group-item mx-md-3 "> Minimum Age {{course.minimum_age}}</li>
-                <li class="list-group-item  mx-md-3">Maximum Class Size  {{course.maximum_class_size}} </li>
+                <li class="list-group-item  mx-md-3">Maximum Class Size {{course.maximum_class_size}} </li>
               </ul>
             </div>
           </div>
           <div class="col-md-4 bg-light">
             <div class="card shadow my-3 mx-3">
               <ul class="list-group ">
-                <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span> {{course.course_timetable}} </li>
+                <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span>
+                  {{course.course_timetable}} </li>
                 <li class="list-group-item "><span class='me-1'><i class="fas fa-calendar"></i></span>Course Length - 4
                   weeks</li>
                 <li class="list-group-item"> <span class='me-1'><i class="fas fa-euro"></i></span> Cost - €275 per week
@@ -153,60 +148,49 @@
         </div>
       </div>
       {% endfor %}
-
     </div>
-    
   </div>
-
 </div>
 
+<!-- Course Library for small screens only -->
 
-
-
-
- <!-- Course Library for small screens only -->   
-
-<div class="container  d-xs-block d-sm-none ">
+<div class="container d-xs-block d-sm-none ">
   <div class="row">
-    <div class="col"> 
+    <div class="col">
       {% for course in course_list %}
       <div class="card shadow mx-auto my-5 course-card">
         <div class="card-header course-card-header">
           {{course.friendly_name }}
         </div>
         <div class="card-body ">
-         
-            <p class="card-text">{{course.course_description}}</p>
-      </div>
-      <div class="card-footer">
-        <div class="row">
-          <ul class="list-group text-center">
-            <li class="list-group-item">{{course.course_hours}} Lessons Per Week</li>
-            <li class="list-group-item ">Minimum Age {{course.minimum_age}}</li>
-            <li class="list-group-item ">Maximum Class Size {{course.maximum_class_size}}</li>
-          </ul>
-          
+          <p class="card-text">{{course.course_description}}</p>
         </div>
-        <div class="row my-2">
-       
+        <div class="card-footer">
+          <div class="row">
             <ul class="list-group text-center">
-              <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span> {{course.course_timetable}} </li>
+              <li class="list-group-item">{{course.course_hours}} Lessons Per Week</li>
+              <li class="list-group-item ">Minimum Age {{course.minimum_age}}</li>
+              <li class="list-group-item ">Maximum Class Size {{course.maximum_class_size}}</li>
+            </ul>
+          </div>
+          <div class="row my-2">
+            <ul class="list-group text-center">
+              <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span>
+                {{course.course_timetable}} </li>
               <li class="list-group-item "><span class='me-1'><i class="fas fa-calendar"></i></span>Course Length - 4
                 weeks</li>
               <li class="list-group-item"> <span class='me-1'><i class="fas fa-euro"></i></span> Cost - €275 per week
               </li>
             </ul>
           </div>
-
           <div class="d-flex justify-content-center my-3">
             <button class="btn btn-primary">Book Course</button>
           </div>
+        </div>
       </div>
-      
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
-</div>
 </div>
 
 

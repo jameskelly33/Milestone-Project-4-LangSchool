@@ -99,7 +99,6 @@
                     </a>
                   </li>
                 </ul>
-
                 <ul class='d-flex navbar-nav ms-lg-auto'>
                   {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
@@ -123,13 +122,8 @@
                     <a href="{% url 'account_login' %}" {% if 'login' in request.path %} class="nav-link active"
                       aria-current="page" {% else %} class="nav-link" {% endif %}>Login</a>
                   </li>
-
                   {% endif %}
-
                 </ul>
-
-
-
               </div>
             </div>
           </nav>
@@ -155,15 +149,10 @@
         {% endfor %}
       </div>
       {% endif %}
-
-
-
+      
       {% block content %}
     </div>
     {% endblock %}
-
-
-
 
     {% block footer %}
     <!-- Footer -->
@@ -176,30 +165,25 @@
               <span>Get connected with us on social networks:</span>
             </div>
             <div>
-              <a href="" class="me-4 text-reset">
+              <a href="https://www.facebook.com/" class="me-4 text-reset">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="" class="me-4 text-reset">
+              <a href="https://twitter.com/home" class="me-4 text-reset">
                 <i class="fab fa-twitter"></i>
               </a>
-              <a href="" class="me-4 text-reset">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="" class="me-4 text-reset">
+
+              <a href="https://www.instagram.com/" class="me-4 text-reset">
                 <i class="fab fa-instagram"></i>
               </a>
-              <a href="" class="me-4 text-reset">
+              <a href="https://ie.linkedin.com/" class="me-4 text-reset">
                 <i class="fab fa-linkedin"></i>
               </a>
             </div>
           </section>
-
           <!-- Section: Links  -->
           <section class="">
             <div class="container-fluid text-center text-md-start mt-5">
-
               <div class="row mt-3">
-
                 <div class="col-md-5  mx-auto mb-4">
                   <!-- Content -->
                   <h6 class="text-uppercase fw-bold mb-4">
@@ -213,12 +197,9 @@
                     <a href="{% url 'level_test' %}" class="text-reset m3-3">Level Test</a>
                   </p>
                   <p>
-
                   </p>
                 </div>
-
                 <div class="col-md-2 mx-auto mb-4">
-
                   <h6 class="text-uppercase fw-bold mb-4">
                     Courses
                   </h6>
@@ -235,9 +216,7 @@
                     <a href="{% url 'course_library' %}?category=under_16s" class="text-reset">Under 16s Courses</a>
                   </p>
                 </div>
-
                 <div class="col-md-5 mx-auto mb-md-0 mb-4">
-
                   <h6 class="text-uppercase fw-bold mb-4">
                     Contact
                   </h6>
@@ -247,23 +226,19 @@
                     info@templebarenglish.com
                   </p>
                   <p><i class="fas fa-phone me-3"></i> + 353 234 567 88</p>
-
                 </div>
-
               </div>
-
             </div>
           </section>
-          <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+          <div class="text-center p-4">
             © 2022 Copyright:
-            <a class="text-reset fw-bold" href="#">James Kelly</a>
+            <a class="text-reset fw-bold" href="{%url 'home' %}">James Kelly</a>
           </div>
         </footer>
         <!-- Footer -->
       </div>
     </div>
     {% endblock %}
-
   </div>
 
   {% block postloadjs %}
@@ -276,9 +251,6 @@
     })
     toastList.forEach(toast => toast.show())
   </script>
-
-
   {% endblock %}
 </body>
-
 </html>

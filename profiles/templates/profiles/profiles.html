@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col banner">
-            <h1 class="heading-bg px-2 my-5 mx-auto" >Profile</h1>
+            <h1 class="heading-bg px-2 my-5 mx-auto">Profile</h1>
         </div>
     </div>
 </div>
@@ -13,63 +13,62 @@
         <div class="col-12 col-md-6 mb-5">
             <h2 class="my-4">Personal Details </h2>
             <hr class="my-3">
-            <form action="{% url 'profiles' %}"  id ='profile_update_form' method = "POST">
+            <form action="{% url 'profiles' %}" id='profile_update_form' method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <button class="btn btn-primary my-3">Update Information</button>
             </form>
-            
             <h2 class="mt-3">Liked Blog Posts</h2>
             <hr>
-           {% if liked_posts %}
+            {% if liked_posts %}
             {% for key,value in liked_posts.items %}
             <a class="text-decoration-none blog-preview" href="{% url 'blog_post' key %}">
                 <p class="blog-sub-heading">{{value}}</p>
             </a>
-         
-           {% endfor %}
-           {% else %}
-           <p>You haven't liked any blog posts yet. </p>
-           <a class='btn btn-primary' href="{% url 'blog' %}">Go to Blog</a> 
-           {% endif %}
-        </div>  
+
+            {% endfor %}
+            {% else %}
+            <p>You haven't liked any blog posts yet. </p>
+            <a class='btn btn-primary' href="{% url 'blog' %}">Go to Blog</a>
+            {% endif %}
+        </div>
         <div class="col-12 col-md-6 mb-5">
             <h2 class="my-4">Bookings</h2>
             <hr>
             {% if bookings %}
             {% for booking in bookings %}
-                <div class="p-2 border">
+            <div class="p-2 border">
                 <p>Booking Number - {{booking}}</p>
-                <p> Booked on - {{booking.date_booked}}</p> 
-             
-                <a class= 'btn btn-primary' data-bs-toggle="collapse" href="#collapseDetails{{forloop.counter}}" role="button" aria-expanded="false" aria-controls="collapseDetails{{forloop.counter}}">Show details</a>
-                </div>
-            <div class ="collapse" id="collapseDetails{{forloop.counter}}">
+                <p> Booked on - {{booking.date_booked}}</p>
+                <a class='btn btn-primary' data-bs-toggle="collapse" href="#collapseDetails{{forloop.counter}}"
+                    role="button" aria-expanded="false" aria-controls="collapseDetails{{forloop.counter}}">Show
+                    details</a>
+            </div>
+            <div class="collapse" id="collapseDetails{{forloop.counter}}">
                 <div class="card shadow">
                     <h3 class='card-header course-card-header'>{{booking.course_friendly_name}}</h3>
-                        <div class="card-body">
-                            <h4>Course Start Date</h4>
-                            <p>{{booking.course_start_date}}</p>
-                            <h4>Course Length</h4>
-                            <p>{{booking.course_length}} {% if booking.course_length == 1 %} week {% else %} weeks {% endif %}</p>
-                            <h4>Course Timetable</h4>
-                            <p>{{booking.course_timetable}}</p>
-                            <h4>Course Level</h4>
-                            <p>{{booking.course_level}}</p>
-                        </div>
+                    <div class="card-body">
+                        <h4>Course Start Date</h4>
+                        <p>{{booking.course_start_date}}</p>
+                        <h4>Course Length</h4>
+                        <p>{{booking.course_length}} {% if booking.course_length == 1 %} week {% else %} weeks
+                            {% endif %}</p>
+                        <h4>Course Timetable</h4>
+                        <p>{{booking.course_timetable}}</p>
+                        <h4>Course Level</h4>
+                        <p>{{booking.course_level}}</p>
+                    </div>
                 </div>
             </div>
-             {% endfor %}   
-             {% else %}
-             <p>You do not currently have any bookings.</p>
-             <p>Why not browse our courses to find one?</p>  
-             <a class="btn btn-primary" href="{% url 'courses' %}">Browse Courses</a>
-             {% endif %}
-        </div>  
+            {% endfor %}
+            {% else %}
+            <p>You do not currently have any bookings.</p>
+            <p>Why not browse our courses to find one?</p>
+            <a class="btn btn-primary" href="{% url 'courses' %}">Browse Courses</a>
+            {% endif %}
+        </div>
     </div>
 </div>
-
-
 
 
 

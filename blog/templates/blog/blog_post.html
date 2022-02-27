@@ -4,16 +4,16 @@
 {% block content %}
 <!-- Banner Image and animated heading -->
 <div class="container-fluid">
-    <div class="row blog-banner-img">
-      <div class="container-fluid my-3 text-center ">
-        <div class="row ">
-          <div class="col">
-            <h1 class='heading-bg mx-auto p-3 my-5 vivify'>{{post.title}}</h1>
-          </div>
+  <div class="row blog-banner-img">
+    <div class="container-fluid my-3 text-center ">
+      <div class="row ">
+        <div class="col">
+          <h1 class='heading-bg mx-auto p-3 my-5 vivify'>{{post.title}}</h1>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 <article>
   <div class="container px-4 px-lg-5">
@@ -36,7 +36,6 @@
         </form>
         {% endif %}
         {% if request.user.is_superuser %}
-
         <a class='btn btn-primary mt-5 me-2' href="{% url 'edit_post' post.id %}">Edit post</a>
         <a class='btn btn-primary mt-5' href="{% url 'delete_post' post.id %}">Delete post</a>
         {% endif %}

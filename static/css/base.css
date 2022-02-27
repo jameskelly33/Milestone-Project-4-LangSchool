@@ -17,27 +17,28 @@ body{
   font-family: 'Raleway', sans-serif;
 }
 
+/* CSS to always push footer to the bottom of the page taken from this Code Academy article tinyurl.com/ynw3vjnw */
 #page-container {
   position: relative;
   min-height: 100vh;
 }
 
 #content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+  padding-bottom: 2.5rem;    
 }
 
 #footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;            /* Footer height */
+  height: 2.5rem;            
 }
 
 .hidden{
   display:none;
 }
 
-/* Homepage Large Screens */
+/* Homepage */
 .banner{
  height: 50vh;
  background-image: url(/media/templebar.jpg);
@@ -62,8 +63,95 @@ body{
   font-size:5rem;
 }
 
+.title-text{
+    animation-name: fadeInLeft;
+    animation-duration: 2s;
+    }
 
-/* Custom Button styles */
+.title-text-divider{
+  width:50vw;
+  margin:auto;
+  animation-name: fadeInLeft;
+  animation-duration: 2s;
+}
+
+.title-text-2{
+  animation-name: fadeInBottom;
+  animation-duration: 2s;}
+
+.title-text-3{
+  animation-name: fadeInBottom;
+  animation-duration: 2.5s;
+}
+
+.title-text-4{
+  animation-name: fadeInBottom;
+  animation-duration: 2.75s;
+}
+
+.title-btn{
+  animation-name: fadeInBottom;
+  animation-duration:3s;
+}
+
+/* Homepage Small Screens */
+
+@media screen and (max-width:720px){
+  .banner{
+  height: 40vh;
+  background-image: url(/media/templebar.jpg);
+  background-position: center;
+  background-size: cover;
+ }
+
+ .banner-text{
+   font-size:1rem;
+ }
+}
+
+/* Homepage Medium Screens */
+@media screen and (min-width:720px){
+  .title-text-2{
+    font-size: 1.5rem;
+  }
+  .title-text-3{
+    font-size: 1.5rem;
+  }
+  .title-text-4{
+    font-size: 1.5rem;
+  }
+  .title-btn{
+    font-size: 1.5rem;
+  }
+}
+/* Homepage Large Screens */
+
+@media screen and (min-width:1200px){
+  .lg-green{
+    color:var(--main-green);
+    font-size:7rem;
+  }
+}
+
+/* Animated  and non-animated Heading Background used throughout the site */
+.heading-bg{
+  background-color: var(--main-green);
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  width:fit-content;
+  animation-name: fadeInLeft;
+  animation-duration:2s;
+}
+
+.bg-green{
+  background: var(--main-green);
+  color: white;
+  border: 3px solid #f1f1f1;
+  width: fit-content;
+}
+
+/* Custom Button styles used throughout the site */
 .btn{
   background-color:var(--button-background);
   border-color:var(--button-background);
@@ -94,7 +182,6 @@ body{
   border-color:var(--main-green);
 }
 
-
 .alternate_btn:hover{
   background-color: var(--secondary-button-background);
   border-color:var(--secondary-button-background);
@@ -116,80 +203,7 @@ body{
   border-color:var(--secondary-green);
 }
 
-
-.hero-text{
-    animation-name: fadeInLeft;
-    animation-duration: 2s;
-    }
-
-.hero-text-divider{
-  width:50vw;
-  margin:auto;
-  animation-name: fadeInLeft;
-  animation-duration: 2s;
-}
-
-.hero-text-2{
-  animation-name: fadeInBottom;
-  animation-duration: 2s;}
-
-.hero-text-3{
-  animation-name: fadeInBottom;
-  animation-duration: 2.5s;
-}
-
-.hero-text-4{
-  animation-name: fadeInBottom;
-  animation-duration: 2.75s;
-}
-
-.hero-btn{
-  animation-name: fadeInBottom;
-  animation-duration:3s;
-}
-
-/* Small Screens */
-
-@media screen and (max-width:720px){
-  .banner{
-  height: 40vh;
-  background-image: url(/media/templebar.jpg);
-  background-position: center;
-  background-size: cover;
- }
-
- .banner-text{
-   
-   font-size:1rem;
- }
-
-
-}
-
-
-@media screen and (min-width:720px){
-  .hero-text-2{
-    font-size: 1.5rem;
-  }
-  .hero-text-3{
-    font-size: 1.5rem;
-  }
-  .hero-text-4{
-    font-size: 1.5rem;
-  }
-  .hero-btn{
-    font-size: 1.5rem;
-  }
-}
-
-
-@media screen and (min-width:1200px){
-  .lg-green{
-    color:var(--main-green);
-    font-size:7rem;
-  }
-}
-
+/* Course Category Navigation */
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
   color: #fff;
@@ -215,15 +229,7 @@ body{
   background-size: cover;
 }
 
-.heading-bg{
-  background-color: rgba(94, 194, 125, 0.9);
-  color: white;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  width:fit-content;
-  animation-name: fadeInLeft;
-  animation-duration:2s;
-}
+
 
 .accordion-button:not(.collapsed) {
   background-color: var(--button-background);
@@ -245,6 +251,9 @@ color:var(--main-white)
   border: 3px solid #f1f1f1;
 }
 
+
+/* Level Test CSS */
+
 .question-number{
   background: var(--main-green);
   color: white;
@@ -252,10 +261,14 @@ color:var(--main-white)
   height:1.5em;
 }
 
-.test-heading{
-  width: fit-content;
 
+.level-test-banner-img{
+  background-image: url(/media/students_doing_exam.jpg);
+  height:50vh;
+  background-position: center;
+  background-size: cover;
 }
+/* Blog CSS */
 
 .blog-banner-img{
     background-image: url(/media/book_laptop.jpg);
@@ -265,9 +278,8 @@ color:var(--main-white)
 }
 
 .blog-heading{
-  
-  letter-spacing:0.2rem;
 
+  letter-spacing:0.2rem;
 }
 
 .blog-sub-heading{
@@ -287,12 +299,8 @@ color:var(--main-white)
   font-size: 1.25rem;
 }
 
-.level-test-banner-img{
-  background-image: url(/media/students_doing_exam.jpg);
-  height:50vh;
-  background-position: center;
-  background-size: cover;
-}
+
+/* Allauth forms styles */
 
 .all-auth-banner{
   height: 40vh;
@@ -301,8 +309,6 @@ color:var(--main-white)
   background-size: cover;
  }
  
-/* Allauth forms styles */
-
 .allauth-form-inner-content, .buttonHolder {
   margin-top: 1.5rem; /* mt-4 */}
   
@@ -329,7 +335,7 @@ color:var(--main-white)
     line-height: 1.5;
     border-radius: 0;
 
-    /* standard bootstrap btn transitions */
+    /* Standard bootstrap btn transitions */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -340,7 +346,7 @@ color:var(--main-white)
     border-color: var(--secondary-button-background);
 }
 
-/* toasts */
+/* Django Message Toasts */
 
 .message-container{
   position:fixed;
@@ -348,12 +354,4 @@ color:var(--main-white)
   right: 15px;
   z-index: 99999999999;
 }
-
-/* Profile Form styles */
-
-select:invalid,
-select option[value=""] {
-    color: #aab7c4 !important;
-}
-
 

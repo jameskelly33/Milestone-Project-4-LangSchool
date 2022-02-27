@@ -2,92 +2,82 @@
 {% load static %}
 
 {% block extra_css %}
-    
-    <link rel="stylesheet" href="{% static 'css/booking_form.css' %} ">
-    
+
+<link rel="stylesheet" href="{% static 'css/booking_form.css' %} ">
+
 {% endblock %}
 
 
 {% block content %}
 
-<form  action='{% url "booking_form" course.course_id %}' method="POST" id="course-details-form">
+<form action='{% url "booking_form" course.course_id %}' method="POST" id="course-details-form">
     {% csrf_token %}
     <div class="container my-5">
-            <div class="row">
-                <div class="col my-5">
-                    <h1 class=' mx-auto booking-heading p-2'>Booking Details</h1>
-                </div>
+        <div class="row">
+            <div class="col my-5">
+                <h1 class='mx-auto booking-heading p-2'>Booking Details</h1>
             </div>
-            <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <div class="card shadow">
-                        <h3 class='card-header booking-card-header'>Selected Course</h3>
-                        <div class="card-body">
-                            <h3 class = 'card-title'>{{course.friendly_name}}</h3>
-                                <fieldset class="px-3  mb-2">
-                                    <legend class="fieldset-label small">How many weeks would you like to study for?</legend>
-                                        {{booking_form.course_length | as_crispy_field}}
-                                    <legend class="fieldset-label small">What is your current level of English?</legend>
-                                        {{booking_form.course_level | as_crispy_field}}
-                                    <legend class="fieldset-label small">When would you like to start your course?</legend>
-                                        {{booking_form.course_start_date | as_crispy_field}}
-                                    <legend class="fieldset-label small">Student Age</legend>
-                                        {{ booking_form.age | as_crispy_field }}
-                                    <legend class="fieldset-label ">Total Course Cost</legend>
-                                        <p class="total-cost"> €<span id="total_course_cost" >{{course.cost_per_week}}</span></p>
-                                </fieldset>
-                               
-                        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card shadow">
+                    <h3 class='card-header booking-card-header'>Selected Course</h3>
+                    <div class="card-body">
+                        <h3 class='card-title'>{{course.friendly_name}}</h3>
+                        <fieldset class="px-3  mb-2">
+                            <legend class="fieldset-label small">How many weeks would you like to study for?</legend>
+                            {{booking_form.course_length | as_crispy_field}}
+                            <legend class="fieldset-label small">What is your current level of English?</legend>
+                            {{booking_form.course_level | as_crispy_field}}
+                            <legend class="fieldset-label small">When would you like to start your course?</legend>
+                            {{booking_form.course_start_date | as_crispy_field}}
+                            <legend class="fieldset-label small">Student Age</legend>
+                            {{ booking_form.age | as_crispy_field }}
+                            <legend class="fieldset-label ">Total Course Cost</legend>
+                            <p class="total-cost"> €<span id="total_course_cost">{{course.cost_per_week}}</span></p>
+                        </fieldset>
+
                     </div>
                 </div>
             </div>
+        </div>
     </div>
-
-
     <div class="container">
-                <fieldset class="px-3 mb-5">
-                    <legend class="fieldset-label">Student Details</legend>
-                    {{ booking_form.full_name | as_crispy_field }}
-                    {{ booking_form.email | as_crispy_field }}
-                    {{ booking_form.phone_number | as_crispy_field }}
-                    {{ booking_form.country | as_crispy_field }}
-                    {{ booking_form.nationality | as_crispy_field }}
-                    {{ booking_form.first_language | as_crispy_field }}
-                </fieldset> 
+        <fieldset class="px-3 mb-5">
+            <legend class="fieldset-label">Student Details</legend>
+            {{ booking_form.full_name | as_crispy_field }}
+            {{ booking_form.email | as_crispy_field }}
+            {{ booking_form.phone_number | as_crispy_field }}
+            {{ booking_form.country | as_crispy_field }}
+            {{ booking_form.nationality | as_crispy_field }}
+            {{ booking_form.first_language | as_crispy_field }}
+        </fieldset>
+        <div class="submit-button text-right ms-3 mb-5">
+            <a href="{% url 'courses' %}" class="btn btn-primary mt-3">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="font-weight-bold">Back to Courses</span>
+            </a>
+            <button id="submit-button" type='submit' class="btn btn-primary mt-3 ">
+                <span class="font-weight-bold">Proceed to Payment</span>
+                <span class="icon">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </button>
 
-                <div class="submit-button text-right mt-5 mb-5">
-                    <a href="{% url 'courses' %}" class="btn btn-outline-black rounded-0">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="font-weight-bold">Back to Courses</span>
-                    </a>
-                    <button id="submit-button" type ='submit' class="btn btn-black rounded-0">
-                        <span class="font-weight-bold">Proceed to Payment</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </button>
-                    
-                </div>
+        </div>
     </div>
-        
+
 </form>
-
-
-
-
-
-
-
 
 
 {% endblock %}
 
 
 {% block postloadjs %}
-    {{ block.super }}
-    
-    <script src="{% static 'js/stripe_elements.js' %}"></script>
-    <script src="{% static 'js/booking_form.js' %}"></script>
+{{ block.super }}
+
+<script src="{% static 'js/stripe_elements.js' %}"></script>
+<script src="{% static 'js/booking_form.js' %}"></script>
 {% endblock %}

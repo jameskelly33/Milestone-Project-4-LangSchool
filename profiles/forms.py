@@ -19,8 +19,8 @@ class UserProfileForm(forms.ModelForm):
             'default_phone_number': 'Phone Number',
             'default_country': 'Country of Residence',
             'default_nationality': 'Nationality',
-            'default_first_language':'First Language',
-            'default_age':'Age',
+            'default_first_language': 'First Language',
+            'default_age': 'Age',
             'default_current_english_level': 'Current English Level',
         }
 
@@ -32,5 +32,4 @@ class UserProfileForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            
             self.fields[field].label = False

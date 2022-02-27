@@ -13,27 +13,32 @@ class UserProfile(models.Model):
     a2h = 'A2H'
     b1 = 'B1'
     b2 = 'B2'
-    b2h = 'B2H'
-    c1 ='C1'
-    level_choices= [
-        (a1,'A1 - Beginner'),
+    c1 = 'C1'
+    level_choices = [
+        (a1, 'A1 - Beginner'),
         (a2, 'A2- Elementary'),
         (a2h, 'A2H- Pre-Intermediate'),
         (b1, 'B1- Intermediate'),
-        (b2h, 'B2H- Upper-Intermediate'),
+        (b2, 'B2 - Upper Intermediate'),
         (c1, 'C1- Advanced'),
-        
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_name = models.CharField(max_length=40, null = True, blank = True)
-    default_email = models.EmailField(max_length=254, null=True, blank=True)
-    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
-    default_country = CountryField(blank_label='Country *', null=True, blank=True)
-    default_nationality = models.CharField(max_length=40, null=True, blank=True)
-    default_first_language = models.CharField(max_length=40, null=True, blank=True)
-    default_age = models.DecimalField(max_digits=3, decimal_places=0, null=True, blank=True)
-    default_current_english_level = models.CharField(max_length=15,choices = level_choices,  null=True, blank=True)
-
+    default_name = models.CharField(max_length=40, null=True, blank=True)
+    default_email = models.EmailField(max_length=254,
+                                      null=True, blank=True)
+    default_phone_number = models.CharField(max_length=20,
+                                            null=True, blank=True)
+    default_country = CountryField(blank_label='Country *',
+                                   null=True, blank=True)
+    default_nationality = models.CharField(max_length=40,
+                                           null=True, blank=True)
+    default_first_language = models.CharField(max_length=40,
+                                              null=True, blank=True)
+    default_age = models.DecimalField(max_digits=3, decimal_places=0,
+                                      null=True, blank=True)
+    default_current_english_level = models.CharField(max_length=15,
+                                                     choices=level_choices,
+                                                     null=True, blank=True)
 
     def __str__(self):
         return self.user.username

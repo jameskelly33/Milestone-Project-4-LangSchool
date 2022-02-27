@@ -4,34 +4,31 @@
 {% block content %}
 <!-- Banner Image and animated heading -->
 <div class="container-fluid">
-    <div class="row blog-banner-img">
-      <div class="container-fluid my-3 text-center ">
-        <div class="row ">
-          <div class="col">
-            <h1 class='heading-bg mx-auto p-3 my-5 vivify'>Blog</h1>
-          </div>
+  <div class="row blog-banner-img">
+    <div class="container-fluid my-3 text-center ">
+      <div class="row ">
+        <div class="col">
+          <h1 class='heading-bg mx-auto p-3 my-5 vivify'>Blog</h1>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 {% for post in posts %}
-  <div class="container-fluid">
-      <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-md-10 col-lg-8 col-xl-7 my-3 blog-post-description text-center ">
-            <a class ="text-decoration-none blog-preview" href="{% url 'blog_post' post.id %}">
-              <h2 class='blog-heading'>{{post.title}}</h2>
-              <p class='blog-sub-heading ' >{{post.post_description}}</p>    
-            </a>
-              
-              <p class='text-muted'>Posted by {{post.author|title}} on {{post.date_posted}} </p>
-              <p class='text-muted'>{{post.total_likes}} {% if post.total_likes == 1 %} like {% else %} likes {% endif %}</p>
-
-             <hr class='mt-4'>
-
-          </div>
-      </div>
+<div class="container-fluid">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7 my-3 blog-post-description text-center ">
+      <a class="text-decoration-none blog-preview" href="{% url 'blog_post' post.id %}">
+        <h2 class='blog-heading'>{{post.title}}</h2>
+        <p class='blog-sub-heading '>{{post.post_description}}</p>
+      </a>
+      <p class='text-muted'>Posted by {{post.author|title}} on {{post.date_posted}} </p>
+      <p class='text-muted'>{{post.total_likes}} {% if post.total_likes == 1 %} like {% else %} likes {% endif %}</p>
+      <hr class='mt-4'>
+    </div>
   </div>
+</div>
 {% endfor %}
 <div class="container my-5">
   <div class="row">

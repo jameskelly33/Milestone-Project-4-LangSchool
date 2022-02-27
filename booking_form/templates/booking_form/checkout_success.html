@@ -2,77 +2,77 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/booking_form.css' %} ">
+<link rel="stylesheet" href="{% static 'css/booking_form.css' %} ">
 {% endblock %}
 
 
 {% block content %}
 <div class="container-fluid d-block mb-3 ">
-  <div class="row ">
+  <div class="row">
     <div class="col banner">
-        <h1 class='heading-bg mx-auto p-3 my-5 vivify'>Booking Confirmed.</h1>
+      <h1 class='heading-bg mx-auto p-3 my-5 vivify'>Booking Confirmed.</h1>
     </div>
   </div>
 </div>
 <div class="container my-5" id="details-summary">
-    <div class="row">
-        <div class="col-md-6 mx-auto text-center">
-            <div class="card shadow">
-                <h3 class='card-header booking-card-header'>Booking Confirmation</h3>
-                <div class="card-body">
-                    <h4 class = 'card-title'>Congratulations your English language learning journey starts here!</h4>
-                    <p class = 'mt-3'>Your {{course.friendly_name}} course is due to start on the {{booking.course_start_date}}</p>
-                    <p> Your booking number is <span class="">{{booking.booking_number}} </span> please quote this number in any correspondence you send to the school. </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-  <div class="container-fluid why-study-banner text-center ">
-    <div class="row">
-      <h1 class='mt-4 my-md-5'>Explore our site</h1>
-    </div>
-    <div class="row">
-      <div class="col-md-4 offset-md-2 mb-3 mb-md-5">
-        <div class="card h-100" >
-          <div class="card-body">
-            <a href="#" class="me-4 lg-icons">
-              <i class="fas fa-chalkboard-teacher"></i>
-            </a>
-            <h5 class=text-black>Why not check out our fantastic blog , with helpful articles written by our teachers</h5>
-          </div>
-          <div class="card-footer bg-transparent border-0">
-              <a href="{% url 'blog' %}" class="btn btn-primary alternate_btn">Go to Blog</a>
-          </div>
-          
-        </div>
-        
-      </div>
-     
-      <div class="col-md-4 mb-3 mb-md-5">
-        <div class="card h-100 5">
-          <div class="card-body">
-            <a href="#" class="me-4 lg-icons">
-                <i class="fas fa-pen-to-square"></i>
-            </a>
-            <h5 class=text-black> Not sure about your level, or just want some practice? Try our level test and find out your English level.</h5>
-          </div>
-          <div class="card-footer bg-transparent border-0">
-            <a href="{% url 'level_test' %}" class="btn btn-primary alternate_btn">Go to Level Test</a>
-        </div>
+  <div class="row">
+    <div class="col-md-6 mx-auto text-center">
+      <div class="card shadow">
+        <h3 class='card-header booking-card-header'>Booking Confirmation</h3>
+        <div class="card-body">
+          <h4 class='card-title'>Congratulations your English language learning journey starts here!</h4>
+          <p class='mt-3'>Your {{course.friendly_name}} course is due to start on the {{booking.course_start_date}}</p>
+          <p> Your booking number is <span>{{booking.booking_number}} </span> please quote this number in any
+            correspondence you send to the school. </p>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+
+
+<div class="container-fluid why-study-banner text-center ">
+  <div class="row">
+    <h1 class='mt-4 my-md-5'>Explore our site</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-2 mb-3 mb-md-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <a href="#" class="me-4 lg-icons">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </a>
+          <h5 class=text-black>Why not check out our fantastic blog, with helpful articles written by our teachers</h5>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+          <a href="{% url 'blog' %}" class="btn btn-primary alternate_btn">Go to Blog</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3 mb-md-5">
+      <div class="card h-100 5">
+        <div class="card-body">
+          <a href="#" class="me-4 lg-icons">
+            <i class="fas fa-pen-to-square"></i>
+          </a>
+          <h5 class=text-black> Not sure about your level, or just want some practice? Try our level test and find out
+            your English level.</h5>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+          <a href="{% url 'level_test' %}" class="btn btn-primary alternate_btn">Go to Level Test</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
 
 
 {% block postloadjs %}
-   
-    <script src="{% static 'js/stripe_elements.js' %}"></script>
-    
+
+<script src="{% static 'js/stripe_elements.js' %}"></script>
+
 {% endblock %}

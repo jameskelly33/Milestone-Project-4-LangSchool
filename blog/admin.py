@@ -13,6 +13,5 @@ class BlogAdmin(admin.ModelAdmin):
         'date_posted',
     )
 
+
 admin.site.register(Post, BlogAdmin)
-
-

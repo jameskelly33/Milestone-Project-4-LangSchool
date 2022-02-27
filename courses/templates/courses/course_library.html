@@ -11,7 +11,7 @@
     <div class="container-fluid my-5 text-center ">
       <div class="row ">
         <div class="col">
-          {% for category in categories %} 
+          {% for category in categories %}
           <h1 class='heading-bg p-3 mx-auto vivify'>{{category.friendly_name}}</h1>
           {% endfor %}
         </div>
@@ -24,54 +24,45 @@
   <div class="row">
     <div class="col-lg-6 mx-lg-auto">
       <form class="d-flex justify-content-center" method="GET" action="{% url 'courses'%}">
-        <input  class="form-control" type="search" name='q'
-          placeholder="Search all courses" aria-label="Search" >
+        <input class="form-control" type="search" name='q' placeholder="Search all courses" aria-label="Search">
         <button class="btn btn-primary form-btn ms-2" type="submit">Search</button>
       </form>
     </div>
   </div>
-</div> 
-
- 
-<div class='text-center'>
- <a href="{% url 'courses'%}" class='btn btn-primary my-2'> Show Course Categories</a>
 </div>
- 
+<div class='text-center'>
+  <a href="{% url 'courses'%}" class='btn btn-primary my-2'> Show Course Categories</a>
+</div>
 
+
+<!-- If no search results show No Search Results Message -->
+{% if not course_list %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-6 col-lg-4">
+      <div class="card h-100">
+        <img src="{{MEDIA_URL}}library.jpg" class=" card-img-top" alt="A student searching for a book in a library">
+        <div class="card-body">
+          <h3 class="card-title">No Search Results found</h3>
+          <p>Sorry, we don't have any courses that match your search term, please try again.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
 
 <!-- Course Library for med and above screens -->
-
- {% if not course_list %}
-
- <div class="container my-5">
-   <div class="row justify-content-center">
-     <div class="col-6 col-lg-4">
-       <div class="card h-100">
-            <img src="{{MEDIA_URL}}library.jpg" class=" card-img-top" alt="A student searching for a book in a library">
-          <div class="card-body">
-          <h3 class="card-title">No Search Results found</h3>
-         <p>Sorry, we don't have any courses that match your search term, please try again.</p>
-       </div>
-       </div>
-       
-       </div>
-       
-     </div>
-  </div>
-
-
-    
-  {% else %}
-  <div class="container d-none d-sm-block mt-5">
+<div class="container d-none d-sm-block mt-5">
   <div class="row g-0">
     <div class="col">
-        {% for course in course_list %}
+      {% for course in course_list %}
       <div class="card bg-light shadow mx-auto my-5 course-card">
         <div class="row g-0">
           <h4 class="card-header course-card-header">{{course.friendly_name}}</h4>
           <div class="col-md-8">
             <div class="card-body mb-3 ">
-                <p class="card-text">{{course.course_description}}</p>
+              <p class="card-text">{{course.course_description}}</p>
             </div>
             <div class="card-footer border-0 bg-light ">
               <ul class="list-group list-group-horizontal text-center">
@@ -84,90 +75,76 @@
           <div class="col-md-4 bg-light">
             <div class="card shadow my-3 mx-3">
               <ul class="list-group ">
-                <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span> {{course.course_timetable}} </li>
-                <li class="list-group-item "><span class='me-1'><i class="fas fa-stairs"></i></span>Course Levels - {{course.course_levels}}</li>
-                <li class="list-group-item"> <span class='me-1'><i class="fas fa-euro"></i></span> Cost - {{course.cost_per_week}} per week
+                <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span>
+                  {{course.course_timetable}} </li>
+                <li class="list-group-item "><span class='me-1'><i class="fas fa-stairs"></i></span>Course Levels -
+                  {{course.course_levels | title}}</li>
+                <li class="list-group-item"> <span class='me-1'><i class="fas fa-euro"></i></span> Cost -
+                  {{course.cost_per_week}} per week
                 </li>
               </ul>
             </div>
             <div class="d-flex justify-content-center my-3">
-             {% if request.user.is_superuser %}
-            <a class="btn btn-sm btn-primary mx-1" href ='{% url "booking_form" course.course_id %}'>Book Course</a>
-            <a class="btn btn-sm btn-primary mx-1" href="{% url 'edit_course' course.course_id %}">Edit Course</a>
-            <a class="btn btn-sm btn-primary mx-1" href="{% url 'delete_course' course.course_id %}">Delete Course</a>
-            {% else %}
-            <a class="btn btn-primary" href ='{% url "booking_form" course.course_id %}'>Book Course</a>
-            {% endif %}
+              {% if request.user.is_superuser %}
+              <a class="btn btn-sm btn-primary mx-1" href='{% url "booking_form" course.course_id %}'>Book Course</a>
+              <a class="btn btn-sm btn-primary mx-1" href="{% url 'edit_course' course.course_id %}">Edit Course</a>
+              <a class="btn btn-sm btn-primary mx-1" href="{% url 'delete_course' course.course_id %}">Delete Course</a>
+              {% else %}
+              <a class="btn btn-primary" href='{% url "booking_form" course.course_id %}'>Book Course</a>
+              {% endif %}
             </div>
           </div>
-
         </div>
       </div>
-      
       {% endfor %}
-    
     </div>
-    
   </div>
-
 </div>
 {% endif %}
 
-
-
-
- <!-- Course Library for small screens only -->   
-
+<!-- Course Library for small screens only -->
 <div class="container  d-xs-block d-sm-none ">
   <div class="row">
-    <div class="col"> 
+    <div class="col">
       {% for course in course_list %}
       <div class="card shadow mx-auto my-5 course-card">
         <div class="card-header course-card-header">
           {{course.friendly_name }}
         </div>
         <div class="card-body ">
-         
-            <p class="card-text">{{course.course_description}}</p>
-      </div>
-      <div class="card-footer">
-        <div class="row">
-          <ul class="list-group text-center">
-            <li class="list-group-item">{{course.course_hours}} Lessons Per Week</li>
-            <li class="list-group-item ">Minimum Age {{course.minimum_age}}</li>
-            <li class="list-group-item ">Maximum Class Size {{course.maximum_class_size}}</li>
-          </ul>
-          
+          <p class="card-text">{{course.course_description}}</p>
         </div>
-        <div class="row my-2">
-       
+        <div class="card-footer">
+          <div class="row">
             <ul class="list-group text-center">
-              <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span> {{course.course_timetable}} </li>
-              <li class="list-group-item "><span class='me-1'><i class="fas fa-stairs"></i></span>Course Levels - {{course.course_levels}}</li>
+              <li class="list-group-item">{{course.course_hours}} Lessons Per Week</li>
+              <li class="list-group-item ">Minimum Age {{course.minimum_age}}</li>
+              <li class="list-group-item ">Maximum Class Size {{course.maximum_class_size}}</li>
+            </ul>
+          </div>
+          <div class="row my-2">
+            <ul class="list-group text-center">
+              <li class="list-group-item"> <span class='me-1'><i class="fas fa-clock"></i></span>
+                {{course.course_timetable}} </li>
+              <li class="list-group-item "><span class='me-1'><i class="fas fa-stairs"></i></span>Course Levels -
+                {{course.course_levels}}</li>
               <li class="list-group-item"> <span class='me-1'><i class="fas fa-euro"></i></span> Cost - €275 per week
               </li>
             </ul>
           </div>
-
           <div class="d-flex justify-content-center my-3">
-            <a class="btn btn-primary" href ='{% url "booking_form" course.course_id %}'>Book Course</a>
-             {% if request.user.is_superuser %}
+            <a class="btn btn-primary" href='{% url "booking_form" course.course_id %}'>Book Course</a>
+            {% if request.user.is_superuser %}
             <a class="btn btn-primary ms-2" href="{% url 'edit_course' course.course_id %}">Edit Course</a>
             <a class="btn btn-primary ms-2" href="{% url 'delete_course' course.course_id %}">Delete Course</a>
             {% endif %}
           </div>
+        </div>
       </div>
-      
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 </div>
-</div>
-
-
-
-
-
 
 
 

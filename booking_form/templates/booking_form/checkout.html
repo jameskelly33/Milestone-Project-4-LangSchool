@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/booking_form.css' %} ">
+<link rel="stylesheet" href="{% static 'css/booking_form.css' %} ">
 {% endblock %}
 
 
@@ -13,100 +13,99 @@
     <div class="row">
         <div class="col">
             <h2 class="heading-bg mb-5 p-2 mx-auto">Booking Summary</h2>
-            
-        </div>
-    </div>    
-        <div class="row">
-            <div class="col col-xl-6 mx-auto">
-                <p class="text-center">Please check these details  and then enter your billing information.</p>
-                <div class="card shadow">
-                    <h3 class='card-header booking-card-header'>Booking Details</h3>
-                        <div class="card-body">
-                            <h5 class="mb-3">Course - <span class='text-uppercase ms-3 ms-3'>{{course.friendly_name}}</span></h5>
 
-                            <h5 class="mb-3">Course Dates - <span class='text-uppercase ms-3'>{{booking.course_start_date}} - {{end_date}}</span></h5>
-                            
-                            
-                            <h5 class="mb-3">Course Timetable- <span class='text-uppercase ms-3'>{{course.course_timetable}}</span></h5>
-                            
-                            <h5 class="mb-3">Course Level - <span class='text-uppercase ms-3'>{{booking.course_level}}</span></h5>
-                            <h5 class="mb-3">Total Course Cost - <span class='text-uppercase ms-3'>€{{booking.total_course_cost}}</span></h5>
-                            
-                           
-                            
-                            <h5 class="mb-3"> Student Name - <span class='text-uppercase ms-3' id='full-name'>{{booking.full_name}}</span></h5>
-                            <h5 class="mb-3">Student Email - <span class='text-uppercase ms-3'id ='email'>{{booking.email}}</span></h5>
-                            <h5 class="mb-3">Student Age - <span class='text-uppercase ms-3'>{{booking.age}}</span> </h5>
-                            <h5 class="mb-3">Phone Number - <span class='text-uppercase ms-3'id = 'phone-number'>{{booking.phone_number}}</span></h5>
-                            <h5 class="mb-3">Nationality & First Language - <span class='text-uppercase ms-3'>{{booking.nationality}} / {{booking.first_language}} </span></h5>
-                        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-xl-6 mx-auto">
+            <p class="text-center">Please check these details and then enter your billing information.</p>
+            <div class="card shadow">
+                <h3 class='card-header booking-card-header'>Booking Details</h3>
+                <div class="card-body">
+                    <h5 class="mb-3">Course - <span class='text-uppercase ms-3 ms-3'>{{course.friendly_name}}</span>
+                    </h5>
+
+                    <h5 class="mb-3">Course Dates - <span class='text-uppercase ms-3'>{{booking.course_start_date}} -
+                            {{end_date}}</span></h5>
+                    <h5 class="mb-3">Course Timetable- <span
+                            class='text-uppercase ms-3'>{{course.course_timetable}}</span></h5>
+                    <h5 class="mb-3">Course Level - <span class='text-uppercase ms-3'>{{booking.course_level}}</span>
+                    </h5>
+                    <h5 class="mb-3">Total Course Cost - <span
+                            class='text-uppercase ms-3'>€{{booking.total_course_cost}}</span></h5>
+                    <h5 class="mb-3"> Student Name - <span class='text-uppercase ms-3'
+                            id='full-name'>{{booking.full_name}}</span></h5>
+                    <h5 class="mb-3">Student Email - <span class='text-uppercase ms-3'
+                            id='email'>{{booking.email}}</span></h5>
+                    <h5 class="mb-3">Student Age - <span class='text-uppercase ms-3'>{{booking.age}}</span> </h5>
+                    <h5 class="mb-3">Phone Number - <span class='text-uppercase ms-3'
+                            id='phone-number'>{{booking.phone_number}}</span></h5>
+                    <h5 class="mb-3">Nationality & First Language - <span
+                            class='text-uppercase ms-3'>{{booking.nationality}} / {{booking.first_language}} </span>
+                    </h5>
                 </div>
             </div>
         </div>
+    </div>
 </div>
 
 <div class="container-fluid mb-5">
     <div class="row">
         <div class="col-md-8 mx-auto">
             <form id='payment-form' method="POST" action="{% url 'checkout' booking %}">
-   {% csrf_token %}
-
- <fieldset class="px-3 ms-2"> 
-                    
-                    <legend class="fieldset-label"> Billing Address Details</legend> 
-                        <div class="mb-3">
-                            <label for="inputName" class="form-label">Name on Card</label>
-                            <input type="text" class="form-control" id="inputName" value="{{booking.full_name}}" required >
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputAddress" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="inputAddress" required>
-                        </div>
-                         <div class="mb-3">
-                             <label for="inputAddress2" class="form-label">Address 2</label>
-                            <input type="text" class="form-control" id="inputAddress2"required >
-                         </div>
-                         <div class="mb-3">
-                            <label for="inputCity" class="form-label">City</label>
-                            <input type="text" class="form-control" id="inputCity"required>
-                          </div>    
-                          <div class="mb-3">
-                            <label for="inputCountry" class="form-label">Country</label>
-                            {% load countries %}
-                            {% get_countries as countries %}
-                            <select class="form-control" id="inputCountry" required>
-                            <option value="{{booking.country}}" selected ></option>
+                {% csrf_token %}
+                <fieldset class="px-3 ms-2">
+                    <legend class="fieldset-label"> Billing Address Details</legend>
+                    <div class="mb-3">
+                        <label for="inputName" class="form-label">Name on Card</label>
+                        <input type="text" class="form-control" id="inputName" value="{{booking.full_name}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputAddress2" class="form-label">Address 2</label>
+                        <input type="text" class="form-control" id="inputAddress2" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="inputCity" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputCountry" class="form-label">Country</label>
+                        {% load countries %}
+                        {% get_countries as countries %}
+                        <select class="form-control" id="inputCountry" required>
+                            <option value="{{booking.country}}" selected></option>
                             {% for country in countries %}
-                                {% if country.code == booking.country %}
-                                <option value="{{country.code}}" selected>{{country.name}}</option>
-                                {% else %}
-                                <option value="{{ country.code }}">{{ country.name }}</option>
-                                {% endif %}
+                            {% if country.code == booking.country %}
+                            <option value="{{country.code}}" selected>{{country.name}}</option>
+                            {% else %}
+                            <option value="{{ country.code }}">{{ country.name }}</option>
+                            {% endif %}
                             {% endfor %}
-                            </select>
-                          </div>
-                        <legend class="fieldset-label ms-2 "> Card Details</legend> 
-                        <div class="mb-3 p-2" id="card-element"></div> 
-                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>  
-                         
-                </fieldset> 
-                
+                        </select>
+                    </div>
+                    <legend class="fieldset-label ms-2 "> Card Details</legend>
+                    <div class="mb-3 p-2" id="card-element"></div>
+                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                </fieldset>
                 <div class="submit-button text-right m-4">
-                    <a href="{% url 'courses' %}" class="btn btn-outline-black rounded-0">
+                    <a href="{% url 'courses' %}" class="btn btn-primary mt-3 ">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="font-weight-bold">Back to Courses</span>
                     </a>
-                    <button id="submit-button" type ='submit' class="btn btn-black rounded-0">
+                    <button id="submit-button" type='submit' class="btn btn-primary mt-3">
                         <span class="font-weight-bold">Proceed to Payment</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
                         </span>
                     </button>
-                    
                 </div>
-</form>
+            </form>
         </div>
     </div>
 </div>
