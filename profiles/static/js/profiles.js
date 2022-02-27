@@ -10,7 +10,7 @@ $('#id_default_country').change(function() {
     } else {
         $(this).css('color', '#000');
     }
-});
+})
 
 let levelSelected = $('#id_default_current_english_level').val();
 if(!levelSelected) {
@@ -23,4 +23,4 @@ $('#id_default_current_english_level').change(function() {
     } else {
         $(this).css('color', '#000');
     }
-});
+})
