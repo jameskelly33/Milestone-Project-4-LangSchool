@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block extra_title %} - Checkout {% endblock %}
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/booking_form.css' %} ">
 {% endblock %}
@@ -24,7 +24,6 @@
                 <div class="card-body">
                     <h5 class="mb-3">Course - <span class='text-uppercase ms-3 ms-3'>{{course.friendly_name}}</span>
                     </h5>
-
                     <h5 class="mb-3">Course Dates - <span class='text-uppercase ms-3'>{{booking.course_start_date}} -
                             {{end_date}}</span></h5>
                     <h5 class="mb-3">Course Timetable- <span
