@@ -211,6 +211,9 @@ body {
   border-color: var(--secondary-green);
 }
 
+.dropdown-item:active{
+  background-color: var(--main-green);
+}
 /* Course Category Navigation */
 
 .nav-pills .nav-link.active,
