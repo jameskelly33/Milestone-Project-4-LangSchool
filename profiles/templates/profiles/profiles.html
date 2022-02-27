@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/profiles.css' %} ">
+
+{% endblock %}
+
 {% block content %}
 <div class="container-fluid">
     <div class="row">
@@ -75,4 +81,8 @@
 
 
 
+{% endblock %}
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/profiles.js' %}"></script>
 {% endblock %}
