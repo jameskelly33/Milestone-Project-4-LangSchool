@@ -25,7 +25,6 @@ def profiles(request):
     for post in posts:
         if request.user in post.likes.all():
             liked_posts.update({post.pk: post.title})
-    print(liked_posts)
     context = {
         'form': form,
         'bookings': bookings,
